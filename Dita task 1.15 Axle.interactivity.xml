@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by VME v.14.3.0.0 (build 14.3.0.481 (64-bit))-->
+<SimulationInteractivity xmlns="http://services.parallelgraphics.com/vm/mmr/vm-interactivity-xml/all">
+<SimulationInformation>
+<ExporterVersionNumber>14.3.0.481 (64-bit)</ExporterVersionNumber>
+<ModificationDate>02/07/24</ModificationDate>
+<SpecID>DITA_TASK</SpecID>
+<SpecVersion>1.15</SpecVersion>
+<SpecLang>en</SpecLang>
+<XMLFileName>Dita task 1.15 Axle</XMLFileName>
+<FileName>Dita task 1.15 Axle</FileName>
+<DocumentFile>Dita task 1.15 Axle.xml</DocumentFile>
+<Options>
+<Value name="3DFramePosition" type="string">Right</Value>
+<Value name="3DFrameSize" type="string">60</Value>
+<Value name="AutoRepeat" type="boolean">No</Value>
+<Value name="StartAfterNavigate" type="boolean">No</Value>
+<Value name="Background3DColor" type="color">#FFFFFF</Value>
+<Value name="CoordinateResolution" type="string">0</Value>
+<Value name="HighlightedStepColor" type="color">#FFEFD5</Value>
+<Value name="IllustrationType" type="string">0</Value>
+<Value name="RemoveSpace" type="boolean">No</Value>
+<Value name="SelectedFrameColor" type="color">#ADD8E6</Value>
+<Value name="ShowPrevNextButtons" type="boolean">Yes</Value>
+<Value name="ShowFreezeCheckbox" type="boolean">Yes</Value>
+<Value name="ShowSmoothControl" type="boolean">Yes</Value>
+<Value name="ShowSpeedSelection" type="boolean">Yes</Value>
+<Value name="Enable3DPartSelection" type="boolean">Yes</Value>
+<Value name="SimplifyFloats" type="boolean">No</Value>
+<Value name="UpRight" type="boolean">No</Value>
+<Value name="StartAfterLoading" type="boolean">No</Value>
+<Value name="VRMLProfile" type="string">1</Value>
+<Value name="EncodeRes" type="boolean">Yes</Value>
+<Value name="PDFPublish" type="boolean">No</Value>
+<Value name="3DStepsAutoBinding" type="boolean">Yes</Value>
+<Value name="PublicPath" type="string">
+</Value>
+<Value name="SingleHTMLBundle" type="boolean">No</Value>
+<Value name="X3D" type="boolean">No</Value>
+<Value name="UseSVGFilesOnly" type="boolean">No</Value>
+<Value name="KeepSurfaceEdges" type="boolean">No</Value>
+<Value name="UseViewerBundle" type="string">0</Value>
+<Value name="UseMultimediaBundle" type="string">0</Value>
+<Value name="UseCompressedSVG" type="boolean">No</Value>
+<Value name="iOSViewpointTransitionMode" type="string">0</Value>
+<Value name="CreateStepListFile" type="boolean">No</Value>
+<Value name="ShowAxes" type="boolean">Yes</Value>
+<Value name="DisableHTMLCreation" type="boolean">No</Value>
+<Value name="InitialAmbientOcclusion" type="boolean">No</Value>
+<Value name="InitialAntiAliasing" type="boolean">Yes</Value>
+<Value name="InitialOutlineHoveredObjects" type="boolean">No</Value>
+<Value name="InitialSelectionMode" type="string">0</Value>
+<Value name="InitialNavigationCube" type="boolean">No</Value>
+</Options>
+<metadata>
+<value name="Topic type" decl-id="SCHEMA" type="string">task</value>
+<value name="Topic ID" decl-id="TOPIC_ID" type="string">r607980b6-4222-4f9e-814e-70990f166958</value>
+<value name="Topic rev" decl-id="ISSUE_NO" type="string">
+</value>
+<value name="Topic status" decl-id="ISSUE_TYPE" type="string">
+</value>
+<value name="Topic audience" decl-id="TOPIC_AUDIENCE" type="string">
+</value>
+<value name="Topic product" decl-id="TOPIC_PRODUCT" type="string">
+</value>
+<value name="Title" decl-id="TITLE" type="string">Axle Yoke Bearing Inspection DITA Procedure</value>
+<value name="Topic language" decl-id="LANG" type="string">en</value>
+</metadata>
+</SimulationInformation>
+<Simulation id="r607980b6-4222-4f9e-814e-70990f166958">
+<Description>r23540ad3-837e-4bf6-9604-44e15be77cb1</Description>
+<Step id="r698bf9f7-1e77-4868-b317-93f699062a07">
+<Description>Inspect the whole assembly</Description>
+<Substep id="r8f4b9d62-6485-4770-b505-dd0e90185430">
+<Description>Inspect the Axle Assy</Description>
+</Substep>
+<Substep id="rfab4023a-8adc-4587-87ed-de5ebdf9e71b">
+<Description>Inspect the AXLE ASSY</Description>
+</Substep>
+</Step>
+<Step id="rfd1ab240-ec47-4a78-9db5-ce13357f3d25">
+<Description>Apply WD-40</Description>
+<Substep id="r619278c6-a0c6-41f9-8f71-acc25199644d">
+<Description>Show the Apply WD-40</Description>
+</Substep>
+<Substep id="r43972531-0fa1-402f-9392-35906af9aed3">
+<Description>Show the Oil_can</Description>
+</Substep>
+<Substep id="ra6f229e9-9cb6-425f-8bdc-d1ed4868b031">
+<Description>Flash the BOLTS</Description>
+</Substep>
+<Substep id="raf13dc75-a305-4978-9d1d-0482243be3b2">
+<Description>Hide the Oil_can</Description>
+</Substep>
+<Substep id="r69f24353-6052-46a6-be4a-8a3ef356d3e8">
+<Description>Hide the Apply WD-40</Description>
+</Substep>
+</Step>
+<Step id="r65e206c1-9c94-4deb-95df-ffd958e8137a">
+<Description>Unscrew bolts</Description>
+<Substep id="radb4fe10-60c6-46f1-91b9-50d4c75256d0">
+<Description>Show the wrench</Description>
+</Substep>
+<Substep id="re2340b31-3002-4bd6-84fc-e2c8d7d68a66">
+<Description>Flash the Bolt 10</Description>
+</Substep>
+<Substep id="r327c0f52-7434-4bcc-a5b1-9403c642dcd0">
+<Description>Screw an example bolt</Description>
+</Substep>
+<Substep id="r7873b447-801b-437a-bf09-35d8693918db">
+<Description>Hide the wrench</Description>
+</Substep>
+<Substep id="r43dd4697-0a2c-4100-91e6-bae9f959adda">
+<Description>Remove the Bolt 10</Description>
+</Substep>
+<Substep id="r1e657224-997e-4b2c-b262-f6a81ac6804d">
+<Description>Unscrew another 11 bolts</Description>
+</Substep>
+</Step>
+<Step id="r2f25a2a7-83da-473e-9ec1-7d3c0ae084c1">
+<Description>Remove cover</Description>
+<Substep id="rec9fd094-4bcd-47ed-9586-3e79a2bcf986">
+<Description>Flash the MANIFOLD_SOLID_BREP #196415</Description>
+</Substep>
+<Substep id="r337ce5b9-d27f-4396-b62a-375d6fdb7b49">
+<Description>Show the Screwdriver_Flat_head</Description>
+</Substep>
+<Substep id="rd015886f-7a49-4558-9e4d-7e5f31721033">
+<Description>Move the Screwdriver_Flat_head</Description>
+</Substep>
+<Substep id="r558dc831-851d-43fa-bf2b-f7227f1d6510">
+<Description>Remove cover</Description>
+</Substep>
+<Substep id="r1755f4ff-2d81-41e9-b684-4f5338322859">
+<Description>Hide and move</Description>
+</Substep>
+<Substep id="rba32fb76-8eaa-44e2-837f-697ad1de294a">
+<Description>Hide the MANIFOLD_SOLID_BREP #196415</Description>
+</Substep>
+</Step>
+<Step id="rc161a233-41ad-43e7-8530-80e2c6c65a53">
+<Description>Unscrew bolts 2</Description>
+<Substep id="rd3b2b5f5-17c4-42c2-9173-9c63e6b20b9e">
+<Description>Show the Torque_Wrench_2</Description>
+</Substep>
+<Substep id="r71fc19ca-c66a-4b13-ad3a-eaae73b6e9bc">
+<Description>Move the Torque_Wrench_2</Description>
+</Substep>
+<Substep id="r467fc308-690b-4486-8d1c-d1b9bd90f5a0">
+<Description>Move the Torque_Wrench_2</Description>
+</Substep>
+<Substep id="rd84b303d-f988-4584-a947-35b122b239a6">
+<Description>Move the Torque_Wrench_2</Description>
+</Substep>
+<Substep id="rb8fb4855-101f-4518-933c-b3247777bfe6">
+<Description>Move the Torque_Wrench_2</Description>
+</Substep>
+<Substep id="r56556d82-0235-488f-8ca4-33c92a0e6ff2">
+<Description>Move the MANIFOLD_SOLID_BREP #572506</Description>
+</Substep>
+<Substep id="r1e89fcff-4644-4b3d-bcc9-e960db3a6a26">
+<Description>Move the Torque_Wrench_2</Description>
+</Substep>
+<Substep id="rfd8b6c0c-c74e-46bc-9bb7-f8f2d0d0782b">
+<Description>Move the Torque_Wrench_2</Description>
+</Substep>
+<Substep id="r17de90b9-4302-4a7c-b9c5-7b4f77c16739">
+<Description>Hide the Torque_Wrench_2</Description>
+</Substep>
+<Substep id="r2faeafdd-35c3-4320-a29f-dbb0d5dd52e2">
+<Description>Remove the MANIFOLD_SOLID_BREP #572506</Description>
+</Substep>
+<Substep id="r5830ffaa-0425-4a57-a809-d6e6a88eeae1">
+<Description>Remove the MANIFOLD_SOLID_BREP #566818</Description>
+</Substep>
+<Substep id="r6cd36e1d-7271-4567-8605-d513fcb686a2">
+<Description>Unscrew other bolts</Description>
+</Substep>
+</Step>
+<Step id="rd69d2ec8-c344-4e40-b1ee-d777b3e77b7c">
+<Description>Remove Shells</Description>
+<Substep id="re2b78572-4367-4d7c-8e6b-08b439032c62">
+<Description>Set the Axle Manifold_rep transparency to 0.8</Description>
+</Substep>
+<Substep id="re6d314c9-bcfc-4003-92c4-457e63b86f36">
+<Description>Inspect the SD-0436-515191_1-SD-0436-515191_1 (view)(68492766)</Description>
+</Substep>
+<Substep id="rb2e39981-0869-4942-aa5e-e54d264dc246">
+<Description>Remove the CLOSED_SHELL #555669</Description>
+</Substep>
+<Substep id="r403f0236-1a3f-463a-8bc5-24fda356b8f1">
+<Description>Remove the CLOSED_SHELL #566133</Description>
+</Substep>
+<Substep id="rafbfcce4-443f-4bfc-9d1d-9973f3ba44ce">
+<Description>Set the Axle Manifold_rep transparency to 0</Description>
+</Substep>
+</Step>
+<Step id="rea2fbfd6-374f-4a5b-be92-9bf087cea07b">
+<Description>Take out the Axle Cover &amp; Inspect the Bearing</Description>
+<Substep id="re29b10e2-1891-4184-a46b-a404a34b7f4c">
+<Description>Inspect the YOKE</Description>
+</Substep>
+<Substep id="r28d33e92-1eb5-4530-bfd2-9f30a9ed5ea7">
+<Description>Move the SD-0436-515191_1-SD-0436-515191_1 (view)(68492766)</Description>
+</Substep>
+<Substep id="r01543e54-bf8a-463a-bcd3-b73935e7df22">
+<Description>Inspect Bearing</Description>
+</Substep>
+<Substep id="ra3d26c3e-0f69-47b6-89be-715b4504cb07">
+<Description>Remove the Gear</Description>
+</Substep>
+<Substep id="r1f2eb59d-de5e-4781-a1e1-eb4cd06432ca">
+<Description>Disconnect the BEARING</Description>
+</Substep>
+<Substep id="reb538f27-f6b5-4c2c-88f5-4049c1e75af4">
+<Description>Hide the SD</Description>
+</Substep>
+<Substep id="r228e067e-2bc3-4bad-a8c3-13a2b517273a">
+<Description>Point the camera to the Noname (5)</Description>
+</Substep>
+</Step>
+</Simulation>
+<Procedure id="r607980b6-4222-4f9e-814e-70990f166958">
+<Item id="ID0EQFXU2WE5HXGGTV4XIDW0BCACO14HNKETPGTRCULMT25U5VJLAC">
+<Description>S_001</Description>
+<Text><![CDATA[]]></Text>
+</Item>
+<Item id="r698bf9f7-1e77-4868-b317-93f699062a07">
+<Action id="r8f4b9d62-6485-4770-b505-dd0e90185430">
+</Action>
+<Action id="rfab4023a-8adc-4587-87ed-de5ebdf9e71b">
+</Action>
+<Description>Inspect the whole assembly</Description>
+<Text><![CDATA[
+				<p> <a class="image" href="IMG_001.jpg">Inspect the Axle Assy</a> (1)<img src="IMG_001.jpg"></img src="IMG_001.jpg"> </p>
+			]]></Text>
+</Item>
+<Item id="rfd1ab240-ec47-4a78-9db5-ce13357f3d25">
+<Action id="r619278c6-a0c6-41f9-8f71-acc25199644d">
+</Action>
+<Action id="r43972531-0fa1-402f-9392-35906af9aed3">
+</Action>
+<Action id="ra6f229e9-9cb6-425f-8bdc-d1ed4868b031">
+</Action>
+<Action id="raf13dc75-a305-4978-9d1d-0482243be3b2">
+</Action>
+<Action id="r69f24353-6052-46a6-be4a-8a3ef356d3e8">
+</Action>
+<Description>Apply WD-40</Description>
+<Text><![CDATA[
+				<p> <a class="image" href="IMG_002.jpg">Apply WD-40</a> to clean the bolts (2) from rust and corrosion<img src="IMG_002.jpg"></img src="IMG_002.jpg"> </p>
+			]]></Text>
+</Item>
+<Item id="r65e206c1-9c94-4deb-95df-ffd958e8137a">
+<Item id="r2aa617fe-02fb-4dcb-84ef-a2c20a9b93bf">
+<Action id="radb4fe10-60c6-46f1-91b9-50d4c75256d0">
+</Action>
+<Action id="re2340b31-3002-4bd6-84fc-e2c8d7d68a66">
+</Action>
+<Action id="r327c0f52-7434-4bcc-a5b1-9403c642dcd0">
+<Description>Screw an example bolt</Description>
+</Action>
+<Action id="r7873b447-801b-437a-bf09-35d8693918db">
+</Action>
+<Action id="r43dd4697-0a2c-4100-91e6-bae9f959adda">
+</Action>
+<Description>Show how to unscrew bolts with the wrench</Description>
+<Text><![CDATA[
+						<p>Show how to unscrew bolt (2) with the wrench 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r50ad9793-5bc4-49de-871c-d9960bbd3736">
+<Action id="r1e657224-997e-4b2c-b262-f6a81ac6804d">
+<Description>Unscrew another 11 bolts</Description>
+</Action>
+<Description>Unscrew other bolts</Description>
+<Text><![CDATA[
+						<p>Unscrew other bolts (2) 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Description>Unscrew bolts</Description>
+<Text><![CDATA[
+				<p> <a class="image" href="IMG_000.svg">Unscrew the Rod bolts</a> (2)
+				<img src="IMG_000.svg"></img src="IMG_000.svg"> </p>
+				
+			]]></Text>
+</Item>
+<Item id="r2f25a2a7-83da-473e-9ec1-7d3c0ae084c1">
+<Action id="rec9fd094-4bcd-47ed-9586-3e79a2bcf986">
+</Action>
+<Action id="r337ce5b9-d27f-4396-b62a-375d6fdb7b49">
+</Action>
+<Action id="rd015886f-7a49-4558-9e4d-7e5f31721033">
+</Action>
+<Action id="r558dc831-851d-43fa-bf2b-f7227f1d6510">
+<Description>Remove cover</Description>
+</Action>
+<Action id="r1755f4ff-2d81-41e9-b684-4f5338322859">
+<Description>Hide and move</Description>
+</Action>
+<Action id="rba32fb76-8eaa-44e2-837f-697ad1de294a">
+</Action>
+<Description>Remove cover</Description>
+<Text><![CDATA[
+				<p> <a class="image" href="IMG_000.svg">Remove the Axle Back Cover</a> (3) with the screwdriver
+				<img src="IMG_000.svg"></img src="IMG_000.svg"> </p>
+			]]></Text>
+</Item>
+<Item id="rc161a233-41ad-43e7-8530-80e2c6c65a53">
+<Item id="r9aca1404-d446-47b5-a9db-0ac2df51bff6">
+<Action id="rd3b2b5f5-17c4-42c2-9173-9c63e6b20b9e">
+</Action>
+<Action id="r71fc19ca-c66a-4b13-ad3a-eaae73b6e9bc">
+</Action>
+<Action id="r467fc308-690b-4486-8d1c-d1b9bd90f5a0">
+</Action>
+<Action id="rd84b303d-f988-4584-a947-35b122b239a6">
+</Action>
+<Action id="rb8fb4855-101f-4518-933c-b3247777bfe6">
+</Action>
+<Action id="r56556d82-0235-488f-8ca4-33c92a0e6ff2">
+</Action>
+<Action id="r1e89fcff-4644-4b3d-bcc9-e960db3a6a26">
+</Action>
+<Action id="rfd8b6c0c-c74e-46bc-9bb7-f8f2d0d0782b">
+</Action>
+<Action id="r17de90b9-4302-4a7c-b9c5-7b4f77c16739">
+</Action>
+<Action id="r2faeafdd-35c3-4320-a29f-dbb0d5dd52e2">
+</Action>
+<Action id="r5830ffaa-0425-4a57-a809-d6e6a88eeae1">
+</Action>
+<Description>Remove one bolt with Torque Wrench</Description>
+<Text><![CDATA[
+						<p>Remove one Bolt (4) and Washer (5) with Torque Wrench 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="rc422ef54-6a40-4d96-ac7d-f0bac3b26e03">
+<Action id="r6cd36e1d-7271-4567-8605-d513fcb686a2">
+<Description>Unscrew other bolts</Description>
+</Action>
+<Description>Remove other 5 bolts</Description>
+<Text><![CDATA[
+						<p>Remove other Bolts (4) and Wasers (5) 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Description>Unscrew bolts 2</Description>
+<Text><![CDATA[
+				<p> <a class="image" href="IMG_000.svg">Unscrew the Axle Shells' bolts</a> (4)
+				<img src="IMG_000.svg"></img src="IMG_000.svg"> </p>
+				
+			]]></Text>
+</Item>
+<Item id="rd69d2ec8-c344-4e40-b1ee-d777b3e77b7c">
+<Action id="re2b78572-4367-4d7c-8e6b-08b439032c62">
+</Action>
+<Action id="re6d314c9-bcfc-4003-92c4-457e63b86f36">
+</Action>
+<Action id="rb2e39981-0869-4942-aa5e-e54d264dc246">
+</Action>
+<Action id="r403f0236-1a3f-463a-8bc5-24fda356b8f1">
+</Action>
+<Action id="rafbfcce4-443f-4bfc-9d1d-9973f3ba44ce">
+</Action>
+<Description>Remove Shells</Description>
+<Text><![CDATA[
+				<p>
+					<a class="image" href="IMG_000.svg">Remove Shells</a>(6)
+				<img src="IMG_000.svg"></img src="IMG_000.svg"> </p>
+			]]></Text>
+</Item>
+<Item id="rea2fbfd6-374f-4a5b-be92-9bf087cea07b">
+<Action id="re29b10e2-1891-4184-a46b-a404a34b7f4c">
+</Action>
+<Action id="r28d33e92-1eb5-4530-bfd2-9f30a9ed5ea7">
+</Action>
+<Action id="r01543e54-bf8a-463a-bcd3-b73935e7df22">
+<Description>Inspect Bearing</Description>
+</Action>
+<Action id="ra3d26c3e-0f69-47b6-89be-715b4504cb07">
+</Action>
+<Action id="r1f2eb59d-de5e-4781-a1e1-eb4cd06432ca">
+</Action>
+<Action id="reb538f27-f6b5-4c2c-88f5-4049c1e75af4">
+</Action>
+<Action id="r228e067e-2bc3-4bad-a8c3-13a2b517273a">
+</Action>
+<Description>Take out the Axle Cover &amp; Inspect the Bearing</Description>
+<Text><![CDATA[
+				<p> <a class="image" href="IMG_000.svg">Take out the Axle (7) to Rod Cover (8) and inspect the Bearing (9)</a>, replace if needed
+				<img src="IMG_000.svg"></img src="IMG_000.svg"> </p>
+			]]></Text>
+</Item>
+</Procedure>
+<DocItems>
+<DocItem id="Bolt_10_45" objectID="2623827342032">
+<metadata>
+<value name="DocID" decl-id="DocID" type="string">Bolt_10</value>
+</metadata>
+</DocItem>
+</DocItems>
+<Resources>
+<Picture descr="" flags="5" action="rfab4023a-8adc-4587-87ed-de5ebdf9e71b">IMG_001.jpg</Picture>
+<Picture descr="" flags="5" action="ra6f229e9-9cb6-425f-8bdc-d1ed4868b031">IMG_002.jpg</Picture>
+<Picture descr="" flags="9">IMG_000.svg</Picture>
+</Resources>
+<DocumentTemplate><![CDATA[<div lang="en" class="topic task" data-class="- topic/topic task/task " data-DITAArchVersion="1.3" data-domains="(topic task) (topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d) (topic task strictTaskbody-c)" data-specializations="@props/deliveryTarget" data-lang="en" id="r607980b6-4222-4f9e-814e-70990f166958">
+	<h1 class="title link link3d" data-class="- topic/title " data-key="r607980b6-4222-4f9e-814e-70990f166958" data-title="r23540ad3-837e-4bf6-9604-44e15be77cb1" data-link="link3d" id="ariaid-title1">Axle Yoke Bearing Inspection DITA Procedure</h1>
+	<div class="body taskbody Procedure" data-class="- topic/body task/taskbody ">
+		<section><ol class="ol steps" data-class="- topic/ol task/steps "><li class="li step" data-class="- topic/li task/step " id="r607980b6-4222-4f9e-814e-70990f166958__r698bf9f7-1e77-4868-b317-93f699062a07">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r698bf9f7-1e77-4868-b317-93f699062a07" data-title="Inspect the whole assembly" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r607980b6-4222-4f9e-814e-70990f166958/img-001" data-type="image" href="#r607980b6-4222-4f9e-814e-70990f166958__img-001">Inspect the Axle Assy</a> (1)<br><img class="image" data-alt="IMG_001" data-class="- topic/image " data-href="IMG_001.jpg" data-placement="break" id="r607980b6-4222-4f9e-814e-70990f166958__img-001" src="IMG_001.jpg" alt="IMG_001"><br></span>
+			</li><li class="li step" data-class="- topic/li task/step " id="r607980b6-4222-4f9e-814e-70990f166958__rfd1ab240-ec47-4a78-9db5-ce13357f3d25">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rfd1ab240-ec47-4a78-9db5-ce13357f3d25" data-title="Apply WD-40" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r607980b6-4222-4f9e-814e-70990f166958/img-002" data-type="image" href="#r607980b6-4222-4f9e-814e-70990f166958__img-002">Apply WD-40</a> to clean the bolts (2) from rust and corrosion<br><img class="image" data-alt="IMG_002" data-class="- topic/image " data-href="IMG_002.jpg" data-placement="break" id="r607980b6-4222-4f9e-814e-70990f166958__img-002" src="IMG_002.jpg" alt="IMG_002"><br></span>
+			</li><li class="li step" data-class="- topic/li task/step " id="r607980b6-4222-4f9e-814e-70990f166958__r65e206c1-9c94-4deb-95df-ffd958e8137a">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r65e206c1-9c94-4deb-95df-ffd958e8137a" data-title="Unscrew bolts" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r607980b6-4222-4f9e-814e-70990f166958/img-003" data-type="image" href="#r607980b6-4222-4f9e-814e-70990f166958__img-003">Unscrew the Rod bolts</a> (2)
+				<br><img class="image" data-alt="IMG_000" data-class="- topic/image " data-href="IMG_000.cgm" data-placement="break" data-scale="55" id="r607980b6-4222-4f9e-814e-70990f166958__img-003" src="IMG_000.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_000"><br></span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r607980b6-4222-4f9e-814e-70990f166958__r2aa617fe-02fb-4dcb-84ef-a2c20a9b93bf">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r2aa617fe-02fb-4dcb-84ef-a2c20a9b93bf" data-title="" data-link="link3d">Show how to unscrew bolt (2) with the wrench 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r607980b6-4222-4f9e-814e-70990f166958__r50ad9793-5bc4-49de-871c-d9960bbd3736">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r50ad9793-5bc4-49de-871c-d9960bbd3736" data-title="" data-link="link3d">Unscrew other bolts (2) 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li><li class="li step" data-class="- topic/li task/step " id="r607980b6-4222-4f9e-814e-70990f166958__r2f25a2a7-83da-473e-9ec1-7d3c0ae084c1">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r2f25a2a7-83da-473e-9ec1-7d3c0ae084c1" data-title="Remove cover" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r607980b6-4222-4f9e-814e-70990f166958/img-004" data-type="image" href="#r607980b6-4222-4f9e-814e-70990f166958__img-004">Remove the Axle Back Cover</a> (3) with the screwdriver
+				<br><img class="image" data-alt="IMG_000" data-class="- topic/image " data-href="IMG_000.cgm" data-placement="break" data-scale="55" id="r607980b6-4222-4f9e-814e-70990f166958__img-004" src="IMG_000.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_000"><br></span>
+			</li><li class="li step" data-class="- topic/li task/step " id="r607980b6-4222-4f9e-814e-70990f166958__rc161a233-41ad-43e7-8530-80e2c6c65a53">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rc161a233-41ad-43e7-8530-80e2c6c65a53" data-title="Unscrew bolts 2" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r607980b6-4222-4f9e-814e-70990f166958/img-005" data-type="image" href="#r607980b6-4222-4f9e-814e-70990f166958__img-005">Unscrew the Axle Shells' bolts</a> (4)
+				<br><img class="image" data-alt="IMG_000" data-class="- topic/image " data-href="IMG_000.cgm" data-placement="break" data-scale="55" id="r607980b6-4222-4f9e-814e-70990f166958__img-005" src="IMG_000.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_000"><br></span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r607980b6-4222-4f9e-814e-70990f166958__r9aca1404-d446-47b5-a9db-0ac2df51bff6">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r9aca1404-d446-47b5-a9db-0ac2df51bff6" data-title="" data-link="link3d">Remove one Bolt (4) and Washer (5) with Torque Wrench 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r607980b6-4222-4f9e-814e-70990f166958__rc422ef54-6a40-4d96-ac7d-f0bac3b26e03">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rc422ef54-6a40-4d96-ac7d-f0bac3b26e03" data-title="" data-link="link3d">Remove other Bolts (4) and Wasers (5) 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li><li class="li step" data-class="- topic/li task/step " id="r607980b6-4222-4f9e-814e-70990f166958__rd69d2ec8-c344-4e40-b1ee-d777b3e77b7c">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rd69d2ec8-c344-4e40-b1ee-d777b3e77b7c" data-title="Remove Shells" data-link="link3d">
+					<a class="xref" data-class="- topic/xref " data-href="#r607980b6-4222-4f9e-814e-70990f166958/img-006" data-type="image" href="#r607980b6-4222-4f9e-814e-70990f166958__img-006">Remove Shells </a>(6)
+				<br><img class="image" data-alt="IMG_000" data-class="- topic/image " data-href="IMG_000.cgm" data-placement="break" data-scale="55" id="r607980b6-4222-4f9e-814e-70990f166958__img-006" src="IMG_000.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_000"><br></span>
+			</li><li class="li step" data-class="- topic/li task/step " id="r607980b6-4222-4f9e-814e-70990f166958__rea2fbfd6-374f-4a5b-be92-9bf087cea07b">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rea2fbfd6-374f-4a5b-be92-9bf087cea07b" data-title="Take out the Axle Cover &amp; Inspect the Bearing" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r607980b6-4222-4f9e-814e-70990f166958/img-007" data-type="image" href="#r607980b6-4222-4f9e-814e-70990f166958__img-007">Take out the Axle (7) to Rod Cover (8) and inspect the Bearing
+			 (9)</a>, replace if needed
+				<br><img class="image" data-alt="IMG_000" data-class="- topic/image " data-href="IMG_000.cgm" data-placement="break" data-scale="55" id="r607980b6-4222-4f9e-814e-70990f166958__img-007" src="IMG_000.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_000"><br></span>
+			</li></ol></section>
+	</div>
+</div>]]></DocumentTemplate>
+</SimulationInteractivity>

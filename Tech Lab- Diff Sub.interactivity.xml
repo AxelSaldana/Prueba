@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by VME v.14.2.0.0 (build 14.2.0.480 (64-bit))-->
+<SimulationInteractivity xmlns="http://services.parallelgraphics.com/vm/mmr/vm-interactivity-xml/all">
+    <SimulationInformation>
+        <ExporterVersionNumber>14.2.0.480 (64-bit)</ExporterVersionNumber>
+        <ModificationDate>08/30/23</ModificationDate>
+        <SpecID>CAT_WI_DRAFT</SpecID>
+        <SpecVersion>1.1.6</SpecVersion>
+        <SpecLang>en</SpecLang>
+        <XMLFileName>Tech Lab- Diff Sub</XMLFileName>
+        <FileName>Tech Lab- Diff Sub</FileName>
+        <DocumentFile>Tech Lab- Diff Sub.xml</DocumentFile>
+        <Options>
+            <Value name="3DFramePosition" type="string">Right</Value>
+            <Value name="3DFrameSize" type="string">60</Value>
+            <Value name="AutoRepeat" type="boolean">No</Value>
+            <Value name="Background3DColor" type="color">#FFFFFF</Value>
+            <Value name="CoordinateResolution" type="string">0</Value>
+            <Value name="HighlightedStepColor" type="color">#FFEFD5</Value>
+            <Value name="IllustrationType" type="string">0</Value>
+            <Value name="RemoveSpace" type="boolean">No</Value>
+            <Value name="SelectedFrameColor" type="color">#ADD8E6</Value>
+            <Value name="ShowPrevNextButtons" type="boolean">Yes</Value>
+            <Value name="ShowFreezeCheckbox" type="boolean">Yes</Value>
+            <Value name="ShowSmoothControl" type="boolean">Yes</Value>
+            <Value name="ShowSpeedSelection" type="boolean">Yes</Value>
+            <Value name="SimplifyFloats" type="boolean">No</Value>
+            <Value name="UpRight" type="boolean">No</Value>
+            <Value name="StartAfterLoading" type="boolean">No</Value>
+            <Value name="VRMLProfile" type="string">1</Value>
+            <Value name="ForceDirectX" type="boolean">Yes</Value>
+            <Value name="EncodeRes" type="boolean">Yes</Value>
+            <Value name="3DStepsAutoBinding" type="boolean">Yes</Value>
+            <Value name="UsePlugins" type="boolean">No</Value>
+            <Value name="PublicPath" type="string"></Value>
+            <Value name="TotalMemory" type="number">128</Value>
+            <Value name="TooltipFormat" type="string">Part Number: %[_F0CF006A8AC54725A80D5DC19077CD1D]
+Description: %[_6A7337C8022746BA8C02F29B0FC2257F]</Value>
+        </Options>
+        <metadata>
+            <value name="ConfidentialLevel" decl-id="_63E12DEAD28145309B7E97BCB4EFAE71" type="string">Green</value>
+        </metadata>
+    </SimulationInformation>
+    <Simulation id="step15315741276c594e5dc8c844d9015eff">
+        <Description>Tech Lab- Diff Sub</Description>
+        <Step id="r2a8d9c31-5750-4f8c-8032-9559d73b13f7">
+            <Description>BEVEL GEAR SUB</Description>
+            <Substep id="r44c4c2cd-418a-472f-910d-fe65031f51e5">
+                <Description>SPIDER SUB</Description>
+            </Substep>
+            <Substep id="r865b39dc-e5cb-4235-bd0f-0c90814456ca">
+                <Description>Gear to Spider</Description>
+            </Substep>
+            <Substep id="r42c9af71-9666-42f7-a930-528c93c0feb7">
+                <Description>DIFF SUB 2</Description>
+            </Substep>
+            <Substep id="rc85266aa-c5e9-4218-a08f-37c52ce51982">
+                <Description>DIFF SUB HOUSING 2 INSTALL</Description>
+            </Substep>
+            <Substep id="r3a6b36ab-9760-4257-a3e9-9492a10b179f">
+                <Description>BEVEL GEAR</Description>
+            </Substep>
+        </Step>
+        <Step id="r3ec8b433-3403-49cd-a35f-05146340f384">
+            <Description>PINION HOUSING</Description>
+            <Substep id="r64659027-3970-404e-a362-a8f710f2fe1d">
+                <Description>PINION HOUSING</Description>
+            </Substep>
+            <Substep id="r9f9c0c09-a82d-4ef7-bf35-112f802ccda9">
+                <Description>Pinion with Cone Bearing to Housing</Description>
+            </Substep>
+        </Step>
+        <Step id="rf5e1d682-6b7d-4e46-89fe-cf8dd943cc31">
+            <Description>DIFF CASE</Description>
+            <Substep id="r284a112c-2bdb-4c58-be84-190de0eb05c4">
+                <Description>DIFF CASE</Description>
+            </Substep>
+            <Substep id="rbe26863c-e9e5-408a-9433-e6b03822b5c0">
+                <Description>DIFF 2 INSTALL</Description>
+            </Substep>
+            <Substep id="r8ad3b96a-91c2-45c1-bc9c-d84678952479">
+                <Description>DIFF CASE INSTALL</Description>
+            </Substep>
+            <Substep id="rd3988954-d7a8-4e43-92d3-8d98d24f7d07">
+                <Description>DIFF RING ADJUSTER INSTALL</Description>
+            </Substep>
+            <Substep id="re6cf6423-0582-41ba-829f-92426acbddd4">
+                <Description>PINION HOUSING INSTALL</Description>
+            </Substep>
+        </Step>
+    </Simulation>
+    <Procedure id="step15315741276c594e5dc8c844d9015eff">
+        <Item id="r2a8d9c31-5750-4f8c-8032-9559d73b13f7">
+            <Action id="r44c4c2cd-418a-472f-910d-fe65031f51e5">
+                <Description><![CDATA[SPIDER SUB]]></Description>
+            </Action>
+            <Action id="r865b39dc-e5cb-4235-bd0f-0c90814456ca">
+                <Description><![CDATA[Gear to Spider]]></Description>
+            </Action>
+            <Action id="r42c9af71-9666-42f7-a930-528c93c0feb7">
+                <Description><![CDATA[DIFF SUB 2]]></Description>
+            </Action>
+            <Action id="rc85266aa-c5e9-4218-a08f-37c52ce51982">
+                <Description><![CDATA[DIFF SUB HOUSING 2 INSTALL]]></Description>
+            </Action>
+            <Action id="r3a6b36ab-9760-4257-a3e9-9492a10b179f">
+                <Description><![CDATA[BEVEL GEAR]]></Description>
+            </Action>
+            <Description><![CDATA[BEVEL GEAR SUB]]></Description>
+        </Item>
+        <Item id="r3ec8b433-3403-49cd-a35f-05146340f384">
+            <Action id="r64659027-3970-404e-a362-a8f710f2fe1d">
+                <Description><![CDATA[PINION HOUSING]]></Description>
+            </Action>
+            <Action id="r9f9c0c09-a82d-4ef7-bf35-112f802ccda9">
+                <Description><![CDATA[Pinion with Cone Bearing to Housing]]></Description>
+            </Action>
+            <Description><![CDATA[PINION HOUSING]]></Description>
+        </Item>
+        <Item id="rf5e1d682-6b7d-4e46-89fe-cf8dd943cc31">
+            <Action id="r284a112c-2bdb-4c58-be84-190de0eb05c4">
+                <Description><![CDATA[DIFF CASE]]></Description>
+            </Action>
+            <Action id="rbe26863c-e9e5-408a-9433-e6b03822b5c0">
+                <Description><![CDATA[DIFF 2 INSTALL]]></Description>
+            </Action>
+            <Action id="r8ad3b96a-91c2-45c1-bc9c-d84678952479">
+                <Description><![CDATA[DIFF CASE INSTALL]]></Description>
+            </Action>
+            <Action id="rd3988954-d7a8-4e43-92d3-8d98d24f7d07">
+                <Description><![CDATA[DIFF RING ADJUSTER INSTALL]]></Description>
+            </Action>
+            <Action id="re6cf6423-0582-41ba-829f-92426acbddd4">
+                <Description><![CDATA[PINION HOUSING INSTALL]]></Description>
+            </Action>
+            <Description><![CDATA[DIFF CASE]]></Description>
+        </Item>
+    </Procedure>
+    <DocItems/>
+    <Resources/>
+</SimulationInteractivity>

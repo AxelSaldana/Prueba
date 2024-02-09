@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by VME v.14.3.0.0 (build 14.3.0.481 (64-bit))-->
+<SimulationInteractivity xmlns="http://services.parallelgraphics.com/vm/mmr/vm-interactivity-xml/all">
+<SimulationInformation>
+<ExporterVersionNumber>14.3.0.481 (64-bit)</ExporterVersionNumber>
+<ModificationDate>02/07/24</ModificationDate>
+<SpecID>DITA_TASK</SpecID>
+<SpecVersion>1.13</SpecVersion>
+<SpecLang>en</SpecLang>
+<XMLFileName>MACHINE_TOOL__ASSEMBLY_PRC_DITA_TASK</XMLFileName>
+<FileName>MACHINE_TOOL__ASSEMBLY_PRC_DITA_TASK</FileName>
+<DocumentFile>MACHINE_TOOL__ASSEMBLY_PRC_DITA_TASK.xml</DocumentFile>
+<Options>
+<Value name="3DFramePosition" type="string">Right</Value>
+<Value name="3DFrameSize" type="string">60</Value>
+<Value name="AutoRepeat" type="boolean">No</Value>
+<Value name="StartAfterNavigate" type="boolean">No</Value>
+<Value name="Background3DColor" type="color">#FFFFFF</Value>
+<Value name="CoordinateResolution" type="string">0</Value>
+<Value name="HighlightedStepColor" type="color">#FFEFD5</Value>
+<Value name="IllustrationType" type="string">0</Value>
+<Value name="RemoveSpace" type="boolean">No</Value>
+<Value name="SelectedFrameColor" type="color">#ADD8E6</Value>
+<Value name="ShowPrevNextButtons" type="boolean">Yes</Value>
+<Value name="ShowFreezeCheckbox" type="boolean">Yes</Value>
+<Value name="ShowSmoothControl" type="boolean">Yes</Value>
+<Value name="ShowSpeedSelection" type="boolean">Yes</Value>
+<Value name="Enable3DPartSelection" type="boolean">Yes</Value>
+<Value name="SimplifyFloats" type="boolean">No</Value>
+<Value name="UpRight" type="boolean">No</Value>
+<Value name="StartAfterLoading" type="boolean">No</Value>
+<Value name="VRMLProfile" type="string">1</Value>
+<Value name="EncodeRes" type="boolean">Yes</Value>
+<Value name="PDFPublish" type="boolean">No</Value>
+<Value name="3DStepsAutoBinding" type="boolean">Yes</Value>
+<Value name="PublicPath" type="string">
+</Value>
+<Value name="SingleHTMLBundle" type="boolean">No</Value>
+<Value name="X3D" type="boolean">No</Value>
+<Value name="UseSVGFilesOnly" type="boolean">No</Value>
+<Value name="KeepSurfaceEdges" type="boolean">No</Value>
+<Value name="UseViewerBundle" type="string">0</Value>
+<Value name="UseMultimediaBundle" type="string">0</Value>
+<Value name="UseCompressedSVG" type="boolean">No</Value>
+<Value name="iOSViewpointTransitionMode" type="string">0</Value>
+<Value name="CreateStepListFile" type="boolean">No</Value>
+<Value name="ShowAxes" type="boolean">Yes</Value>
+<Value name="DisableHTMLCreation" type="boolean">No</Value>
+<Value name="InitialAmbientOcclusion" type="boolean">No</Value>
+<Value name="InitialAntiAliasing" type="boolean">Yes</Value>
+<Value name="InitialOutlineHoveredObjects" type="boolean">No</Value>
+<Value name="InitialSelectionMode" type="string">0</Value>
+<Value name="InitialNavigationCube" type="boolean">No</Value>
+</Options>
+<metadata>
+<value name="Topic type" decl-id="SCHEMA" type="string">task</value>
+<value name="Topic ID" decl-id="TOPIC_ID" type="string">r05817dcf-12da-4604-9e20-13b3cb58feac</value>
+<value name="Title" decl-id="TITLE" type="string">Industrial Machine DITA Demo - Motor Assembly Installation</value>
+<value name="Topic rev" decl-id="ISSUE_NO" type="string">
+</value>
+<value name="Topic status" decl-id="ISSUE_TYPE" type="string">
+</value>
+<value name="Topic audience" decl-id="TOPIC_AUDIENCE" type="string">
+</value>
+<value name="Topic product" decl-id="TOPIC_PRODUCT" type="string">
+</value>
+<value name="Topic language" decl-id="LANG" type="string">en</value>
+</metadata>
+</SimulationInformation>
+<Simulation id="r05817dcf-12da-4604-9e20-13b3cb58feac">
+<Description>
+</Description>
+<Comment><![CDATA[<p><b><span style="font-size: 125%;">Motor Assembly Installation</span></b></p>]]></Comment>
+<Step id="r68de6719-876d-43ae-9295-199d33d322fe">
+<Description>1</Description>
+<Comment><![CDATA[<p>Install Motor Mounting Plate.</p>]]></Comment>
+<Substep id="rf7aa3cef-8152-4953-b3eb-cb9b104e07ac">
+<Description>WARNING: war_step_01 (point the camera to the FRAME_PWD_21a_rep)</Description>
+<Comment><![CDATA[<p><b>WARNING</b>: Ensure that power is disconnected before proceeding.</p>]]></Comment>
+<Event id="WARNING-73A2D98B-CE47-4DC3-8773-8C61A4B48E12">
+<Description>war_step_01</Description>
+<Type>WARNING</Type>
+</Event>
+</Substep>
+<Substep id="r465cc20d-51ff-44d6-ac19-3d9285b98366">
+<Description>Move the _PART_ASM;_refset_Entire_Part_a0</Description>
+</Substep>
+<Substep id="rf6350bba-685f-49b4-936b-94b33d4a390b">
+<Description>
+</Description>
+</Substep>
+<Substep id="rb0eb916e-83bb-4b7c-baba-e057d0f567f3">
+<Description>
+</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="r7018a4e9-bfac-48d3-a3de-4b09417d2f06">
+<Description>Attach the _PART_ASM;_refset_Entire_Part_a0</Description>
+</Substep>
+</Step>
+<Step id="r90d7ad5c-0c66-4400-b867-7c5f694ba254">
+<Description>2</Description>
+<Comment><![CDATA[<p>Install Power Cord</p>]]></Comment>
+<Substep id="r324dd6f5-28ab-4fc2-9680-3b744180b27b">
+<Description>Install the Power Cable and Clips</Description>
+</Substep>
+<Substep id="r4f075a78-b407-49fe-a3c6-b946cbf3b96d">
+<Description>Install the Clamp Screws</Description>
+</Substep>
+</Step>
+<Step id="r86edece8-ff70-41aa-9eae-42f9ce47ad23">
+<Description>3</Description>
+<Comment><![CDATA[<p>Install Clutch Drive Assy and Bolts.</p>]]></Comment>
+<Substep id="rd4675320-1994-4c51-8da3-8563d5dd909d">
+<Description>
+</Description>
+</Substep>
+</Step>
+<Step id="rb6ca9a45-c854-4b49-b11f-0e362d2f33dc">
+<Description>4</Description>
+<Comment><![CDATA[<p>Install Main Drive Motor.</p>]]></Comment>
+<Substep id="re85a6314-937e-42a8-9cad-66d3191c4cf3">
+<Description>Install the MOTORMAINDRIVE_ASM_ae</Description>
+</Substep>
+<Substep id="r88c0f039-f96c-47f2-bf55-d6327d1fc8f5">
+<Description>
+</Description>
+</Substep>
+<Substep id="rccf2960d-4b90-4d6d-8c39-55d105a74837">
+<Description>
+</Description>
+</Substep>
+<Substep id="rb3427c14-f6c1-4968-98e7-e900613312d4">
+<Description>
+</Description>
+</Substep>
+<Substep id="r5d245c12-0f13-4f50-b246-914a979cdf36">
+<Description>Install the Group</Description>
+</Substep>
+<Substep id="r7803434d-3918-48cf-a49a-8dad9ce6fe1b">
+<Description>Tighten the BOLT_1L4_20X1_1_PAR_(1)_d3</Description>
+</Substep>
+<Substep id="r40745107-1578-4b34-8c01-f3a8befa54db">
+<Description>Remove the Group</Description>
+</Substep>
+<Substep id="r95b45963-7e2e-4201-abcf-6289ff432822">
+<Description>
+</Description>
+</Substep>
+<Substep id="r659b56ce-4cda-4035-841c-98be7cdab20e">
+<Description>Inspect the POWERCORD_PAR_cb</Description>
+</Substep>
+</Step>
+<Step id="r5824b559-9145-455b-9b8a-632ab4344e02">
+<Description>5</Description>
+<Comment><![CDATA[<p>Install Drive Pulley.</p>]]></Comment>
+<Substep id="r2a2bf4cc-c22f-4c0d-9525-65f902ada070">
+<Description>3.6</Description>
+</Substep>
+<Substep id="r1b2b7491-5cb8-4eb5-a935-b3ea8f3156e2">
+<Description>Install the COVER_PAR_bf</Description>
+</Substep>
+<Substep id="r65cec39c-ad9d-44e1-92e6-79ce442bd84f">
+<Description>Install the KEY_PAR_(2)_d7</Description>
+</Substep>
+<Substep id="ra9199b3d-3163-4b9a-a40d-87fbc35da3fd">
+<Description>Install the PULLEYDRIVE_PAR_d5</Description>
+</Substep>
+<Substep id="r1441157b-8c72-4973-ae04-1076e163be2f">
+<Description>Install the KEY_PAR_(1)_ca</Description>
+</Substep>
+<Substep id="rb6820dca-0886-47b0-9258-3133fb755227">
+<Description>Install the PULLEYSLAVE_PAR_a8</Description>
+</Substep>
+<Substep id="r51d5f705-abdb-437d-b506-fbbb716994ae">
+<Description>Install the BELT_PAR_e8</Description>
+</Substep>
+</Step>
+<Step id="rc46051e4-227b-4d88-8685-36dca3508a89">
+<Description>6</Description>
+<Comment><![CDATA[<p>Install Left Guard.</p>]]></Comment>
+<Substep id="r67c79730-8e11-4014-830f-8a3a3927413a">
+<Description>Install the Door</Description>
+</Substep>
+<Substep id="r8bda3d7e-596d-4f0c-a9ef-13e74852bfae">
+<Description>
+</Description>
+</Substep>
+</Step>
+<Step id="r64bfe851-874c-4836-b75f-e6dcc8ae96ff">
+<Description>7</Description>
+<Comment><![CDATA[<p>Test Operation</p>]]></Comment>
+<Substep id="reb325247-d103-4211-a991-f665ab1f8d04">
+<Description>Send note: not_step_07 (point the camera to the ENCLOSURE_PSM_176)</Description>
+<Comment><![CDATA[<p><b>Note</b>: Ensure that power is connected before proceeding.</p>]]></Comment>
+<Event id="note-5E5F8841-AA85-49C1-80BE-388924628E87">
+<Description>not_step_07</Description>
+<Type>note</Type>
+</Event>
+</Substep>
+<Substep id="rdd02550c-bac5-470d-ab05-674e7b2eb667">
+<Description>
+</Description>
+</Substep>
+<Substep id="r09b68707-445c-4e39-871f-2364194495f2">
+<Description>Move the Moving Parts</Description>
+</Substep>
+<Substep id="r6dba9f87-4898-4bc6-862d-fb811d3619af">
+<Description>
+</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+</Step>
+</Simulation>
+<Procedure id="r05817dcf-12da-4604-9e20-13b3cb58feac">
+<Item id="r68de6719-876d-43ae-9295-199d33d322fe">
+<Action id="rf7aa3cef-8152-4953-b3eb-cb9b104e07ac">
+<Comment><![CDATA[<p><b>WARNING</b>: Ensure that power is disconnected before proceeding.</p>]]></Comment>
+</Action>
+<Action id="r465cc20d-51ff-44d6-ac19-3d9285b98366">
+</Action>
+<Item id="rb3f28e34-eec1-431a-a407-6133339371ed">
+<Action id="rf6350bba-685f-49b4-936b-94b33d4a390b">
+</Action>
+<Action id="rb0eb916e-83bb-4b7c-baba-e057d0f567f3">
+<Comment><![CDATA[
+]]></Comment>
+</Action>
+<Comment><![CDATA[<p>Install Bolts and Washers on Motor Mounting Plate.</p>]]></Comment>
+<Description>1</Description>
+<Text><![CDATA[
+						<p>Install Bolts and Washers on Motor Mounting Plate. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="rc10baec6-abe5-4106-af40-80722b4d08c2">
+<Action id="r7018a4e9-bfac-48d3-a3de-4b09417d2f06">
+</Action>
+<Comment><![CDATA[<p>Attach Motor Mounting Plate on Workbench.</p>]]></Comment>
+<Description>2</Description>
+<Text><![CDATA[
+						<p> <a class="image" href="IMG_Step_1.jpg">Attach Motor Mounting Plate</a> on Workbench. 
+				  
+						<img src="IMG_Step_1.jpg"></img src="IMG_Step_1.jpg"> </p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p>Install Motor Mounting Plate.</p>]]></Comment>
+<Description>1</Description>
+<Text><![CDATA[
+				<p>Install Motor Mounting Plate. 
+		  </p>
+				<p>
+					<p>Ensure that power is
+				disconnected before proceeding. 
+			 </p>
+				</p>
+				
+			]]></Text>
+</Item>
+<Item id="r90d7ad5c-0c66-4400-b867-7c5f694ba254">
+<Item id="r78d1b283-c590-45d0-bc2c-65244262ce90">
+<Action id="r324dd6f5-28ab-4fc2-9680-3b744180b27b">
+</Action>
+<Comment><![CDATA[<p>Install Power Cord and Cable Clamps on Motor Mounting Plate.</p>]]></Comment>
+<Description>1</Description>
+<Text><![CDATA[
+						<p>Install Power Cord and Cable Clamps on Motor Mounting Plate. 
+				</p>
+					]]></Text>
+</Item>
+<Item id="r69b33b8c-b256-45a8-bcbd-474ecb8ce2dd">
+<Action id="r4f075a78-b407-49fe-a3c6-b946cbf3b96d">
+</Action>
+<Comment><![CDATA[<p>Secure with Sheetmetal Screws. </p>]]></Comment>
+<Description>2</Description>
+<Text><![CDATA[
+						<p> <a class="image" href="IMG_Step_2.jpg">Secure with Sheetmetal Screws.</a>
+							<img src="IMG_Step_2.jpg"></img src="IMG_Step_2.jpg"> </p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p>Install Power Cord</p>]]></Comment>
+<Description>2</Description>
+<Text><![CDATA[
+				<p>Install Power Cord 
+		  </p>
+				
+			]]></Text>
+</Item>
+<Item id="r86edece8-ff70-41aa-9eae-42f9ce47ad23">
+<Action id="rd4675320-1994-4c51-8da3-8563d5dd909d">
+</Action>
+<Comment><![CDATA[<p>Install Clutch Drive Assy and Bolts.</p>]]></Comment>
+<Description>3</Description>
+<Text><![CDATA[
+				<p> <a class="image" href="IMG_Step_3_EN.svg">Install Clutch Drive Assy and Bolts.</a>
+					<img src="IMG_Step_3_EN.svg"></img src="IMG_Step_3_EN.svg">
+				</p>
+			]]></Text>
+</Item>
+<Item id="rb6ca9a45-c854-4b49-b11f-0e362d2f33dc">
+<Item id="r8dce4e3c-54b2-47ab-99a6-42c13a45b78c">
+<Action id="re85a6314-937e-42a8-9cad-66d3191c4cf3">
+</Action>
+<Comment><![CDATA[<p>Install Main Drive Motor.</p>]]></Comment>
+<Description>1</Description>
+<Text><![CDATA[
+						<p>Attach Main Drive Motor. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r91900861-6b3f-4fa5-b78e-8ddabb001bbd">
+<Action id="r88c0f039-f96c-47f2-bf55-d6327d1fc8f5">
+</Action>
+<Action id="rccf2960d-4b90-4d6d-8c39-55d105a74837">
+</Action>
+<Action id="rb3427c14-f6c1-4968-98e7-e900613312d4">
+</Action>
+<Comment><![CDATA[<p>Install Bolts, Washers and Nuts.</p>]]></Comment>
+<Description>2</Description>
+<Text><![CDATA[
+						<p>Install Bolts, Washers and Nuts. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r0ca5aa53-9a51-481a-ad10-a45a74a7a00a">
+<Action id="r5d245c12-0f13-4f50-b246-914a979cdf36">
+</Action>
+<Action id="r7803434d-3918-48cf-a49a-8dad9ce6fe1b">
+</Action>
+<Action id="r40745107-1578-4b34-8c01-f3a8befa54db">
+</Action>
+<Comment><![CDATA[<p>Tighten the bolts, using a Wrench to secure the Nuts.</p>]]></Comment>
+<Description>3</Description>
+<Text><![CDATA[
+						<p>Tighten the bolts, using a Wrench to secure the Nuts. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r6a2b7892-8fe8-4df3-85a0-828925d32d8c">
+<Action id="r95b45963-7e2e-4201-abcf-6289ff432822">
+</Action>
+<Comment><![CDATA[<p>Tighten the Bolts to prevent movement during operation.</p>]]></Comment>
+<Description>4</Description>
+<Text><![CDATA[
+						<p>Tighten the Bolts to prevent movement during operation. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r6c660b54-f136-4398-87ae-974b8e395033">
+<Action id="r659b56ce-4cda-4035-841c-98be7cdab20e">
+</Action>
+<Comment><![CDATA[<p>Connect Power Cord to Main Drive Motor.</p>]]></Comment>
+<Description>5</Description>
+<Text><![CDATA[
+						<p>Connect Power Cord to Main Drive Motor. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p>Install Main Drive Motor.</p>]]></Comment>
+<Description>4</Description>
+<Text><![CDATA[
+				<p> <a class="image" href="IMG_Step_4_EN.svg">Install Main Drive Motor.</a> <img src="IMG_Step_4_EN.svg"></img src="IMG_Step_4_EN.svg"> </p>
+				
+			]]></Text>
+</Item>
+<Item id="r5824b559-9145-455b-9b8a-632ab4344e02">
+<Item id="r436686a6-954e-46b0-8d82-a676bffecda2">
+<Action id="r2a2bf4cc-c22f-4c0d-9525-65f902ada070">
+<Description>3.6</Description>
+</Action>
+<Comment><![CDATA[<p>Install Guard Bracket and Sheetmetal Screws.</p>]]></Comment>
+<Description>1</Description>
+<Text><![CDATA[
+						<p>Install Guard Bracket and Sheetmetal Screws. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="rdc4db7d9-d9aa-415c-91ec-03acb5afebe1">
+<Action id="r1b2b7491-5cb8-4eb5-a935-b3ea8f3156e2">
+</Action>
+<Comment><![CDATA[<p>Install Pully Cover.</p>]]></Comment>
+<Description>2</Description>
+<Text><![CDATA[
+						<p>Install Pully Cover. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="rc0f87aec-a837-432c-9e60-2d549d13d82b">
+<Action id="r65cec39c-ad9d-44e1-92e6-79ce442bd84f">
+</Action>
+<Action id="ra9199b3d-3163-4b9a-a40d-87fbc35da3fd">
+</Action>
+<Comment><![CDATA[<p>Install Key and Drive Pulley on Drive Motor Shaft.</p>]]></Comment>
+<Description>3</Description>
+<Text><![CDATA[
+						<p>Install Key and Drive Pulley on Drive Motor Shaft. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r71ecb5d5-c326-4c59-a14b-3bfa684bd270">
+<Action id="r1441157b-8c72-4973-ae04-1076e163be2f">
+</Action>
+<Action id="rb6820dca-0886-47b0-9258-3133fb755227">
+</Action>
+<Comment><![CDATA[<p>Install Key and Slave Pulley on Clutch Shaft.</p>]]></Comment>
+<Description>4</Description>
+<Text><![CDATA[
+						<p>Install Key and Slave Pulley on Clutch Shaft. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r3f7a86a4-be79-45a6-a9ef-28e25954472e">
+<Action id="r51d5f705-abdb-437d-b506-fbbb716994ae">
+</Action>
+<Comment><![CDATA[<p>Install Belt on Pulleys.</p>]]></Comment>
+<Description>5</Description>
+<Text><![CDATA[
+						<p>
+							<a class="image" href="IMG_Step_5.jpg">Install Belt</a> on Pulleys. 
+				  <img src="IMG_Step_5.jpg"></img src="IMG_Step_5.jpg">
+						</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p>Install Drive Pulley.</p>]]></Comment>
+<Description>5</Description>
+<Text><![CDATA[
+				<p>Install Drive Pulley. 
+		  </p>
+				
+			]]></Text>
+</Item>
+<Item id="rc46051e4-227b-4d88-8685-36dca3508a89">
+<Item id="r5373cf45-68aa-4632-986c-3c2712f8a9d1">
+<Action id="r67c79730-8e11-4014-830f-8a3a3927413a">
+</Action>
+<Comment><![CDATA[<p>Install Left Guard.</p>]]></Comment>
+<Description>1</Description>
+<Text><![CDATA[
+						<p>Attach Left Guard. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r1125d7f8-53f6-4e30-a701-94bd8b911895">
+<Action id="r8bda3d7e-596d-4f0c-a9ef-13e74852bfae">
+</Action>
+<Comment><![CDATA[<p>Install Bolts.</p>]]></Comment>
+<Description>2</Description>
+<Text><![CDATA[
+						<p>Install Bolts. 
+				  <img src="IMG_Step_6.jpg"></img src="IMG_Step_6.jpg">
+						</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p>Install Left Guard.</p>]]></Comment>
+<Description>6</Description>
+<Text><![CDATA[
+				<p>
+					<a class="image" href="IMG_Step_6.jpg">Install Left Guard.</a> </p>
+				
+			]]></Text>
+</Item>
+<Item id="r64bfe851-874c-4836-b75f-e6dcc8ae96ff">
+<Action id="reb325247-d103-4211-a991-f665ab1f8d04">
+<Comment><![CDATA[<p><b>Note</b>: Ensure that power is connected before proceeding.</p>]]></Comment>
+</Action>
+<Item id="r6c6fe5c7-c023-4f7a-9be2-60d8976bf42b">
+<Action id="rdd02550c-bac5-470d-ab05-674e7b2eb667">
+</Action>
+<Comment><![CDATA[<p>Turn on Workbench using the Control Panel.</p>]]></Comment>
+<Description>1</Description>
+<Text><![CDATA[
+						<p>Turn on Workbench using the Control Panel. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r0a95f177-efb5-4711-936a-5734fc73da54">
+<Action id="r09b68707-445c-4e39-871f-2364194495f2">
+</Action>
+<Comment><![CDATA[<p>Ensure that movement is smooth in all both directions.</p>]]></Comment>
+<Description>2</Description>
+<Text><![CDATA[
+						<p>Ensure that movement is smooth in all both directions. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="rd4706d08-3c6f-42b1-924a-9003302c66f5">
+<Action id="r6dba9f87-4898-4bc6-862d-fb811d3619af">
+<Comment><![CDATA[
+]]></Comment>
+</Action>
+<Comment><![CDATA[<p>Turn off Workbench using the Control Panel.</p>]]></Comment>
+<Description>3</Description>
+<Text><![CDATA[
+						<p>Turn off Workbench using the Control Panel. 
+				  <img src="IMG_Step_7.jpg"></img src="IMG_Step_7.jpg">
+						</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p>Test Operation</p>]]></Comment>
+<Description>7</Description>
+<Text><![CDATA[
+				<p>
+					<a class="image" href="IMG_Step_7.jpg">Test Operation</a> </p>
+				<p>
+					<p>Ensure that power is connected before
+				proceeding. 
+			 </p>
+				</p>
+				
+			]]></Text>
+</Item>
+</Procedure>
+<DocItems>
+<DocItem id="BOLT_5L16_18X1_PAR_(1)_a1_a0" objectID="2623841742656">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00440</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+<value name="DocID" decl-id="DocID" type="string">id05</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Bolts [BT00440]</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_5L16_18X1_PAR_(2)_a2_a1" objectID="2623841741296">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00440</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+<value name="DocID" decl-id="DocID" type="string">id05</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Bolts [BT00440]</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_5L16_18X1_PAR_(3)_a3_a2" objectID="2623841743296">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00440</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+<value name="DocID" decl-id="DocID" type="string">id05</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Bolts [BT00440]</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_1L4_20X3_PAR_(1)_a4_a3" objectID="2623841743376">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00521</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">2</value>
+<value name="DocID" decl-id="DocID" type="string">id02</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Bolts [BT00521]</value>
+</metadata>
+</DocItem>
+<DocItem id="SHEETMETALSCREW_8X1L2_PAR_(1)_a5_a4" objectID="2623841744176">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">8X1L2</value>
+<value name="DocID" decl-id="DocID" type="string">id09</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="SHEETMETALSCREW_8X1L2_PAR_(2)_a6_a5" objectID="2623841742736">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">8X1L2</value>
+<value name="DocID" decl-id="DocID" type="string">id09</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="SHEETMETALSCREW_8X1L2_PAR_(3)_a7_a6" objectID="2623841740176">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">8X1L2</value>
+<value name="DocID" decl-id="DocID" type="string">id04</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">3</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Cord Bolts [8X1L2]</value>
+</metadata>
+</DocItem>
+<DocItem id="PULLEYSLAVE_PAR_a8_a7" objectID="2623841744816">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">PU69520</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="DocID" decl-id="DocID" type="string">PULLEYSLAVE_PAR_a8</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_1L4_20X3_PAR_(2)_a9_a8" objectID="2623841741136">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00521</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">2</value>
+<value name="DocID" decl-id="DocID" type="string">id02</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Bolts [BT00521]</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_5L16_PAR_(1)_aa_a9" objectID="2623841742256">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">2</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87680</value>
+<value name="DocID" decl-id="DocID" type="string">id01</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Washers [WH87680]</value>
+</metadata>
+</DocItem>
+<DocItem id="_L8_HOSECLAMP_PAR_(1)_ab_aa" objectID="2623841744496">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">CL34890</value>
+<value name="DocID" decl-id="DocID" type="string">id03</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">3</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Hose Clapms [CL34890]</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_5L16_PAR_(2)_ac_ab" objectID="2623841740576">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">2</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87680</value>
+<value name="DocID" decl-id="DocID" type="string">id01</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Washers [WH87680]</value>
+</metadata>
+</DocItem>
+<DocItem id="_L8_HOSECLAMP_PAR_(2)_ad_ac" objectID="2623841742816">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">CL34890</value>
+<value name="DocID" decl-id="DocID" type="string">id03</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">3</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Hose Clapms [CL34890]</value>
+</metadata>
+</DocItem>
+<DocItem id="MOTORMAINDRIVE_ASM_ae_ad" objectID="2623841740256">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">MT43200</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="DocID" decl-id="DocID" type="string">MOTORMAINDRIVE_ASM_ae</value>
+</metadata>
+</DocItem>
+<DocItem id="MOTORMOUNT_PSM_be_bd" objectID="2623841743616">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">MT43300</value>
+<value name="DocID" decl-id="DocID" type="string">MOTORMOUNT_PSM_be</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Motor Mount Plate [MT43300]</value>
+</metadata>
+</DocItem>
+<DocItem id="COVER_PAR_bf_be" objectID="2623841746256">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">PU69521</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="DocID" decl-id="DocID" type="string">COVER_PAR_bf</value>
+</metadata>
+</DocItem>
+<DocItem id="CLUTCHDRIVE_ASM_c0_bf" objectID="2623841746496">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">MT43100</value>
+<value name="DocID" decl-id="DocID" type="string">CLUTCHDRIVE_ASM_c0</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Clutch Drive [MT43100]</value>
+</metadata>
+</DocItem>
+<DocItem id="KEY_PAR_(1)_ca_c9" objectID="2623841745376">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">2</value>
+<value name="DocID" decl-id="DocID" type="string">id10</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">PU69530</value>
+</metadata>
+</DocItem>
+<DocItem id="POWERCORD_PAR_cb_ca" objectID="2623841615536">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">CD88521</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="DocID" decl-id="DocID" type="string">POWERCORD_PAR_cb</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Power Cord [CD88521]</value>
+</metadata>
+</DocItem>
+<DocItem id="_L8_HOSECLAMP_PAR_(3)_cc_cb" objectID="2623841616976">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">CL34890</value>
+<value name="DocID" decl-id="DocID" type="string">id03</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">3</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Hose Clapms [CL34890]</value>
+</metadata>
+</DocItem>
+<DocItem id="SHEETMETALSCREW_8X1L2_PAR_(14)_cd_cc" objectID="2623841613376">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">8X1L2</value>
+<value name="DocID" decl-id="DocID" type="string">id04</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">3</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Cord Bolts [8X1L2]</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_5L16_18X1_PAR_(4)_ce_cd" objectID="2623841613296">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00440</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+<value name="DocID" decl-id="DocID" type="string">id05</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Bolts [BT00440]</value>
+</metadata>
+</DocItem>
+<DocItem id="GUARDBRACKET_PSM_cf_ce" objectID="2623841616176">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">MT43220</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="DocID" decl-id="DocID" type="string">GUARDBRACKET_PSM_cf</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_1L4_PAR_(1)_d1_d0" objectID="2623841616256">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">8</value>
+<value name="DocID" decl-id="DocID" type="string">id07</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87690</value>
+</metadata>
+</DocItem>
+<DocItem id="NUT_1L4_20_PAR_(1)_d2_d1" objectID="2623841617136">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">NT56155</value>
+<value name="DocID" decl-id="DocID" type="string">id08</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_1L4_20X1_1_PAR_(1)_d3_d2" objectID="2623841613456">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00535</value>
+<value name="DocID" decl-id="DocID" type="string">id06</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_1L4_PAR_(2)_d4_d3" objectID="2623841614096">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">8</value>
+<value name="DocID" decl-id="DocID" type="string">id07</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87690</value>
+</metadata>
+</DocItem>
+<DocItem id="PULLEYDRIVE_PAR_d5_d4" objectID="2623841615216">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">PU69510</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="DocID" decl-id="DocID" type="string">PULLEYDRIVE_PAR_d5</value>
+</metadata>
+</DocItem>
+<DocItem id="SHEETMETALSCREW_8X1L2_PAR_(15)_d6_d5" objectID="2623841616016">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">8X1L2</value>
+<value name="DocID" decl-id="DocID" type="string">id09</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="KEY_PAR_(2)_d7_d6" objectID="2623841613696">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">2</value>
+<value name="DocID" decl-id="DocID" type="string">id10</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">PU69530</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_1L4_PAR_(3)_d9_d8" objectID="2623841614176">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">8</value>
+<value name="DocID" decl-id="DocID" type="string">id07</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87690</value>
+</metadata>
+</DocItem>
+<DocItem id="NUT_1L4_20_PAR_(2)_da_d9" objectID="2623841616336">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">NT56155</value>
+<value name="DocID" decl-id="DocID" type="string">id08</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_1L4_20X1_1_PAR_(2)_db_da" objectID="2623841612096">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00535</value>
+<value name="DocID" decl-id="DocID" type="string">id06</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_1L4_PAR_(4)_dc_db" objectID="2623841613536">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">8</value>
+<value name="DocID" decl-id="DocID" type="string">id07</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87690</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_1L4_PAR_(5)_de_dd" objectID="2623841613776">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">8</value>
+<value name="DocID" decl-id="DocID" type="string">id07</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87690</value>
+</metadata>
+</DocItem>
+<DocItem id="NUT_1L4_20_PAR_(3)_df_de" objectID="2623841612176">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">NT56155</value>
+<value name="DocID" decl-id="DocID" type="string">id08</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_1L4_20X1_1_PAR_(3)_e0_df" objectID="2623841614256">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00535</value>
+<value name="DocID" decl-id="DocID" type="string">id06</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_1L4_PAR_(6)_e1_e0" objectID="2623841614656">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">8</value>
+<value name="DocID" decl-id="DocID" type="string">id07</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87690</value>
+</metadata>
+</DocItem>
+<DocItem id="SHEETMETALSCREW_8X1L2_PAR_(16)_e2_e1" objectID="2623841616416">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">8X1L2</value>
+<value name="DocID" decl-id="DocID" type="string">id09</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_1L4_PAR_(7)_e4_e3" objectID="2623841615136">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">8</value>
+<value name="DocID" decl-id="DocID" type="string">id07</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87690</value>
+</metadata>
+</DocItem>
+<DocItem id="NUT_1L4_20_PAR_(4)_e5_e4" objectID="2623841616736">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">NT56155</value>
+<value name="DocID" decl-id="DocID" type="string">id08</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="BOLT_1L4_20X1_1_PAR_(4)_e6_e5" objectID="2623841613136">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00535</value>
+<value name="DocID" decl-id="DocID" type="string">id06</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">4</value>
+</metadata>
+</DocItem>
+<DocItem id="WASHER_1L4_PAR_(8)_e7_e6" objectID="2623841613216">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">8</value>
+<value name="DocID" decl-id="DocID" type="string">id07</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">WH87690</value>
+</metadata>
+</DocItem>
+<DocItem id="BELT_PAR_e8_e7" objectID="2623841612416">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">PU69550</value>
+<value name="DocID" decl-id="DocID" type="string">BELT_PAR_e8</value>
+</metadata>
+</DocItem>
+<DocItem id="SHEETMETALSCREW_8X1L2_PAR_(17)_e9_e8" objectID="2623841614816">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">8X1L2</value>
+<value name="DocID" decl-id="DocID" type="string">id04</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">3</value>
+<value name="Callout" decl-id="CALLOUT_TEXT" type="string">Cord Bolts [8X1L2]</value>
+</metadata>
+</DocItem>
+<DocItem id="ELECTRO_MECH_ASM;_refset_Entire_Part_174_173" objectID="2623841631296">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">CT54000</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="DocID" decl-id="DocID" type="string">ELECTRO_MECH_ASM__refset_Entire_Part_174</value>
+</metadata>
+</DocItem>
+<DocItem id="QUARTERTWENTYBYONE_HHCS_PAR_(7)_2f7_271" objectID="2623841664016">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00420</value>
+<value name="DocID" decl-id="DocID" type="string">id11</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">2</value>
+</metadata>
+</DocItem>
+<DocItem id="QUARTERTWENTYBYONE_HHCS_PAR_(8)_31c_28c" objectID="2623841666896">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">BT00420</value>
+<value name="DocID" decl-id="DocID" type="string">id11</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">2</value>
+</metadata>
+</DocItem>
+<DocItem id="GUARD_LEFT_28d" objectID="2623841668896">
+<metadata>
+<value name="Part Number" decl-id="_F0CF006A8AC54725A80D5DC19077CD1D" type="string">SH66270</value>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">1</value>
+<value name="DocID" decl-id="DocID" type="string">GUARD_LEFT</value>
+</metadata>
+</DocItem>
+<DocItem id="wrench_2a8" objectID="2623841670176">
+<metadata>
+<value name="Qty" decl-id="_F519A19D050D45A68584453C44EA85DC" type="string">
+</value>
+<value name="DocID" decl-id="DocID" type="string">wrench</value>
+</metadata>
+</DocItem>
+</DocItems>
+<Resources>
+<Picture descr="" flags="1">IMG_Step_7.jpg</Picture>
+<Picture descr="" flags="1" action="r7018a4e9-bfac-48d3-a3de-4b09417d2f06">IMG_Step_1.jpg</Picture>
+<Picture descr="" flags="1" action="r4f075a78-b407-49fe-a3c6-b946cbf3b96d">IMG_Step_2.jpg</Picture>
+<Picture descr="" flags="1" action="r51d5f705-abdb-437d-b506-fbbb716994ae">IMG_Step_5.jpg</Picture>
+<Picture descr="" flags="1" action="r67c79730-8e11-4014-830f-8a3a3927413a">IMG_Step_6.jpg</Picture>
+<Picture descr="" flags="1">IMG_Step_3_EN.svg</Picture>
+<Picture descr="" flags="1">IMG_Step_4_EN.svg</Picture>
+</Resources>
+<DocumentTemplate><![CDATA[<div lang="en" class="topic task" data-class="- topic/topic task/task " data-DITAArchVersion="1.3" data-domains="(topic task) (topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d) (topic task strictTaskbody-c)" data-specializations="@props/deliveryTarget" data-lang="en" id="r05817dcf-12da-4604-9e20-13b3cb58feac">
+	<h1 class="title link link3d" data-class="- topic/title " data-key="r05817dcf-12da-4604-9e20-13b3cb58feac" data-title="&#xA;" data-link="link3d" id="ariaid-title1">Industrial Machine DITA Demo - Motor Assembly Installation</h1>
+	<div class="body taskbody Procedure" data-class="- topic/body task/taskbody ">
+		<section><ol class="ol steps" data-class="- topic/ol task/steps "><li class="li step stepexpand" data-class="- topic/li task/step " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r68de6719-876d-43ae-9295-199d33d322fe">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r68de6719-876d-43ae-9295-199d33d322fe" data-title="1" data-link="link3d">Install Motor Mounting Plate. 
+		  </span>
+				<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+					<div class="note warning note_warning" data-class="- topic/note " data-type="warning" id="r05817dcf-12da-4604-9e20-13b3cb58feac__war_step_01"><span class="note__title">WARNING:</span> Ensure that power is
+				disconnected before proceeding. 
+			 </div>
+				</div>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__rb3f28e34-eec1-431a-a407-6133339371ed">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rb3f28e34-eec1-431a-a407-6133339371ed" data-title="" data-link="link3d">Install Bolts and Washers on Motor Mounting Plate. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__rc10baec6-abe5-4106-af40-80722b4d08c2">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rc10baec6-abe5-4106-af40-80722b4d08c2" data-title="" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r05817dcf-12da-4604-9e20-13b3cb58feac/image_EA240982FBDB48F599922886FCFC4892" data-type="image" href="#r05817dcf-12da-4604-9e20-13b3cb58feac__image_EA240982FBDB48F599922886FCFC4892">Attach Motor Mounting Plate</a> on Workbench. 
+				  
+						<br><img class="image" data-class="- topic/image " data-href="IMG_Step_1.jpg" data-placement="break" id="r05817dcf-12da-4604-9e20-13b3cb58feac__image_EA240982FBDB48F599922886FCFC4892" src="IMG_Step_1.jpg"><br></span>
+					</li>
+				</ol>
+			</li><li class="li step stepexpand" data-class="- topic/li task/step " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r90d7ad5c-0c66-4400-b867-7c5f694ba254">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r90d7ad5c-0c66-4400-b867-7c5f694ba254" data-title="2" data-link="link3d">Install Power Cord 
+		  </span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r78d1b283-c590-45d0-bc2c-65244262ce90">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r78d1b283-c590-45d0-bc2c-65244262ce90" data-title="" data-link="link3d">Install Power Cord and Cable Clamps on Motor Mounting Plate. 
+				</span>
+					</li>
+					<li class="li substep" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r69b33b8c-b256-45a8-bcbd-474ecb8ce2dd">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r69b33b8c-b256-45a8-bcbd-474ecb8ce2dd" data-title="" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r05817dcf-12da-4604-9e20-13b3cb58feac/image_46EF05BC65EF45AD9AE8326DCB0102D9" data-type="image" href="#r05817dcf-12da-4604-9e20-13b3cb58feac__image_46EF05BC65EF45AD9AE8326DCB0102D9">Secure with Sheetmetal Screws.</a>
+							<br><img class="image" data-class="- topic/image " data-href="IMG_Step_2.jpg" data-placement="break" id="r05817dcf-12da-4604-9e20-13b3cb58feac__image_46EF05BC65EF45AD9AE8326DCB0102D9" src="IMG_Step_2.jpg"><br></span>
+					</li>
+				</ol>
+			</li><li class="li step stepexpand" data-class="- topic/li task/step " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r86edece8-ff70-41aa-9eae-42f9ce47ad23">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r86edece8-ff70-41aa-9eae-42f9ce47ad23" data-title="3" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r05817dcf-12da-4604-9e20-13b3cb58feac/img-001" data-type="image" href="#r05817dcf-12da-4604-9e20-13b3cb58feac__img-001">Install Clutch Drive Assy and Bolts.</a>
+					<br><img class="image" data-alt="IMG_Step_3_EN" data-class="- topic/image " data-href="IMG_Step_3_EN.cgm" data-placement="break" data-scale="80" id="r05817dcf-12da-4604-9e20-13b3cb58feac__img-001" src="IMG_Step_3_EN.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_Step_3_EN"><br>
+				</span>
+			</li><li class="li step stepexpand" data-class="- topic/li task/step " id="r05817dcf-12da-4604-9e20-13b3cb58feac__rb6ca9a45-c854-4b49-b11f-0e362d2f33dc">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rb6ca9a45-c854-4b49-b11f-0e362d2f33dc" data-title="4" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r05817dcf-12da-4604-9e20-13b3cb58feac/img-002" data-type="image" href="#r05817dcf-12da-4604-9e20-13b3cb58feac__img-002">Install Main Drive Motor.</a><br><img class="image" data-alt="IMG_Step_4_EN" data-class="- topic/image " data-href="IMG_Step_4_EN.cgm" data-placement="break" data-scale="80" id="r05817dcf-12da-4604-9e20-13b3cb58feac__img-002" src="IMG_Step_4_EN.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_Step_4_EN"><br></span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r8dce4e3c-54b2-47ab-99a6-42c13a45b78c">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r8dce4e3c-54b2-47ab-99a6-42c13a45b78c" data-title="" data-link="link3d">Attach Main Drive Motor. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r91900861-6b3f-4fa5-b78e-8ddabb001bbd">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r91900861-6b3f-4fa5-b78e-8ddabb001bbd" data-title="" data-link="link3d">Install Bolts, Washers and Nuts. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r0ca5aa53-9a51-481a-ad10-a45a74a7a00a">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r0ca5aa53-9a51-481a-ad10-a45a74a7a00a" data-title="" data-link="link3d">Tighten the bolts, using a Wrench to secure the Nuts. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r6a2b7892-8fe8-4df3-85a0-828925d32d8c">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r6a2b7892-8fe8-4df3-85a0-828925d32d8c" data-title="" data-link="link3d">Tighten the Bolts to prevent movement during operation. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r6c660b54-f136-4398-87ae-974b8e395033">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r6c660b54-f136-4398-87ae-974b8e395033" data-title="" data-link="link3d">Connect Power Cord to Main Drive Motor. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li><li class="li step stepexpand" data-class="- topic/li task/step " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r5824b559-9145-455b-9b8a-632ab4344e02">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r5824b559-9145-455b-9b8a-632ab4344e02" data-title="5" data-link="link3d">Install Drive Pulley. 
+		  </span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r436686a6-954e-46b0-8d82-a676bffecda2">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r436686a6-954e-46b0-8d82-a676bffecda2" data-title="" data-link="link3d">Install Guard Bracket and Sheetmetal Screws. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__rdc4db7d9-d9aa-415c-91ec-03acb5afebe1">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rdc4db7d9-d9aa-415c-91ec-03acb5afebe1" data-title="" data-link="link3d">Install Pully Cover. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__rc0f87aec-a837-432c-9e60-2d549d13d82b">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rc0f87aec-a837-432c-9e60-2d549d13d82b" data-title="" data-link="link3d">Install Key and Drive Pulley on Drive Motor Shaft. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r71ecb5d5-c326-4c59-a14b-3bfa684bd270">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r71ecb5d5-c326-4c59-a14b-3bfa684bd270" data-title="" data-link="link3d">Install Key and Slave Pulley on Clutch Shaft. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r3f7a86a4-be79-45a6-a9ef-28e25954472e">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r3f7a86a4-be79-45a6-a9ef-28e25954472e" data-title="" data-link="link3d">
+							<a class="xref" data-class="- topic/xref " data-href="#r05817dcf-12da-4604-9e20-13b3cb58feac/image_A816720DC2B446C9B5C6D5113ECAEBD2" data-type="image" href="#r05817dcf-12da-4604-9e20-13b3cb58feac__image_A816720DC2B446C9B5C6D5113ECAEBD2">Install Belt</a> on Pulleys. 
+				  <br><img class="image" data-class="- topic/image " data-href="IMG_Step_5.jpg" data-placement="break" id="r05817dcf-12da-4604-9e20-13b3cb58feac__image_A816720DC2B446C9B5C6D5113ECAEBD2" src="IMG_Step_5.jpg"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li><li class="li step stepexpand" data-class="- topic/li task/step " id="r05817dcf-12da-4604-9e20-13b3cb58feac__rc46051e4-227b-4d88-8685-36dca3508a89">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rc46051e4-227b-4d88-8685-36dca3508a89" data-title="6" data-link="link3d">
+					<a class="xref" data-class="- topic/xref " data-href="#r05817dcf-12da-4604-9e20-13b3cb58feac/image_D38CB427805B45338A895D82D261AE7C" data-type="image" href="#r05817dcf-12da-4604-9e20-13b3cb58feac__image_D38CB427805B45338A895D82D261AE7C">Install Left Guard.</a></span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r5373cf45-68aa-4632-986c-3c2712f8a9d1">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r5373cf45-68aa-4632-986c-3c2712f8a9d1" data-title="" data-link="link3d">Attach Left Guard. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r1125d7f8-53f6-4e30-a701-94bd8b911895">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r1125d7f8-53f6-4e30-a701-94bd8b911895" data-title="" data-link="link3d">Install Bolts. 
+				  <br><img class="image" data-class="- topic/image " data-href="IMG_Step_6.jpg" data-placement="break" id="r05817dcf-12da-4604-9e20-13b3cb58feac__image_D38CB427805B45338A895D82D261AE7C" src="IMG_Step_6.jpg"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li><li class="li step stepexpand" data-class="- topic/li task/step " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r64bfe851-874c-4836-b75f-e6dcc8ae96ff">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r64bfe851-874c-4836-b75f-e6dcc8ae96ff" data-title="7" data-link="link3d">
+					<a class="xref" data-class="- topic/xref " data-href="#r05817dcf-12da-4604-9e20-13b3cb58feac/image_5253F03F903A4C588BFDE37054F7EC05" data-type="image" href="#r05817dcf-12da-4604-9e20-13b3cb58feac__image_5253F03F903A4C588BFDE37054F7EC05">Test Operation</a></span>
+				<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+					<div class="note note note_note" data-class="- topic/note " data-type="note" id="r05817dcf-12da-4604-9e20-13b3cb58feac__not_step_07"><span class="note__title">Note:</span> Ensure that power is connected before
+				proceeding. 
+			 </div>
+				</div>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r6c6fe5c7-c023-4f7a-9be2-60d8976bf42b">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r6c6fe5c7-c023-4f7a-9be2-60d8976bf42b" data-title="" data-link="link3d">Turn on Workbench using the Control Panel. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__r0a95f177-efb5-4711-936a-5734fc73da54">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r0a95f177-efb5-4711-936a-5734fc73da54" data-title="" data-link="link3d">Ensure that movement is smooth in all both directions. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r05817dcf-12da-4604-9e20-13b3cb58feac__rd4706d08-3c6f-42b1-924a-9003302c66f5">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rd4706d08-3c6f-42b1-924a-9003302c66f5" data-title="" data-link="link3d">Turn off Workbench using the Control Panel. 
+				  <br><img class="image" data-class="- topic/image " data-href="IMG_Step_7.jpg" data-placement="break" data-scale="60" id="r05817dcf-12da-4604-9e20-13b3cb58feac__image_5253F03F903A4C588BFDE37054F7EC05" src="IMG_Step_7.jpg" onload="this.width*=this.getAttribute('data-scale')/100;"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li></ol></section>
+	</div>
+</div>]]></DocumentTemplate>
+</SimulationInteractivity>

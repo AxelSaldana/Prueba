@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by VME v.14.0.1.0 (build 14.0.1.477 (64-bit))-->
+<SimulationInteractivity xmlns="http://services.parallelgraphics.com/vm/mmr/vm-interactivity-xml/all">
+    <SimulationInformation>
+        <ExporterVersionNumber>14.0.1.477 (64-bit)</ExporterVersionNumber>
+        <ModificationDate>01/26/24</ModificationDate>
+        <SpecID>GENERIC_PRC</SpecID>
+        <SpecVersion>3.11</SpecVersion>
+        <SpecLang>en</SpecLang>
+        <XMLFileName>Drill Driver Assembly</XMLFileName>
+        <FileName>Drill Driver Assembly</FileName>
+        <Options>
+            <Value name="3DFramePosition" type="string">Right</Value>
+            <Value name="3DFrameSize" type="string">60</Value>
+            <Value name="ShowSmoothControl" type="boolean">Yes</Value>
+            <Value name="ShowSpeedSelection" type="boolean">Yes</Value>
+            <Value name="Enable3DPartSelection" type="boolean">Yes</Value>
+            <Value name="StartAfterLoading" type="boolean">No</Value>
+            <Value name="StartAfterNavigate" type="boolean">No</Value>
+            <Value name="AutoRepeat" type="boolean">No</Value>
+            <Value name="ShowMessagesBox" type="boolean">Yes</Value>
+            <Value name="ShowAutostopBox" type="boolean">Yes</Value>
+            <Value name="ShowFreezeCheckbox" type="boolean">Yes</Value>
+            <Value name="HideActions" type="boolean">No</Value>
+            <Value name="EnableWarnings" type="boolean">Yes</Value>
+            <Value name="EnableAutostop" type="boolean">No</Value>
+            <Value name="AutoNumbering" type="boolean">Yes</Value>
+            <Value name="TableFontSize" type="string">Medium</Value>
+            <Value name="UpRight" type="boolean">No</Value>
+            <Value name="3DBackgroundColor" type="color">#FFFFFF</Value>
+            <Value name="3DSelectedColor" type="color">#FFFF00</Value>
+            <Value name="ToolbarColor" type="color">#000000</Value>
+            <Value name="ToolbarBackgroundColor" type="color">#D6D3CF</Value>
+            <Value name="TableColor" type="color">#000000</Value>
+            <Value name="TableBackgroundColor" type="color">#FFFFFF</Value>
+            <Value name="TableSelectedColor" type="color">#000000</Value>
+            <Value name="TableSelectedBackgroundColor" type="color">#FFEFD5</Value>
+            <Value name="TableHeaderColor" type="color">#000000</Value>
+            <Value name="TableHeaderBackgroundColor" type="color">#FFFFFF</Value>
+            <Value name="RemoveSpace" type="boolean">No</Value>
+            <Value name="SimplifyFloats" type="boolean">No</Value>
+            <Value name="CoordinateResolution" type="string">0</Value>
+            <Value name="VRMLProfile" type="string">1</Value>
+            <Value name="PublicPath" type="string">
+            </Value>
+            <Value name="PDFPublish" type="boolean">No</Value>
+            <Value name="TotalMemory" type="number">128</Value>
+            <Value name="SingleHTMLBundle" type="boolean">No</Value>
+            <Value name="UseSVGFilesOnly" type="boolean">No</Value>
+            <Value name="KeepSurfaceEdges" type="boolean">No</Value>
+            <Value name="UseViewerBundle" type="string">0</Value>
+            <Value name="UseCompressedSVG" type="boolean">No</Value>
+            <Value name="iOSViewpointTransitionMode" type="string">0</Value>
+        </Options>
+        <metadata>
+            <value name="CollectionName" decl-id="C3DCOLLECTION" type="string">Generic Procedures</value>
+        </metadata>
+    </SimulationInformation>
+    <Simulation id="stepd223fe701b45f901f1ef419bc4cbee5f">
+        <Description>Drill Driver Assembly Generic</Description>
+        <Comment><![CDATA[<p><b>DRILL DRIVER ASSEMBLY</b></p>]]></Comment>
+        <Step id="r05bf780f-1d52-4dfd-a5e4-71513e4a3da0">
+            <Description>02 Preparation of the motor to install</Description>
+            <Comment><![CDATA[<p><b>Preparation of the Motor to install</b></p>]]></Comment>
+            <Substep id="r81f91e6c-0a13-453c-85d3-440f5929630e">
+                <Description>Install the Motor (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r970eea12-b0dd-4c36-bbd8-576dbd79368d">
+                <Description>Point the camera to the Motor</Description>
+            </Substep>
+            <Substep id="r80daea52-2e73-4760-8bc5-d70755009310">
+                <Description>Install the Flange (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Flange</p>]]></Comment>
+            </Substep>
+            <Substep id="r06f865d2-af5d-4480-a53b-d74f87bab053">
+                <Description>Install washers</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r07d2bc94-3316-48fb-8ec8-cef8f6e5ade7">
+                <Description>install screw and screw driver</Description>
+            </Substep>
+            <Substep id="rd6306315-b86b-4f7d-b84b-0a2bfc789c69">
+                <Description>Install the Screw driver for flange 01 with screws (after Remove)</Description>
+            </Substep>
+            <Substep id="r67b84785-2222-4ff2-96a8-13ddffb9eab9">
+                <Description>Remove the Screwdriver for Flange 01</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r351455c8-8187-45b4-b5ed-8d8f299e7bdc">
+                <Description>Install the Flange Screw 1.9x16mm (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+        </Step>
+        <Step id="rc5578ad4-cf46-4c1a-81fc-12b934fb580a">
+            <Description>03 Gear Box Disassembly</Description>
+            <Comment><![CDATA[<p><b>Gear Box Disassembly</b></p>]]></Comment>
+            <Substep id="rc30a0634-f250-4ef8-8a87-ce8a916b5aeb">
+                <Description>Install the Gear Train Housing (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Gear Train Housing</p>]]></Comment>
+            </Substep>
+            <Substep id="r80fd14bd-741b-4cbb-a3ca-3b2a94c837e2">
+                <Description>Install the Gearbox Shaft (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Gearbox Shaft</p>]]></Comment>
+            </Substep>
+            <Substep id="ra72bafe3-cf9f-4ee5-99c5-a5ce4bef74a0">
+                <Description>Install the Gear Sleeve (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Gear Sleeve</p>]]></Comment>
+            </Substep>
+            <Substep id="rc035f3ec-d015-451d-b221-fe5f084d32dc">
+                <Description>Install the Metal  Gear Set (3 Pcs.) (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Metal  Gear Set (3 Pcs.)</p>]]></Comment>
+            </Substep>
+            <Substep id="ra4daea69-2824-4084-8e4e-6e57b9da9ae9">
+                <Description>Install the Pinion (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Pinion</p>]]></Comment>
+            </Substep>
+            <Substep id="r0fbbe9bd-2bae-4334-b124-cba0b3166106">
+                <Description>Install the Plastic Gear Set (3 Pcs.) (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Plastic Gear Set (3 Pcs.)</p>]]></Comment>
+            </Substep>
+            <Substep id="rf8b24733-f93a-40ac-a4c9-d9169c7e337c">
+                <Description>Install the Flat Washer 8mm (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Flat Washer 8mm</p>]]></Comment>
+            </Substep>
+            <Substep id="rd231134a-9c06-484a-bcc5-d4ac6d22ee3b">
+                <Description>Attach the Motor</Description>
+                <Comment><![CDATA[<p>Attach the Motor</p>]]></Comment>
+            </Substep>
+            <Substep id="rc2b0aabc-cb41-4e91-8776-6066925f96f5">
+                <Description>Install the Screw driver for flange with screw (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="rdf4acd5f-fea0-468d-b4f4-34db49dd9bbd">
+                <Description>Flash the Gear Train Screw 1.9x14mm</Description>
+            </Substep>
+            <Substep id="r91feed4c-2048-4e3e-8152-f372788cd062">
+                <Description>Install the Screw driver for flange with screw (after Remove)</Description>
+            </Substep>
+            <Substep id="r9d81a885-5b1b-4406-b325-fae6b3b7b9bf">
+                <Description>Remove the Screwdriver for Flange</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="re0c1657e-a197-4391-96f1-dae6f72edb24">
+                <Description>Remove screws</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r3dc2afde-0e80-4f78-8740-96fda51ea351">
+                <Description>Install the Balls Set A (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Balls Set A</p>]]></Comment>
+            </Substep>
+            <Substep id="r5af719ab-f284-4850-a138-ad82e675bc58">
+                <Description>Install the Washer 8.2mm (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Washer 8.2mm</p>]]></Comment>
+            </Substep>
+            <Substep id="r994cf764-9455-4f9a-85d5-2b9b1af09723">
+                <Description>Install the Balls Set B (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Balls Set B</p>]]></Comment>
+            </Substep>
+            <Substep id="reb9eaebe-bc66-4f89-b4bb-4aa70ceefdf8">
+                <Description>Install the Washer 8.2mm (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Washer 8.2mm</p>]]></Comment>
+            </Substep>
+            <Substep id="r46d95058-529d-4a77-8e79-e35bb6be580f">
+                <Description>Install the Retaining Ring (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Retaining Ring</p>]]></Comment>
+            </Substep>
+            <Substep id="r5bd97131-67cf-462a-a958-9675d12e0ea2">
+                <Description>Install the Clutch Washer 24.5mm (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Clutch Washer 24.5mm</p>]]></Comment>
+            </Substep>
+            <Substep id="re71a2e49-b9ec-43f3-b40c-3e4ef4a19ebd">
+                <Description>Install the Spring (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Spring</p>]]></Comment>
+            </Substep>
+            <Substep id="r14ac443a-1477-421f-9fe7-c06c6b297ac3">
+                <Description>Install the Sleeve (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Sleeve</p>]]></Comment>
+            </Substep>
+            <Substep id="r21d22217-430c-4d55-8b65-e6d6abb8837b">
+                <Description>Install the Clutch Cap (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="reb3a6dbe-1f83-46d3-8b44-0dc3d8433433">
+                <Description>Connect the Clutch Cap</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r589a44a2-edf1-460c-a6a8-61784aba67a5">
+                <Description>Install the Click Spring (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Click Spring</p>]]></Comment>
+            </Substep>
+            <Substep id="r34758d9e-5697-497e-9637-026a7ad49f50">
+                <Description>Install the Spring Plate (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Spring Plate</p>]]></Comment>
+            </Substep>
+            <Substep id="re7b8bf07-d77a-4d25-949c-2e738259fa05">
+                <Description>Install the Screw driver for сlutch and screw (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="rbf1ed634-8ab9-48cb-84df-3688fefdc2db">
+                <Description>Flash the Clutch Screw 1.8x14mm</Description>
+            </Substep>
+            <Substep id="r3a0bde74-4e3d-400e-923e-4f5c46ede504">
+                <Description>Install the Screw driver for сlutch and screw (after Remove)</Description>
+            </Substep>
+            <Substep id="r0d4e01f2-0232-44ad-8844-cb05fc769a8e">
+                <Description>Remove the Screwdriver for Clutch</Description>
+            </Substep>
+            <Substep id="r9e387638-9011-42dd-a1ec-06ed2fce7125">
+                <Description>Install the Clutch Screw 1.8x14mm (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+        </Step>
+        <Step id="r85de3ccd-6d11-489f-83eb-fdf742a23092">
+            <Description>04 Install Left Housing with Switch Block</Description>
+            <Comment><![CDATA[<p><b>Install the Left Housing with the Switch Block</b></p>]]></Comment>
+            <Substep id="r90d3e9f5-82ad-4eb5-8066-950a444f8158">
+                <Description>Install the Housing L with Switch block (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r62dfefa4-4186-4fab-b696-0967107c085c">
+                <Description>Point the camera to the Housing L with Switch block</Description>
+            </Substep>
+        </Step>
+        <Step id="rd4a4ab74-ad3a-43dd-a465-98e8916d57a0">
+            <Description>05 Attach Motor Connectors</Description>
+            <Comment><![CDATA[<p><b>Attach Motor Connectors</b></p>]]></Comment>
+            <Substep id="r6ee3c8a0-3dd4-4065-9a0c-506ffcaa7d93">
+                <Description>Attach the obj_34</Description>
+                <Comment><![CDATA[<p>Attach the black Connector</p>]]></Comment>
+            </Substep>
+            <Substep id="rc3639181-6da8-46e8-b644-82030e52b633">
+                <Description>Attach the obj_26</Description>
+                <Comment><![CDATA[<p>Attach the red Connector</p>]]></Comment>
+            </Substep>
+        </Step>
+        <Step id="r9c9b1ac5-a85a-47b6-9eca-1da6465adf91">
+            <Description>06 Install Right Housing</Description>
+            <Comment><![CDATA[<p><b>Install Right Housing</b></p>]]></Comment>
+            <Substep id="rd75b8934-c6d2-4d50-be9e-395cca6b3d86">
+                <Description>Install the Housing R (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Right Housing</p>]]></Comment>
+            </Substep>
+            <Substep id="r65d3227f-3c4e-4428-9e27-40498b1a1791">
+                <Description>Install the Screw driver and screw (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r74508637-c93f-4d50-b7ac-3d2848834d74">
+                <Description>Flash the Screw 1.9x15mm</Description>
+            </Substep>
+            <Substep id="r79a7909e-7b60-4382-bfce-d17a0a9052db">
+                <Description>Install the Screw driver and screw (after Remove)</Description>
+            </Substep>
+            <Substep id="rf75a2a8e-1a6e-4ddb-871a-24876bc9f3b3">
+                <Description>Remove the Screwdriver for Housing</Description>
+            </Substep>
+            <Substep id="r579cc06d-1bf3-40da-825a-65fd2b3bfb20">
+                <Description>Remove screws</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+        </Step>
+        <Step id="r0c133489-9395-41c8-b4db-8cefea414f83">
+            <Description>07 Conect the Battery</Description>
+            <Comment><![CDATA[<p><b>Connect Battery</b></p>]]></Comment>
+            <Substep id="rc0e945b7-2a63-43c7-bed7-b6c865ce6ed3">
+                <Description>Connect battery</Description>
+            </Substep>
+            <Substep id="r17a10e57-6814-4682-868f-79a9979193dd">
+                <Description>Point the camera to the obj_5</Description>
+            </Substep>
+        </Step>
+        <Step id="r72e926bf-947f-4a12-9bb3-c7f40205e53e">
+            <Description>08 Install the Chuck and the Drill Bit</Description>
+            <Comment><![CDATA[<p><b>Install Chuck and Drill Bit</b></p>]]></Comment>
+            <Substep id="r24aeb7e6-dfcc-4506-8560-628111cd5dc4">
+                <Description>Install the Chuck and torch tool (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="rd5c4e778-2d84-429f-86e2-4336a66ff0f8">
+                <Description>Loosen the Chuck and torch tool</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="rbb5fa3fa-fe6a-49bc-9402-7781f79461e0">
+                <Description>Attach the F/R Selector Handle</Description>
+                <Comment><![CDATA[<p>Switch the F/R Selector Handle to position &quot;R&quot;</p>]]></Comment>
+            </Substep>
+            <Substep id="r762f1f3d-5aab-49f3-b3be-8e27fbafea9e">
+                <Description>Press buton</Description>
+                <Comment><![CDATA[<p>Slightly press the Switch Button holding the Chuck rotation by the Torch Tool</p>]]></Comment>
+            </Substep>
+            <Substep id="r29e4f69e-9c9c-4bc3-8948-39b6ab5dcb79">
+                <Description>Point the camera to the obj_236</Description>
+            </Substep>
+            <Substep id="r0d1de1ea-267b-44a5-b4cd-8e1e5c0d9920">
+                <Description>
+                </Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r42eea8f6-91f3-46b4-b215-b821c192c6cd">
+                <Description>Remove the torch_tool</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="reb485cde-0fc1-45a3-b215-27c2cd0a3a90">
+                <Description>Install the Screw driver for chuck and screw (after Remove)</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="rb2405818-c421-49b7-a9b7-9efb5648d8aa">
+                <Description>Flash the Left-Hand Screw</Description>
+            </Substep>
+            <Substep id="r745e4b42-b533-4771-a6be-5bb27dcbcb1e">
+                <Description>Install the Screw driver for chuck and screw (after Remove)</Description>
+            </Substep>
+            <Substep id="r22a268d8-9dd1-4c65-9a2b-a2d6dce936df">
+                <Description>Point the camera to the obj_238</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r1582f58e-eab6-4e82-a848-d56bc03656da">
+                <Description>Remove the Screwdriver for Chuck</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r839e9ff2-dd5c-4348-9ea9-0b6ecbc99405">
+                <Description>Set the Chuck transparency to 0.8</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="rc652bad1-6631-4a01-bfce-5b021a5703bf">
+                <Description>Flash the Left-Hand Screw</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="r18879078-8d4d-4701-9b4a-e535850a0c2d">
+                <Description>Set the Chuck transparency to 0</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+            <Substep id="rf851a2c4-8f64-4c51-923d-f68ad646caa1">
+                <Description>Install the Drill Bit (after Remove)</Description>
+                <Comment><![CDATA[<p>Install the Drill Bit</p>]]></Comment>
+            </Substep>
+            <Substep id="rd7b8986c-8c5d-47c8-80fd-9060480625b1">
+                <Description>
+                </Description>
+                <Comment><![CDATA[<p>Tighten the Chuck</p>]]></Comment>
+            </Substep>
+        </Step>
+        <Step id="r1cd777c0-a291-449d-971a-6009a7c1233a">
+            <Description>09 Inspection</Description>
+            <Comment><![CDATA[<p><b>Inspection</b></p>]]></Comment>
+            <Substep id="r575565a3-4db8-4585-afe0-3cdeb6552281">
+                <Description>Point the camera to the Drill Driver Assembly</Description>
+            </Substep>
+            <Substep id="r964c68cf-3b1d-4b1c-a6d0-b66e84adfb24">
+                <Description>Rotate the Drill Driver Assembly</Description>
+                <Comment>
+                </Comment>
+            </Substep>
+        </Step>
+    </Simulation>
+    <Procedure id="stepd223fe701b45f901f1ef419bc4cbee5f">
+        <Item id="r05bf780f-1d52-4dfd-a5e4-71513e4a3da0">
+            <Action id="r81f91e6c-0a13-453c-85d3-440f5929630e">
+                <Comment>
+                </Comment>
+            </Action>
+            <Action id="r970eea12-b0dd-4c36-bbd8-576dbd79368d">
+            </Action>
+            <Action id="r80daea52-2e73-4760-8bc5-d70755009310">
+                <Comment><![CDATA[<p>Install the Flange</p>]]></Comment>
+            </Action>
+            <Item id="r486c71f5-d78d-4127-8209-5dd16532c5a6">
+                <Action id="r06f865d2-af5d-4480-a53b-d74f87bab053">
+                    <Comment>
+                    </Comment>
+                    <Description>Install washers</Description>
+                </Action>
+                <Comment><![CDATA[<p>Install the Flange Washers</p>]]></Comment>
+                <Description>Install the Flange Washers</Description>
+            </Item>
+            <Item id="r487c1a0b-e313-4f6e-ab48-3d63e8bc29ec">
+                <Action id="r07d2bc94-3316-48fb-8ec8-cef8f6e5ade7">
+                    <Description>install screw and screw driver</Description>
+                </Action>
+                <Action id="rd6306315-b86b-4f7d-b84b-0a2bfc789c69">
+                </Action>
+                <Action id="r67b84785-2222-4ff2-96a8-13ddffb9eab9">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="r351455c8-8187-45b4-b5ed-8d8f299e7bdc">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Comment><![CDATA[<p>Install the Flange Screws with a Screwdriver</p>]]></Comment>
+                <Description>Install the Flange Screws with Screwdriver</Description>
+            </Item>
+            <Comment><![CDATA[<p><b>Preparation of the Motor to install</b></p>]]></Comment>
+            <Description>02 Preparation of the motor to install</Description>
+        </Item>
+        <Item id="rc5578ad4-cf46-4c1a-81fc-12b934fb580a">
+            <Action id="rc30a0634-f250-4ef8-8a87-ce8a916b5aeb">
+                <Comment><![CDATA[<p>Install the Gear Train Housing</p>]]></Comment>
+            </Action>
+            <Action id="r80fd14bd-741b-4cbb-a3ca-3b2a94c837e2">
+                <Comment><![CDATA[<p>Install the Gearbox Shaft</p>]]></Comment>
+            </Action>
+            <Action id="ra72bafe3-cf9f-4ee5-99c5-a5ce4bef74a0">
+                <Comment><![CDATA[<p>Install the Gear Sleeve</p>]]></Comment>
+            </Action>
+            <Action id="rc035f3ec-d015-451d-b221-fe5f084d32dc">
+                <Comment><![CDATA[<p>Install the Metal  Gear Set (3 Pcs.)</p>]]></Comment>
+            </Action>
+            <Action id="ra4daea69-2824-4084-8e4e-6e57b9da9ae9">
+                <Comment><![CDATA[<p>Install the Pinion</p>]]></Comment>
+            </Action>
+            <Action id="r0fbbe9bd-2bae-4334-b124-cba0b3166106">
+                <Comment><![CDATA[<p>Install the Plastic Gear Set (3 Pcs.)</p>]]></Comment>
+            </Action>
+            <Action id="rf8b24733-f93a-40ac-a4c9-d9169c7e337c">
+                <Comment><![CDATA[<p>Install the Flat Washer 8mm</p>]]></Comment>
+            </Action>
+            <Action id="rd231134a-9c06-484a-bcc5-d4ac6d22ee3b">
+                <Comment><![CDATA[<p>Attach the Motor</p>]]></Comment>
+            </Action>
+            <Item id="r151e85e2-c4d3-4f57-ad84-c3b94fdd05d6">
+                <Action id="rc2b0aabc-cb41-4e91-8776-6066925f96f5">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="rdf4acd5f-fea0-468d-b4f4-34db49dd9bbd">
+                </Action>
+                <Action id="r91feed4c-2048-4e3e-8152-f372788cd062">
+                </Action>
+                <Action id="r9d81a885-5b1b-4406-b325-fae6b3b7b9bf">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="re0c1657e-a197-4391-96f1-dae6f72edb24">
+                    <Comment>
+                    </Comment>
+                    <Description>Remove screws</Description>
+                </Action>
+                <Comment><![CDATA[<p>Install the Gear Train Screws with Screwdriver</p>]]></Comment>
+                <Description>Install the Gear Train Screw with Screwdriver</Description>
+            </Item>
+            <Action id="r3dc2afde-0e80-4f78-8740-96fda51ea351">
+                <Comment><![CDATA[<p>Install the Balls Set A</p>]]></Comment>
+            </Action>
+            <Action id="r5af719ab-f284-4850-a138-ad82e675bc58">
+                <Comment><![CDATA[<p>Install the Washer 8.2mm</p>]]></Comment>
+            </Action>
+            <Action id="r994cf764-9455-4f9a-85d5-2b9b1af09723">
+                <Comment><![CDATA[<p>Install the Balls Set B</p>]]></Comment>
+            </Action>
+            <Action id="reb9eaebe-bc66-4f89-b4bb-4aa70ceefdf8">
+                <Comment><![CDATA[<p>Install the Washer 8.2mm</p>]]></Comment>
+            </Action>
+            <Action id="r46d95058-529d-4a77-8e79-e35bb6be580f">
+                <Comment><![CDATA[<p>Install the Retaining Ring</p>]]></Comment>
+            </Action>
+            <Action id="r5bd97131-67cf-462a-a958-9675d12e0ea2">
+                <Comment><![CDATA[<p>Install the Clutch Washer 24.5mm</p>]]></Comment>
+            </Action>
+            <Action id="re71a2e49-b9ec-43f3-b40c-3e4ef4a19ebd">
+                <Comment><![CDATA[<p>Install the Spring</p>]]></Comment>
+            </Action>
+            <Action id="r14ac443a-1477-421f-9fe7-c06c6b297ac3">
+                <Comment><![CDATA[<p>Install the Sleeve</p>]]></Comment>
+            </Action>
+            <Item id="rdbe2dabe-5021-4197-95bc-8855da54e3e7">
+                <Action id="r21d22217-430c-4d55-8b65-e6d6abb8837b">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="reb3a6dbe-1f83-46d3-8b44-0dc3d8433433">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Comment><![CDATA[<p>Install the Clutch Cap</p>]]></Comment>
+                <Description>Install the Clutch Cap</Description>
+            </Item>
+            <Action id="r589a44a2-edf1-460c-a6a8-61784aba67a5">
+                <Comment><![CDATA[<p>Install the Click Spring</p>]]></Comment>
+            </Action>
+            <Action id="r34758d9e-5697-497e-9637-026a7ad49f50">
+                <Comment><![CDATA[<p>Install the Spring Plate</p>]]></Comment>
+            </Action>
+            <Item id="rf7fdbcda-f899-4d70-b635-c134aa7cbfb1">
+                <Action id="re7b8bf07-d77a-4d25-949c-2e738259fa05">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="rbf1ed634-8ab9-48cb-84df-3688fefdc2db">
+                </Action>
+                <Action id="r3a0bde74-4e3d-400e-923e-4f5c46ede504">
+                </Action>
+                <Action id="r0d4e01f2-0232-44ad-8844-cb05fc769a8e">
+                </Action>
+                <Action id="r9e387638-9011-42dd-a1ec-06ed2fce7125">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Comment><![CDATA[<p>Install the Clutch Screws with a Screwdriver</p>]]></Comment>
+                <Description>Install the Clutch Screws with Screwdriver</Description>
+            </Item>
+            <Comment><![CDATA[<p><b>Gear Box Disassembly</b></p>]]></Comment>
+            <Description>03 Gear Box Disassembly</Description>
+        </Item>
+        <Item id="r85de3ccd-6d11-489f-83eb-fdf742a23092">
+            <Action id="r90d3e9f5-82ad-4eb5-8066-950a444f8158">
+                <Comment>
+                </Comment>
+            </Action>
+            <Action id="r62dfefa4-4186-4fab-b696-0967107c085c">
+            </Action>
+            <Comment><![CDATA[<p><b>Install the Left Housing with the Switch Block</b></p>]]></Comment>
+            <Description>04 Install Left Housing with Switch Block</Description>
+        </Item>
+        <Item id="rd4a4ab74-ad3a-43dd-a465-98e8916d57a0">
+            <Action id="r6ee3c8a0-3dd4-4065-9a0c-506ffcaa7d93">
+                <Comment><![CDATA[<p>Attach the black Connector</p>]]></Comment>
+            </Action>
+            <Action id="rc3639181-6da8-46e8-b644-82030e52b633">
+                <Comment><![CDATA[<p>Attach the red Connector</p>]]></Comment>
+            </Action>
+            <Comment><![CDATA[<p><b>Attach Motor Connectors</b></p>]]></Comment>
+            <Description>05 Attach Motor Connectors</Description>
+        </Item>
+        <Item id="r9c9b1ac5-a85a-47b6-9eca-1da6465adf91">
+            <Action id="rd75b8934-c6d2-4d50-be9e-395cca6b3d86">
+                <Comment><![CDATA[<p>Install the Right Housing</p>]]></Comment>
+            </Action>
+            <Item id="r5c93cff0-352f-488c-8de1-b2b7f4faf1ac">
+                <Action id="r65d3227f-3c4e-4428-9e27-40498b1a1791">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="r74508637-c93f-4d50-b7ac-3d2848834d74">
+                </Action>
+                <Action id="r79a7909e-7b60-4382-bfce-d17a0a9052db">
+                </Action>
+                <Action id="rf75a2a8e-1a6e-4ddb-871a-24876bc9f3b3">
+                </Action>
+                <Action id="r579cc06d-1bf3-40da-825a-65fd2b3bfb20">
+                    <Comment>
+                    </Comment>
+                    <Description>Remove screws</Description>
+                </Action>
+                <Comment><![CDATA[<p>Install the Right Housing Screws with a Screwdriver</p>]]></Comment>
+                <Description>Install Right Housing screws with Screwdriver</Description>
+            </Item>
+            <Comment><![CDATA[<p><b>Install Right Housing</b></p>]]></Comment>
+            <Description>06 Install Right Housing</Description>
+        </Item>
+        <Item id="r0c133489-9395-41c8-b4db-8cefea414f83">
+            <Action id="rc0e945b7-2a63-43c7-bed7-b6c865ce6ed3">
+                <Description>Connect battery</Description>
+            </Action>
+            <Action id="r17a10e57-6814-4682-868f-79a9979193dd">
+            </Action>
+            <Comment><![CDATA[<p><b>Connect Battery</b></p>]]></Comment>
+            <Description>07 Conect the Battery</Description>
+        </Item>
+        <Item id="r72e926bf-947f-4a12-9bb3-c7f40205e53e">
+            <Item id="rb5b6058d-2b49-4bf2-8eb5-c67ca69e52e5">
+                <Action id="r24aeb7e6-dfcc-4506-8560-628111cd5dc4">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="rd5c4e778-2d84-429f-86e2-4336a66ff0f8">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Comment><![CDATA[<p>Install  the Chuck with a pre-installed Torch Tool</p>]]></Comment>
+                <Description>Remove Chuck</Description>
+            </Item>
+            <Action id="rbb5fa3fa-fe6a-49bc-9402-7781f79461e0">
+                <Comment><![CDATA[<p>Switch the F/R Selector Handle to position &quot;R&quot;</p>]]></Comment>
+            </Action>
+            <Action id="r762f1f3d-5aab-49f3-b3be-8e27fbafea9e">
+                <Comment><![CDATA[<p>Slightly press the Switch Button holding the Chuck rotation by the Torch Tool</p>]]></Comment>
+                <Description>Press buton</Description>
+            </Action>
+            <Action id="r29e4f69e-9c9c-4bc3-8948-39b6ab5dcb79">
+            </Action>
+            <Item id="rdb6eb1ef-f223-440a-8b3b-4191df37fe33">
+                <Action id="r0d1de1ea-267b-44a5-b4cd-8e1e5c0d9920">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="r42eea8f6-91f3-46b4-b215-b821c192c6cd">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Comment><![CDATA[<p>Remove the Torch Tool</p>]]></Comment>
+                <Description>Remove the Torch Tool</Description>
+            </Item>
+            <Item id="rbae3d14c-4b7b-4b16-8efc-2edd33a749d2">
+                <Action id="reb485cde-0fc1-45a3-b215-27c2cd0a3a90">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="rb2405818-c421-49b7-a9b7-9efb5648d8aa">
+                </Action>
+                <Action id="r745e4b42-b533-4771-a6be-5bb27dcbcb1e">
+                </Action>
+                <Action id="r22a268d8-9dd1-4c65-9a2b-a2d6dce936df">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="r1582f58e-eab6-4e82-a848-d56bc03656da">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="r839e9ff2-dd5c-4348-9ea9-0b6ecbc99405">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="rc652bad1-6631-4a01-bfce-5b021a5703bf">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Action id="r18879078-8d4d-4701-9b4a-e535850a0c2d">
+                    <Comment>
+                    </Comment>
+                </Action>
+                <Comment><![CDATA[<p>Install the Left-Hand Screw with a Screwdriver</p>]]></Comment>
+                <Description>Install The Left-Hand Screw with Screwdriver</Description>
+            </Item>
+            <Action id="rf851a2c4-8f64-4c51-923d-f68ad646caa1">
+                <Comment><![CDATA[<p>Install the Drill Bit</p>]]></Comment>
+            </Action>
+            <Action id="rd7b8986c-8c5d-47c8-80fd-9060480625b1">
+                <Comment><![CDATA[<p>Tighten the Chuck</p>]]></Comment>
+            </Action>
+            <Comment><![CDATA[<p><b>Install Chuck and Drill Bit</b></p>]]></Comment>
+            <Description>08 Install the Chuck and the Drill Bit</Description>
+        </Item>
+        <Item id="r1cd777c0-a291-449d-971a-6009a7c1233a">
+            <Action id="r575565a3-4db8-4585-afe0-3cdeb6552281">
+            </Action>
+            <Action id="r964c68cf-3b1d-4b1c-a6d0-b66e84adfb24">
+                <Comment>
+                </Comment>
+            </Action>
+            <Comment><![CDATA[<p><b>Inspection</b></p>]]></Comment>
+            <Description>09 Inspection</Description>
+        </Item>
+    </Procedure>
+    <DocItems>
+    </DocItems>
+    <Resources>
+    </Resources>
+    <DocumentTemplate><![CDATA[]]></DocumentTemplate>
+</SimulationInteractivity>

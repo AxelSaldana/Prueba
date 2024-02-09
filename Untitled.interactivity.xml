@@ -54,7 +54,7 @@
 </Options>
 <metadata>
 <value name="Topic type" decl-id="SCHEMA" type="string">task</value>
-<value name="Topic ID" decl-id="TOPIC_ID" type="string">r5600582a-fddb-4d38-8612-26cbb9ef0957</value>
+<value name="Topic ID" decl-id="TOPIC_ID" type="string">r_a407e05e-f646-4e8b-944d-6049f117aae8</value>
 <value name="Topic rev" decl-id="ISSUE_NO" type="string">
 </value>
 <value name="Topic status" decl-id="ISSUE_TYPE" type="string">
@@ -63,399 +63,579 @@
 </value>
 <value name="Topic product" decl-id="TOPIC_PRODUCT" type="string">
 </value>
-<value name="Title" decl-id="TITLE" type="string">Oil derrick installation</value>
+<value name="Title" decl-id="TITLE" type="string">TURBINE C3D-MANUAL-DEMO-02 ASSEMBLY</value>
 <value name="Topic language" decl-id="LANG" type="string">en</value>
 </metadata>
 </SimulationInformation>
-<Simulation id="r5600582a-fddb-4d38-8612-26cbb9ef0957">
+<Simulation id="r_a407e05e-f646-4e8b-944d-6049f117aae8">
 <Description>
 </Description>
-<Step id="rd4bfa90f-abfb-4ddb-9301-4c4c6c7c85e1">
-<Description>1</Description>
-<Comment><![CDATA[
-]]></Comment>
-<Substep id="rd1a69508-13ce-44ab-97b1-caa0c643f62a">
-<Description>1.1</Description>
+<Step id="r64924e52-b2fb-4db2-94fc-203b63300b67">
+<Description>1. Assemble compressor module</Description>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">COMPRESSOR MODULE DISASSEMBLY</span></span></b></p>]]></Comment>
+<Substep id="rabab9173-2ae0-474c-9cff-0a4983af8ed3">
+<Description>Point the camera to the COMPRESSOR WAY</Description>
 </Substep>
-<Substep id="r61ce1811-9129-46c0-a606-b530f54f4fd0">
-<Description>Show the stoiki_zad/A</Description>
+<Substep id="r33d13522-fb34-4180-b438-7b18377f36a3">
+<Description>Show the СБОРКА 5.2</Description>
 </Substep>
-<Substep id="r4c5e5e5e-f72d-4cdb-89f3-b08a89517d45">
-<Description>Move the stoiki_zad/A</Description>
+<Substep id="r1c37d3fb-43e2-4bfc-88ba-b3d16e7d0f29">
+<Description>Move the СБОРКА 5.2</Description>
 </Substep>
-<Substep id="r08eb7714-eb74-4997-9fac-2e3f34711dbf">
-<Description>Show the stoiki_per/A</Description>
+<Substep id="r95fc1ef7-b23a-4292-b8e3-dfcac3e12b48">
+<Description>Move the СБОРКА 5.1</Description>
 </Substep>
-<Substep id="re41e4e43-478b-4585-a751-eafbc9fdf65f">
-<Description>Move the stoiki_per/A</Description>
+<Substep id="r348077c1-318f-49fe-bdf8-8b1cce601531">
+<Description>Flash the РОТОР КОМПРЕССОРА M-003-003</Description>
 </Substep>
-<Substep id="r77bba6e2-ac91-4c31-804b-2af3c39332dd">
-<Description>
-</Description>
+<Substep id="r7ecb03cc-a57a-4f63-9e84-edc5eb3216f7">
+<Description>Remove the T_5</Description>
 </Substep>
-<Substep id="r2d2a8e30-5d4e-4e99-8a78-c3a801ef3cc2">
-<Description>
-</Description>
+<Substep id="r9aa1b067-52e2-4959-9bec-e1140430b294">
+<Description>Move the КРЮК</Description>
 </Substep>
-<Substep id="rf0e4e6cc-55ff-4695-bf71-84db3665382e">
-<Description>Show the mod/A</Description>
+<Substep id="rd056f62d-3e2a-4382-a6e5-a45023b399b1">
+<Description>Move the CRANE_1</Description>
 </Substep>
-<Substep id="r1de6645c-2581-4354-ab57-70fdf8c7aaab">
-<Description>Move the mod/A</Description>
+<Substep id="r429c1944-6b0a-4d61-b374-8df12b41b4e0">
+<Description>Remove the CRANE_1</Description>
 </Substep>
-<Substep id="r637de9f5-51d6-4e70-aba6-0820d5877afe">
-<Description>Move the mod/A</Description>
-</Substep>
-<Substep id="r5f5c3f21-436e-4995-a771-40018e6771fa">
-<Description>Show the 000062/A</Description>
-</Substep>
-<Substep id="r8ea4a046-6762-46b7-8999-6619d9b45d56">
-<Description>Move the 000062/A</Description>
-</Substep>
-<Substep id="r3ef8c5c1-60e5-458d-b341-fcb41ac378e8">
-<Description>Move the 000062/A</Description>
-</Substep>
-<Substep id="r9f880c26-5fe8-4d5d-889c-8021e4518ab5">
-<Description>
-</Description>
+<Substep id="r828adf43-7c45-4dda-901f-8d075ff39137">
+<Description>Install compressor upper case with blades</Description>
 <Comment><![CDATA[
 ]]></Comment>
 </Substep>
-<Substep id="r0d67301f-1dfa-414a-93ff-8bcd9d7b7559">
-<Description>
-</Description>
-</Substep>
-<Substep id="r07dc9e66-4b89-4618-a7f2-6aa20ea14eaa">
-<Description>Подкосы вверх</Description>
-</Substep>
-<Substep id="r463c09e4-e5d3-4a62-b753-f78583fb548d">
-<Description>тяги вверх</Description>
-</Substep>
-<Substep id="rc4289502-f298-48b2-aec1-c611ea57ae38">
-<Description>Show the rigel_upv/A</Description>
-</Substep>
-<Substep id="ra18b86c2-20b1-4b83-b14f-915b5dcfe3fc">
-<Description>Move the rigel_upv/A</Description>
-</Substep>
-<Substep id="r7717be46-5bca-4ea5-92ee-fa3dbcc5bfa9">
-<Description>Move the 1</Description>
-</Substep>
-<Substep id="rf034d3a1-2e49-4ca1-a52d-894e93d562c9">
-<Description>Show the balki_svp_upv/A</Description>
+<Substep id="r66f5c64d-3d16-4728-a9d2-7cf999f6dd87">
+<Description>Assemble stator blades control system</Description>
+<Comment><![CDATA[
+]]></Comment>
 </Substep>
 </Step>
-<Step id="r29f0285e-6933-45f3-bfa8-373c43873e1d">
-<Description>2</Description>
+<Step id="r6d05f6ed-bd62-4953-aca1-5538ff2d6fdc">
+<Description>2. Assemble combustion chamber</Description>
+<Comment><![CDATA[<p><b><span style="font-size: 125%;">COMBUSTION CHAMBER ASSEMBLY</span></b></p>]]></Comment>
+<Substep id="r4f73ba7e-3170-49ac-bbe4-6ab31dfb3647">
+<Description>Attach combustion chamber</Description>
 <Comment><![CDATA[
 ]]></Comment>
-<Substep id="re21663e5-9ac0-44b9-bb46-4f8973e81d28">
-<Description>
-</Description>
-<Comment><![CDATA[
-]]></Comment>
-</Substep>
-<Substep id="rbf06d66e-cdac-49d7-8976-00d6c1d9b7f3">
-<Description>
-</Description>
-<Comment><![CDATA[
-]]></Comment>
-</Substep>
-<Substep id="rc8be1c53-de3a-41f9-932c-053aafa5747e">
-<Description>Show the sek_6/A</Description>
-</Substep>
-<Substep id="rafb4e891-9d06-4f44-95d7-e6c29767b7bd">
-<Description>Move the sek_6/A</Description>
-</Substep>
-<Substep id="r9d58011e-0697-41ae-af40-56d5f312f9c1">
-<Description>Show the kronblok/A</Description>
-</Substep>
-<Substep id="r129b9001-2764-4103-9987-d25551fc805f">
-<Description>Move the kronblok/A</Description>
-</Substep>
-<Substep id="r93cd6104-b228-495d-b610-d2891e809a31">
-<Description>Show the balki_svp_vishka/A</Description>
-</Substep>
-<Substep id="r141dd36a-2202-47e8-baf9-892092f206a6">
-<Description>Move the balki_svp_vishka/A</Description>
-</Substep>
-<Substep id="r008d3347-3f06-4b6d-9b9b-8304e1fbf88e">
-<Description>Install the Ropes</Description>
-</Substep>
-<Substep id="r5f099208-c9ea-42a7-a900-c246da11052a">
-<Description>Move the для подъема</Description>
-</Substep>
-<Substep id="r3504e8dc-25cc-43e5-9f43-d718706df6e1">
-<Description>убрать опоры</Description>
 </Substep>
 </Step>
-<Step id="r474ee0c9-071d-4641-af68-223ce28417c9">
-<Description>3</Description>
+<Step id="rd29cf722-65e7-493f-90bf-85d28f93c352">
+<Description>3. Assemble turbine module</Description>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">TURBINE MODULE ASSEMBLY</span></span></b></p>]]></Comment>
+<Substep id="rb9af4e98-00c3-45b7-9df8-5078538c3d64">
+<Description>Install LPT rotor</Description>
 <Comment><![CDATA[
 ]]></Comment>
-<Substep id="r9cced33f-47a0-4556-af25-f87e36d5dbf4">
-<Description>Set the Новая коллекция 2 transparency to 0.9</Description>
 </Substep>
-<Substep id="r98560449-1578-4f5c-a37a-5a8e5d3f8e7a">
-<Description>Show the 2/B</Description>
+<Substep id="r10383b77-5173-4b5d-8871-01f4cc84762c">
+<Description>Install LPT upper case</Description>
+<Comment><![CDATA[
+]]></Comment>
 </Substep>
-<Substep id="r5fc9c0b9-3679-45f0-9ad4-9b728f6e88ee">
-<Description>Show the krukoblok/B</Description>
+<Substep id="r1ebbea6b-c7a6-49d0-8e8e-9d83a9e925f1">
+<Description>Attach LPT from assembly</Description>
+<Comment><![CDATA[
+]]></Comment>
 </Substep>
-<Substep id="r36082c40-8438-4ee8-94a9-af7bd4b4e7c5">
-<Description>Show the napravl/A</Description>
+<Substep id="rbfef14bc-81b7-4029-9d0b-9e298d28f42d">
+<Description>Bring in the crane - attach AFT Frame</Description>
+<Comment><![CDATA[
+]]></Comment>
 </Substep>
-<Substep id="rf5b16364-562f-4454-a9d0-3507ee5a38de">
-<Description>Set the Новая коллекция 2 transparency to 0</Description>
-</Substep>
-<Substep id="r10a4ed92-780a-4cf2-bc17-6c3ddf3dc281">
-<Description>подъем</Description>
-</Substep>
-<Substep id="r69717829-adae-4c28-93a4-a27503ac9665">
-<Description>стойки вверх</Description>
-</Substep>
-<Substep id="ra3efd0c4-153f-43f9-ae23-1ee53681d15e">
-<Description>Show the 4/B</Description>
-</Substep>
-<Substep id="r67034096-52b7-4a69-a555-d1ed130b6ccf">
-<Description>Set the Новая коллекция 3 transparency to 0.9</Description>
-</Substep>
-<Substep id="rc5cbd2ee-c5f9-46aa-b589-0da43589be7d">
-<Description>Show the svp/A</Description>
-</Substep>
-<Substep id="ra4643e08-c578-45ad-ab56-53eddff73005">
-<Description>Point the camera to the 000081/A</Description>
-</Substep>
-<Substep id="r620d53a2-5c89-456d-a35a-5316322faf61">
-<Description>Set the Новая коллекция 3 transparency to 0</Description>
+<Substep id="r11f11ab4-db77-45d4-b35c-47a7a22fb9c3">
+<Description>Remove the turbine module support</Description>
+<Comment><![CDATA[
+]]></Comment>
 </Substep>
 </Step>
-<Step id="SBADF9026-0E03-4595-BF57-BBCDABE17EE5">
-<Description>4</Description>
-<Substep id="red313efa-526c-4633-873f-9e89fc304af1">
-<Description>Rotate the Full</Description>
+<Step id="r49ae66c9-ccaa-4cea-872f-0efd7b261b25">
+<Description>4. Assemble the forward sump &amp; remove supports</Description>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">FORWARD SUMP ASSEMBLY</span></span></b></p>]]></Comment>
+<Substep id="rd6c77793-9a84-42a8-b206-10c0332ac693">
+<Description>Attach the forward sump assembly</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="r2a5cab50-3eae-488e-b634-141d31d47d46">
+<Description>Remove the combastion chamber support</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="rbd331821-fb51-4a1d-9bbe-197e5fb29fa0">
+<Description>Remove the compressor support</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+</Step>
+<Step id="r8db7f15d-06c8-42dd-92b4-3bd1b6956070">
+<Description>5. Atach nozzles</Description>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">INLET/OUTLET NOZZLES ASSEMBLY</span></span></b></p>]]></Comment>
+<Substep id="radd5dce6-4b72-492d-8b99-285c059d8825">
+<Description>Install the outlet nozzle module</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="r71809f1b-3966-47df-a218-d6bc3404516a">
+<Description>Install the rear inlet nozzle</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="r568b21d0-929f-4edc-a232-cf81522ec1ff">
+<Description>Install the front inlet nozzle</Description>
+<Comment><![CDATA[<p>1</p>]]></Comment>
+</Substep>
+</Step>
+<Step id="rbcb0259e-a8ee-43ee-8349-07b4588ead2f">
+<Description>6. Atach minor parts</Description>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">TURBINE SYSTEMS ASSEMBLY   </span></span></b></p>]]></Comment>
+<Substep id="r2c411e73-b6fb-4877-a61c-b13c347e080e">
+<Description>Install the cooling system pipeline</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="rd09fc37f-df36-4087-b5ee-cd0165f14b9e">
+<Description>Install  the injection pipeline</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="r92f1fad9-4400-48d3-806e-0ac14c3de2ad">
+<Description>Install the starter</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+</Step>
+<Step id="r073daf5a-b4f4-4dd4-bc69-28266cd37d3f">
+<Description>7. Install coverings</Description>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">REDUCTOR COVER INSTALLATION</span></span></b></p>]]></Comment>
+<Substep id="r7cedadb1-2163-4a49-8d7a-07797c1888b8">
+<Description>Attach the engine shaft (reductor module)</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="ra3619bfd-dd03-4a15-af64-34fe1dd9940b">
+<Description>Install 10 Bolts</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="rdb5d2185-eea6-4f64-a040-a76760794b8c">
+<Description>Install lower reductor cover</Description>
+<Comment><![CDATA[
+]]></Comment>
+</Substep>
+<Substep id="r584b0d53-ff31-43ef-9cd8-bcdb1f4c4091">
+<Description>Install upper reductor cover</Description>
+<Comment><![CDATA[
+]]></Comment>
 </Substep>
 </Step>
 </Simulation>
-<Procedure id="r5600582a-fddb-4d38-8612-26cbb9ef0957">
-<Item id="rd4bfa90f-abfb-4ddb-9301-4c4c6c7c85e1">
-<Item id="r3bdee0b7-997d-4908-819c-e54f4f7ab35e">
-<Action id="rd1a69508-13ce-44ab-97b1-caa0c643f62a">
-<Description>1.1</Description>
+<Procedure id="r_a407e05e-f646-4e8b-944d-6049f117aae8">
+<Item id="r64924e52-b2fb-4db2-94fc-203b63300b67">
+<Item id="r0fc43a74-199c-4b8b-a138-a5e70914fcbd">
+<Action id="rabab9173-2ae0-474c-9cff-0a4983af8ed3">
 </Action>
-<Action id="r61ce1811-9129-46c0-a606-b530f54f4fd0">
+<Action id="r33d13522-fb34-4180-b438-7b18377f36a3">
 </Action>
-<Action id="r4c5e5e5e-f72d-4cdb-89f3-b08a89517d45">
+<Action id="r1c37d3fb-43e2-4bfc-88ba-b3d16e7d0f29">
 </Action>
-<Action id="r08eb7714-eb74-4997-9fac-2e3f34711dbf">
+<Action id="r95fc1ef7-b23a-4292-b8e3-dfcac3e12b48">
 </Action>
-<Action id="re41e4e43-478b-4585-a751-eafbc9fdf65f">
+<Action id="r348077c1-318f-49fe-bdf8-8b1cce601531">
 </Action>
-<Comment><![CDATA[
-]]></Comment>
-<Description>1.1 Installation of racks</Description>
+<Action id="r7ecb03cc-a57a-4f63-9e84-edc5eb3216f7">
+</Action>
+<Action id="r9aa1b067-52e2-4959-9bec-e1140430b294">
+</Action>
+<Action id="rd056f62d-3e2a-4382-a6e5-a45023b399b1">
+</Action>
+<Action id="r429c1944-6b0a-4d61-b374-8df12b41b4e0">
+</Action>
+<Comment><![CDATA[<p>INSTALL COMPRESSOR ROTOR M-003-003</p>]]></Comment>
+<Description>S01-01</Description>
 <Text><![CDATA[
-						<p>Install Racks 
+						<p>INSTALL COMPRESSOR ROTOR M-003-003. 
 				</p>
 						<p>
 						</p>
 					]]></Text>
 </Item>
-<Item id="rd81e5d3f-e774-43ee-b2c8-81d552887de0">
-<Action id="r77bba6e2-ac91-4c31-804b-2af3c39332dd">
-</Action>
-<Action id="r2d2a8e30-5d4e-4e99-8a78-c3a801ef3cc2">
-</Action>
-<Action id="rf0e4e6cc-55ff-4695-bf71-84db3665382e">
-</Action>
-<Action id="r1de6645c-2581-4354-ab57-70fdf8c7aaab">
-</Action>
-<Action id="r637de9f5-51d6-4e70-aba6-0820d5877afe">
-</Action>
-<Action id="r5f5c3f21-436e-4995-a771-40018e6771fa">
-</Action>
-<Action id="r8ea4a046-6762-46b7-8999-6619d9b45d56">
-</Action>
-<Action id="r3ef8c5c1-60e5-458d-b341-fcb41ac378e8">
-</Action>
-<Action id="r9f880c26-5fe8-4d5d-889c-8021e4518ab5">
+<Item id="ref467d21-928f-4167-a746-9ff07b32d31d">
+<Action id="r828adf43-7c45-4dda-901f-8d075ff39137">
 <Comment><![CDATA[
 ]]></Comment>
+<Description>Install compressor upper case with blades</Description>
 </Action>
-<Action id="r0d67301f-1dfa-414a-93ff-8bcd9d7b7559">
-</Action>
-<Action id="r07dc9e66-4b89-4618-a7f2-6aa20ea14eaa">
-<Description>Подкосы вверх</Description>
-</Action>
-<Action id="r463c09e4-e5d3-4a62-b753-f78583fb548d">
-<Description>тяги вверх</Description>
-</Action>
-<Action id="rc4289502-f298-48b2-aec1-c611ea57ae38">
-</Action>
-<Action id="ra18b86c2-20b1-4b83-b14f-915b5dcfe3fc">
-</Action>
-<Action id="r7717be46-5bca-4ea5-92ee-fa3dbcc5bfa9">
-</Action>
-<Action id="rf034d3a1-2e49-4ca1-a52d-894e93d562c9">
-</Action>
-<Comment><![CDATA[
-]]></Comment>
-<Description>1.2 Installation of a winch</Description>
+<Comment><![CDATA[<p>INSTALL COMPRESSOR UPPER CASE  M-003-002 WITH BLADES</p>]]></Comment>
+<Description>S01-02</Description>
 <Text><![CDATA[
-						<p>Install Winch 
+						<p>INSTALL COMPRESSOR UPPER CASE M-003-002 WITH BLADES. 
 				</p>
 						<p>
 						</p>
 					]]></Text>
 </Item>
+<Item id="r382a8d47-afed-4cc8-aa78-6aa772d6b9c9">
+<Action id="r66f5c64d-3d16-4728-a9d2-7cf999f6dd87">
 <Comment><![CDATA[
 ]]></Comment>
-<Description>1</Description>
+<Description>Assemble stator blades control system</Description>
+</Action>
+<Comment><![CDATA[<p>ASSEMBLE STATOR BLADES CONTROL SYSTEM</p>]]></Comment>
+<Description>S01-03</Description>
 <Text><![CDATA[
-				<p>Assemble racks and winch 
+						<p> <a class="image" href="IMG_001.svg">ASSEMBLE STATOR BLADES CONTROL SYSTEM.</a> <img src="IMG_001.svg"></img src="IMG_001.svg">
+						</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">COMPRESSOR MODULE DISASSEMBLY</span></span></b></p>]]></Comment>
+<Description>1. Assemble compressor module</Description>
+<Text><![CDATA[
+				<p>COMPRESSOR MODULE ASSEMBLY. 
 		  </p>
 				
 			]]></Text>
 </Item>
-<Item id="r29f0285e-6933-45f3-bfa8-373c43873e1d">
-<Item id="r2899e900-e98b-4f7c-a422-008b78117473">
-<Action id="re21663e5-9ac0-44b9-bb46-4f8973e81d28">
+<Item id="r6d05f6ed-bd62-4953-aca1-5538ff2d6fdc">
+<Item id="r1f69705d-f572-44a3-a214-2b549c05c89c">
+<Action id="r4f73ba7e-3170-49ac-bbe4-6ab31dfb3647">
 <Comment><![CDATA[
 ]]></Comment>
+<Description>Attach combustion chamber</Description>
 </Action>
-<Action id="rbf06d66e-cdac-49d7-8976-00d6c1d9b7f3">
-<Comment><![CDATA[
-]]></Comment>
-</Action>
-<Action id="rc8be1c53-de3a-41f9-932c-053aafa5747e">
-</Action>
-<Action id="rafb4e891-9d06-4f44-95d7-e6c29767b7bd">
-</Action>
-<Action id="r9d58011e-0697-41ae-af40-56d5f312f9c1">
-</Action>
-<Action id="r129b9001-2764-4103-9987-d25551fc805f">
-</Action>
-<Comment><![CDATA[
-]]></Comment>
-<Description>2.1 Installation of derrick</Description>
+<Comment><![CDATA[<p>ATTACH COMBUSTION CHAMBER M-004</p>]]></Comment>
+<Description>S02-01</Description>
 <Text><![CDATA[
-						<p>Install Derrick 
-				</p>
+						<p> <a class="image" href="IMG_002.jpg">ATTACH COMBUSTION CHAMBER M-004.</a>
+							<img src="IMG_002.jpg"></img src="IMG_002.jpg">
+						</p>
 						<p>
 						</p>
 					]]></Text>
 </Item>
-<Item id="rb9edf646-f3a1-44b5-8bb7-345ab43df70e">
-<Action id="r93cd6104-b228-495d-b610-d2891e809a31">
-</Action>
-<Action id="r141dd36a-2202-47e8-baf9-892092f206a6">
-</Action>
-<Action id="r008d3347-3f06-4b6d-9b9b-8304e1fbf88e">
-</Action>
-<Action id="r5f099208-c9ea-42a7-a900-c246da11052a">
-</Action>
-<Action id="r3504e8dc-25cc-43e5-9f43-d718706df6e1">
-<Description>убрать опоры</Description>
-</Action>
-<Comment><![CDATA[
-]]></Comment>
-<Description>2.2 Lifting the derrick</Description>
+<Comment><![CDATA[<p><b><span style="font-size: 125%;">COMBUSTION CHAMBER ASSEMBLY</span></b></p>]]></Comment>
+<Description>2. Assemble combustion chamber</Description>
 <Text><![CDATA[
-						<p>Lift Derrick 
-				</p>
-						<p>
-						</p>
-					]]></Text>
-</Item>
-<Comment><![CDATA[
-]]></Comment>
-<Description>2</Description>
-<Text><![CDATA[
-				<p>Assemble Derrick 
+				<p>COMBUSTION CHAMBER ASSEMBLY. 
 		  </p>
 				
 			]]></Text>
 </Item>
-<Item id="r474ee0c9-071d-4641-af68-223ce28417c9">
-<Item id="r264b5bc5-30f9-4c4a-aac0-2ae91ffdac33">
-<Action id="r9cced33f-47a0-4556-af25-f87e36d5dbf4">
-</Action>
-<Action id="r98560449-1578-4f5c-a37a-5a8e5d3f8e7a">
-</Action>
-<Action id="r5fc9c0b9-3679-45f0-9ad4-9b728f6e88ee">
-</Action>
-<Action id="r36082c40-8438-4ee8-94a9-af7bd4b4e7c5">
-</Action>
-<Action id="rf5b16364-562f-4454-a9d0-3507ee5a38de">
-</Action>
+<Item id="rd29cf722-65e7-493f-90bf-85d28f93c352">
+<Item id="r54ea45fc-4694-442b-80e6-87c576a03bcc">
+<Action id="rb9af4e98-00c3-45b7-9df8-5078538c3d64">
 <Comment><![CDATA[
 ]]></Comment>
-<Description>3.1 Instalation of drilling pipe</Description>
+<Description>Install LPT rotor</Description>
+</Action>
+<Comment><![CDATA[<p>INSTALL LPT ROTOR M-005-001</p>]]></Comment>
+<Description>S03-01</Description>
 <Text><![CDATA[
-						<p>Install Drilling pipe 
+						<p>INSTALL LPT ROTOR M-005-001. 
 				</p>
 						<p>
 						</p>
 					]]></Text>
 </Item>
-<Item id="r38a89442-3906-4b56-9f84-8955613602dc">
-<Action id="r10a4ed92-780a-4cf2-bc17-6c3ddf3dc281">
-<Description>подъем</Description>
-</Action>
-<Action id="r69717829-adae-4c28-93a4-a27503ac9665">
-<Description>стойки вверх</Description>
-</Action>
+<Item id="r5158774a-fcdf-480f-8b22-37f9f0719df7">
+<Action id="r10383b77-5173-4b5d-8871-01f4cc84762c">
 <Comment><![CDATA[
 ]]></Comment>
-<Description>3.2 Lifting racks</Description>
+<Description>Install LPT upper case</Description>
+</Action>
+<Comment><![CDATA[<p>INSTALL LPT UPPER CASE</p>]]></Comment>
+<Description>S03-02</Description>
 <Text><![CDATA[
-						<p>Lift Racks 
+						<p>INSTALL LPT UPPER CASE. 
 				</p>
 						<p>
 						</p>
 					]]></Text>
 </Item>
-<Item id="r497ffd99-ef42-4608-9ef3-3e23d64a40fc">
-<Action id="ra3efd0c4-153f-43f9-ae23-1ee53681d15e">
-</Action>
-<Action id="r67034096-52b7-4a69-a555-d1ed130b6ccf">
-</Action>
-<Action id="rc5cbd2ee-c5f9-46aa-b589-0da43589be7d">
-</Action>
-<Action id="ra4643e08-c578-45ad-ab56-53eddff73005">
-</Action>
-<Action id="r620d53a2-5c89-456d-a35a-5316322faf61">
-</Action>
+<Item id="r12b31626-efed-4ade-af03-5011f6c4550c">
+<Action id="r1ebbea6b-c7a6-49d0-8e8e-9d83a9e925f1">
 <Comment><![CDATA[
 ]]></Comment>
-<Description>3.3 Installation of swivel</Description>
+<Description>Attach LPT from assembly</Description>
+</Action>
+<Comment><![CDATA[<p>ATTACH LOW PRESSURE TURBINE (LPT)</p>]]></Comment>
+<Description>S03-03</Description>
 <Text><![CDATA[
-						<p>Install Swivel 
+						<p> <a class="image" href="IMG_003.svg">ATTACH LOW PRESSURE TURBINE (LPT).</a>
+							<img src="IMG_003.svg"></img src="IMG_003.svg">
+						</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r7f2b0a59-a857-4433-92a0-16b5281af317">
+<Action id="rbfef14bc-81b7-4029-9d0b-9e298d28f42d">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Bring in the crane - attach AFT Frame</Description>
+</Action>
+<Comment><![CDATA[<p>ATTACH AFT FRAME M-005-003</p>]]></Comment>
+<Description>S03-04</Description>
+<Text><![CDATA[
+						<p>ATTACH AFT FRAME M-005-003. 
 				</p>
 						<p>
 						</p>
 					]]></Text>
 </Item>
+<Item id="r0d0c9724-67e2-4784-b6c5-84f8024cbd4c">
+<Action id="r11f11ab4-db77-45d4-b35c-47a7a22fb9c3">
 <Comment><![CDATA[
 ]]></Comment>
-<Description>3</Description>
+<Description>Remove the turbine module support</Description>
+</Action>
+<Comment><![CDATA[<p>REMOVE THE LPT WAY</p>]]></Comment>
+<Description>S03-05</Description>
 <Text><![CDATA[
-				<p>Assemble Rig 
+						<p>REMOVE THE LPT WAY. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">TURBINE MODULE ASSEMBLY</span></span></b></p>]]></Comment>
+<Description>3. Assemble turbine module</Description>
+<Text><![CDATA[
+				<p>TURBINE MODULE ASSEMBLY. 
 		  </p>
 				
 			]]></Text>
 </Item>
-<Item id="SBADF9026-0E03-4595-BF57-BBCDABE17EE5">
-<Item id="SFA0B0C20-7F2C-47B9-AC9B-CC8F89889C02">
-<Action id="red313efa-526c-4633-873f-9e89fc304af1">
+<Item id="r49ae66c9-ccaa-4cea-872f-0efd7b261b25">
+<Item id="rad44f056-e928-4ee0-9fee-302971b0629d">
+<Action id="rd6c77793-9a84-42a8-b206-10c0332ac693">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Attach the forward sump assembly</Description>
 </Action>
-<Description>4.1 Inspect the drilling rig scheme</Description>
+<Comment><![CDATA[<p>ATTACH FORWARD SUMP M-002</p>]]></Comment>
+<Description>S04-01</Description>
 <Text><![CDATA[
-						<p>Inspect the Drilling Rig scheme (<a class="image" href="IMG_1.svg">Fig. 1</a>)</p>
-						<p> <h3>Brilling Rig scheme</h3> <img src="IMG_1.svg"></img src="IMG_1.svg"> </p>]]></Text>
+						<p> <a class="image" href="IMG_004.jpg">ATTACH FORWARD SUMP M-002.</a>
+							<img src="IMG_004.jpg"></img src="IMG_004.jpg">
+						</p>
+						<p>
+						</p>
+					]]></Text>
 </Item>
-<Description>4</Description>
+<Item id="rbb99f4d9-1f14-4726-b163-bb4464d2c869">
+<Action id="r2a5cab50-3eae-488e-b634-141d31d47d46">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Remove the combastion chamber support</Description>
+</Action>
+<Comment><![CDATA[<p>REMOVE THE COMBUSTION CHAMBER WAY</p>]]></Comment>
+<Description>S04-02</Description>
 <Text><![CDATA[
-				<p>Inspect the Drilling Rig 
+						<p>REMOVE THE COMBUSTION CHAMBER WAY. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r3df951ff-7938-4aaa-a090-972620e93853">
+<Action id="rbd331821-fb51-4a1d-9bbe-197e5fb29fa0">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Remove the compressor support</Description>
+</Action>
+<Comment><![CDATA[<p>REMOVE THE COMPRESSOR WAY</p>]]></Comment>
+<Description>S04-03</Description>
+<Text><![CDATA[
+						<p>REMOVE THE COMPRESSOR WAY. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">FORWARD SUMP ASSEMBLY</span></span></b></p>]]></Comment>
+<Description>4. Assemble the forward sump &amp; remove supports</Description>
+<Text><![CDATA[
+				<p>FORWARD SUMP ASSEMBLY. 
+		  </p>
+				
+			]]></Text>
+</Item>
+<Item id="r8db7f15d-06c8-42dd-92b4-3bd1b6956070">
+<Item id="reb0bb463-3f32-4603-ba20-a42907d287ca">
+<Action id="radd5dce6-4b72-492d-8b99-285c059d8825">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Install the outlet nozzle module</Description>
+</Action>
+<Comment><![CDATA[<p>INSTALL OUTLET NOZZLE MODULE M-006</p>]]></Comment>
+<Description>S05-01</Description>
+<Text><![CDATA[
+						<p> <a class="image" href="IMG_005.jpg">INSTALL OUTLET NOZZLE MODULE M-006.</a>
+							<img src="IMG_005.jpg"></img src="IMG_005.jpg">
+						</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r25ea7193-cebb-4adb-8522-a1a62a7e7c0d">
+<Action id="r71809f1b-3966-47df-a218-d6bc3404516a">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Install the rear inlet nozzle</Description>
+</Action>
+<Comment><![CDATA[<p>INSTALL AFT PART OF INLET NOZZLE  IN-002</p>]]></Comment>
+<Description>S05-02</Description>
+<Text><![CDATA[
+						<p>INSTALL REAR PART OF INLET NOZZLE IN-002. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="rabbf618c-27f2-459c-a133-7800774a0c30">
+<Action id="r568b21d0-929f-4edc-a232-cf81522ec1ff">
+<Comment><![CDATA[<p>1</p>]]></Comment>
+<Description>Install the front inlet nozzle</Description>
+</Action>
+<Comment><![CDATA[<p>INSTALL FORWARD PART OF INLET NOZZLE IN-001</p>]]></Comment>
+<Description>S05-03</Description>
+<Text><![CDATA[
+						<p>INSTALL FRONT PART OF INLET NOZZLE IN-001. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">INLET/OUTLET NOZZLES ASSEMBLY</span></span></b></p>]]></Comment>
+<Description>5. Atach nozzles</Description>
+<Text><![CDATA[
+				<p>INLET/OUTLET NOZZLES ASSEMBLY. 
+		  </p>
+				
+			]]></Text>
+</Item>
+<Item id="rbcb0259e-a8ee-43ee-8349-07b4588ead2f">
+<Item id="rb330c883-c4a4-4c05-96b6-e7b34747c1fb">
+<Action id="r2c411e73-b6fb-4877-a61c-b13c347e080e">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Install the cooling system pipeline</Description>
+</Action>
+<Comment><![CDATA[<p>ASSEMBLE COOLING SYSTEM  PIPELINE T-001</p>]]></Comment>
+<Description>S06-01</Description>
+<Text><![CDATA[
+						<p>ASSEMBLE COOLING SYSTEM PIPELINE T-001. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r3e63af30-9294-4305-bf6d-20cf344d15ab">
+<Action id="rd09fc37f-df36-4087-b5ee-cd0165f14b9e">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Install  the injection pipeline</Description>
+</Action>
+<Comment><![CDATA[<p>ASSEMBLE FUEL PIPELINE M-004-004 AND FUEL NOZZELS M-004-005</p>]]></Comment>
+<Description>S06-02</Description>
+<Text><![CDATA[
+						<p>ASSEMBLE FUEL PIPELINE M-004-004 AND FUEL NOZZELS M-004-005. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r5b5e6cc1-c2cc-46a7-806a-22e11f6e135d">
+<Action id="r92f1fad9-4400-48d3-806e-0ac14c3de2ad">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Install the starter</Description>
+</Action>
+<Comment><![CDATA[<p>ATTACH STARTER M-007</p>]]></Comment>
+<Description>S06-03</Description>
+<Text><![CDATA[
+						<p> <a class="image" href="IMG_006.svg">ATTACH STARTER M-007.</a> <img src="IMG_006.svg"></img src="IMG_006.svg">
+						</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">TURBINE SYSTEMS ASSEMBLY   </span></span></b></p>]]></Comment>
+<Description>6. Atach minor parts</Description>
+<Text><![CDATA[
+				<p>TURBINE SYSTEMS ASSEMBLY. 
+		  </p>
+				
+			]]></Text>
+</Item>
+<Item id="r073daf5a-b4f4-4dd4-bc69-28266cd37d3f">
+<Item id="rdec85268-0e3a-453d-a358-439c42453a72">
+<Action id="r7cedadb1-2163-4a49-8d7a-07797c1888b8">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Attach the engine shaft (reductor module)</Description>
+</Action>
+<Comment><![CDATA[<p>ATTACH REDUCTOR MODULE M-001</p>]]></Comment>
+<Description>S07-01</Description>
+<Text><![CDATA[
+						<p>ATACH REDUCTOR MODULE M-001. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="r5cac1553-1ad9-4d15-ae2c-44427e83fced">
+<Action id="ra3619bfd-dd03-4a15-af64-34fe1dd9940b">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Install 10 Bolts</Description>
+</Action>
+<Comment><![CDATA[<p>INSTALL 10 BOLTS (NUT KOR-10)</p>]]></Comment>
+<Description>S07-02</Description>
+<Text><![CDATA[
+						<p>
+							<a class="image" href="IMG_007.jpg">INSTALL 10 BOLTS (NUT KOR-10).</a> <img src="IMG_007.jpg"></img src="IMG_007.jpg"> </p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="raff01f73-2965-481d-a150-8a5cd7c53451">
+<Action id="rdb5d2185-eea6-4f64-a040-a76760794b8c">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Install lower reductor cover</Description>
+</Action>
+<Comment><![CDATA[<p>INSTALL LOWER COVER RC-002</p>]]></Comment>
+<Description>S07-03</Description>
+<Text><![CDATA[
+						<p>INSTALL LOWER COVER RC-002. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Item id="rf9ed8a13-6085-4733-96cc-393f9559e0b4">
+<Action id="r584b0d53-ff31-43ef-9cd8-bcdb1f4c4091">
+<Comment><![CDATA[
+]]></Comment>
+<Description>Install upper reductor cover</Description>
+</Action>
+<Comment><![CDATA[<p>INSTALL UPPER COVER RC-001</p>]]></Comment>
+<Description>S07-04</Description>
+<Text><![CDATA[
+						<p>INSTALL UPPER COVER RC-001. 
+				</p>
+						<p>
+						</p>
+					]]></Text>
+</Item>
+<Comment><![CDATA[<p><b><span style="color:#000000;"><span style="font-size: 125%;">REDUCTOR COVER INSTALLATION</span></span></b></p>]]></Comment>
+<Description>7. Install coverings</Description>
+<Text><![CDATA[
+				<p>REDUCTOR COVER INSTALLATION. 
 		  </p>
 				
 			]]></Text>
@@ -464,75 +644,188 @@
 <DocItems>
 </DocItems>
 <Resources>
-<Picture descr="" flags="1">IMG_1.svg</Picture>
+<Picture descr="" flags="1">IMG_004.jpg</Picture>
+<Picture descr="" flags="1">IMG_005.jpg</Picture>
+<Picture descr="" flags="1">IMG_002.jpg</Picture>
+<Picture descr="" flags="1">IMG_007.jpg</Picture>
+<Picture descr="" flags="1">IMG_001.svg</Picture>
+<Picture descr="" flags="1">IMG_003.svg</Picture>
+<Picture descr="" flags="1">IMG_006.svg</Picture>
 </Resources>
-<DocumentTemplate><![CDATA[<div lang="en" class="topic task" data-class="- topic/topic task/task " data-DITAArchVersion="1.3" data-domains="(topic task) (topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d) (topic task strictTaskbody-c)" data-specializations="@props/deliveryTarget" data-lang="en" id="r5600582a-fddb-4d38-8612-26cbb9ef0957">
-	<h1 class="title link link3d" data-class="- topic/title " data-key="r5600582a-fddb-4d38-8612-26cbb9ef0957" data-title="&#xA;" data-link="link3d" id="ariaid-title1">Oil derrick installation</h1>
+<DocumentTemplate><![CDATA[<div lang="en" class="topic task" data-class="- topic/topic task/task " data-DITAArchVersion="1.3" data-domains="(topic task) (topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d) (topic task strictTaskbody-c)" data-specializations="@props/deliveryTarget" data-lang="en" id="r_a407e05e-f646-4e8b-944d-6049f117aae8">
+	<h1 class="title link link3d" data-class="- topic/title " data-key="r_a407e05e-f646-4e8b-944d-6049f117aae8" data-title="&#xA;" data-link="link3d" id="ariaid-title1">TURBINE C3D-MANUAL-DEMO-02 ASSEMBLY</h1>
 	<div class="body taskbody Procedure" data-class="- topic/body task/taskbody ">
-		<section><ol class="ol steps" data-class="- topic/ol task/steps "><li class="li step" data-class="- topic/li task/step " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__rd4bfa90f-abfb-4ddb-9301-4c4c6c7c85e1">
-				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rd4bfa90f-abfb-4ddb-9301-4c4c6c7c85e1" data-title="1" data-link="link3d">Assemble racks and winch 
+		<section><ol class="ol steps" data-class="- topic/ol task/steps "><li class="li step" data-class="- topic/li task/step " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r64924e52-b2fb-4db2-94fc-203b63300b67">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r64924e52-b2fb-4db2-94fc-203b63300b67" data-title="1. Assemble compressor module" data-link="link3d">COMPRESSOR MODULE ASSEMBLY. 
 		  </span>
 				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
-					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__r3bdee0b7-997d-4908-819c-e54f4f7ab35e">
-						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r3bdee0b7-997d-4908-819c-e54f4f7ab35e" data-title="" data-link="link3d">Install Racks 
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r0fc43a74-199c-4b8b-a138-a5e70914fcbd">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r0fc43a74-199c-4b8b-a138-a5e70914fcbd" data-title="" data-link="link3d">INSTALL COMPRESSOR ROTOR M-003-003. 
 				</span>
 						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
 						</div>
 					</li>
-					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__rd81e5d3f-e774-43ee-b2c8-81d552887de0">
-						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rd81e5d3f-e774-43ee-b2c8-81d552887de0" data-title="" data-link="link3d">Install Winch 
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__ref467d21-928f-4167-a746-9ff07b32d31d">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="ref467d21-928f-4167-a746-9ff07b32d31d" data-title="" data-link="link3d">INSTALL COMPRESSOR UPPER CASE M-003-002 WITH BLADES. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r382a8d47-afed-4cc8-aa78-6aa772d6b9c9">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r382a8d47-afed-4cc8-aa78-6aa772d6b9c9" data-title="" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r_a407e05e-f646-4e8b-944d-6049f117aae8/img-005" data-type="fig" href="#r_a407e05e-f646-4e8b-944d-6049f117aae8__img-005">ASSEMBLE STATOR BLADES CONTROL SYSTEM.</a><br><img class="image" data-alt="IMG_001_EN" data-class="- topic/image " data-href="IMG_001.cgm" data-placement="break" data-scale="60" id="r_a407e05e-f646-4e8b-944d-6049f117aae8__img-005" src="IMG_001.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_001_EN"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li><li class="li step" data-class="- topic/li task/step " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r6d05f6ed-bd62-4953-aca1-5538ff2d6fdc">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r6d05f6ed-bd62-4953-aca1-5538ff2d6fdc" data-title="2. Assemble combustion chamber" data-link="link3d">COMBUSTION CHAMBER ASSEMBLY. 
+		  </span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r1f69705d-f572-44a3-a214-2b549c05c89c">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r1f69705d-f572-44a3-a214-2b549c05c89c" data-title="" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r_a407e05e-f646-4e8b-944d-6049f117aae8/img-001" data-type="fig" href="#r_a407e05e-f646-4e8b-944d-6049f117aae8__img-001">ATTACH COMBUSTION CHAMBER M-004.</a>
+							<br><img class="image" data-alt="IMG_002_3D" data-class="- topic/image " data-href="IMG_002.jpg" data-placement="break" data-scale="60" id="r_a407e05e-f646-4e8b-944d-6049f117aae8__img-001" src="IMG_002.jpg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_002_3D"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li><li class="li step" data-class="- topic/li task/step " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__rd29cf722-65e7-493f-90bf-85d28f93c352">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rd29cf722-65e7-493f-90bf-85d28f93c352" data-title="3. Assemble turbine module" data-link="link3d">TURBINE MODULE ASSEMBLY. 
+		  </span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r54ea45fc-4694-442b-80e6-87c576a03bcc">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r54ea45fc-4694-442b-80e6-87c576a03bcc" data-title="" data-link="link3d">INSTALL LPT ROTOR M-005-001. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r5158774a-fcdf-480f-8b22-37f9f0719df7">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r5158774a-fcdf-480f-8b22-37f9f0719df7" data-title="" data-link="link3d">INSTALL LPT UPPER CASE. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r12b31626-efed-4ade-af03-5011f6c4550c">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r12b31626-efed-4ade-af03-5011f6c4550c" data-title="" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r_a407e05e-f646-4e8b-944d-6049f117aae8/image_6527DAEE52D64600823939EA49C3DCE5" data-type="image" href="#r_a407e05e-f646-4e8b-944d-6049f117aae8__image_6527DAEE52D64600823939EA49C3DCE5">ATTACH LOW PRESSURE TURBINE (LPT).</a>
+							<br><img class="image" data-class="- topic/image " data-href="IMG_003.cgm" data-placement="break" data-scale="60" id="r_a407e05e-f646-4e8b-944d-6049f117aae8__image_6527DAEE52D64600823939EA49C3DCE5" src="IMG_003.svg" onload="this.width*=this.getAttribute('data-scale')/100;"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r7f2b0a59-a857-4433-92a0-16b5281af317">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r7f2b0a59-a857-4433-92a0-16b5281af317" data-title="" data-link="link3d">ATTACH AFT FRAME M-005-003. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r0d0c9724-67e2-4784-b6c5-84f8024cbd4c">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r0d0c9724-67e2-4784-b6c5-84f8024cbd4c" data-title="" data-link="link3d">REMOVE THE LPT WAY. 
 				</span>
 						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
 						</div>
 					</li>
 				</ol>
-			</li><li class="li step" data-class="- topic/li task/step " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__r29f0285e-6933-45f3-bfa8-373c43873e1d">
-				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r29f0285e-6933-45f3-bfa8-373c43873e1d" data-title="2" data-link="link3d">Assemble Derrick 
+			</li><li class="li step" data-class="- topic/li task/step " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r49ae66c9-ccaa-4cea-872f-0efd7b261b25">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r49ae66c9-ccaa-4cea-872f-0efd7b261b25" data-title="4. Assemble the forward sump &amp; remove supports" data-link="link3d">FORWARD SUMP ASSEMBLY. 
 		  </span>
 				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
-					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__r2899e900-e98b-4f7c-a422-008b78117473">
-						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r2899e900-e98b-4f7c-a422-008b78117473" data-title="" data-link="link3d">Install Derrick 
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__rad44f056-e928-4ee0-9fee-302971b0629d">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rad44f056-e928-4ee0-9fee-302971b0629d" data-title="" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r_a407e05e-f646-4e8b-944d-6049f117aae8/img-002" data-type="fig" href="#r_a407e05e-f646-4e8b-944d-6049f117aae8__img-002">ATTACH FORWARD SUMP M-002.</a>
+							<br><img class="image" data-alt="IMG_004_3D" data-class="- topic/image " data-href="IMG_004.jpg" data-placement="break" data-scale="60" id="r_a407e05e-f646-4e8b-944d-6049f117aae8__img-002" src="IMG_004.jpg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_004_3D"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__rbb99f4d9-1f14-4726-b163-bb4464d2c869">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rbb99f4d9-1f14-4726-b163-bb4464d2c869" data-title="" data-link="link3d">REMOVE THE COMBUSTION CHAMBER WAY. 
 				</span>
 						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
 						</div>
 					</li>
-					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__rb9edf646-f3a1-44b5-8bb7-345ab43df70e">
-						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rb9edf646-f3a1-44b5-8bb7-345ab43df70e" data-title="" data-link="link3d">Lift Derrick 
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r3df951ff-7938-4aaa-a090-972620e93853">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r3df951ff-7938-4aaa-a090-972620e93853" data-title="" data-link="link3d">REMOVE THE COMPRESSOR WAY. 
 				</span>
 						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
 						</div>
 					</li>
 				</ol>
-			</li><li class="li step" data-class="- topic/li task/step " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__r474ee0c9-071d-4641-af68-223ce28417c9">
-				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r474ee0c9-071d-4641-af68-223ce28417c9" data-title="3" data-link="link3d">Assemble Rig 
+			</li><li class="li step" data-class="- topic/li task/step " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r8db7f15d-06c8-42dd-92b4-3bd1b6956070">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r8db7f15d-06c8-42dd-92b4-3bd1b6956070" data-title="5. Atach nozzles" data-link="link3d">INLET/OUTLET NOZZLES ASSEMBLY. 
 		  </span>
 				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
-					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__r264b5bc5-30f9-4c4a-aac0-2ae91ffdac33">
-						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r264b5bc5-30f9-4c4a-aac0-2ae91ffdac33" data-title="" data-link="link3d">Install Drilling pipe 
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__reb0bb463-3f32-4603-ba20-a42907d287ca">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="reb0bb463-3f32-4603-ba20-a42907d287ca" data-title="" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r_a407e05e-f646-4e8b-944d-6049f117aae8/img-003" data-type="fig" href="#r_a407e05e-f646-4e8b-944d-6049f117aae8__img-003">INSTALL OUTLET NOZZLE MODULE M-006.</a>
+							<br><img class="image" data-alt="IMG_005_3D" data-class="- topic/image " data-href="IMG_005.jpg" data-placement="break" data-scale="60" id="r_a407e05e-f646-4e8b-944d-6049f117aae8__img-003" src="IMG_005.jpg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_005_3D"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r25ea7193-cebb-4adb-8522-a1a62a7e7c0d">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r25ea7193-cebb-4adb-8522-a1a62a7e7c0d" data-title="" data-link="link3d">INSTALL REAR PART OF INLET NOZZLE IN-002. 
 				</span>
 						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
 						</div>
 					</li>
-					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__r38a89442-3906-4b56-9f84-8955613602dc">
-						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r38a89442-3906-4b56-9f84-8955613602dc" data-title="" data-link="link3d">Lift Racks 
-				</span>
-						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
-						</div>
-					</li>
-					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__r497ffd99-ef42-4608-9ef3-3e23d64a40fc">
-						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r497ffd99-ef42-4608-9ef3-3e23d64a40fc" data-title="" data-link="link3d">Install Swivel 
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__rabbf618c-27f2-459c-a133-7800774a0c30">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rabbf618c-27f2-459c-a133-7800774a0c30" data-title="" data-link="link3d">INSTALL FRONT PART OF INLET NOZZLE IN-001. 
 				</span>
 						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
 						</div>
 					</li>
 				</ol>
-			</li><li class="li step" data-class="- topic/li task/step " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__SBADF9026-0E03-4595-BF57-BBCDABE17EE5">
-				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="SBADF9026-0E03-4595-BF57-BBCDABE17EE5" data-title="4" data-link="link3d">Inspect the Drilling Rig 
+			</li><li class="li step" data-class="- topic/li task/step " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__rbcb0259e-a8ee-43ee-8349-07b4588ead2f">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rbcb0259e-a8ee-43ee-8349-07b4588ead2f" data-title="6. Atach minor parts" data-link="link3d">TURBINE SYSTEMS ASSEMBLY. 
 		  </span>
 				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
-					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r5600582a-fddb-4d38-8612-26cbb9ef0957__SFA0B0C20-7F2C-47B9-AC9B-CC8F89889C02">
-						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="SFA0B0C20-7F2C-47B9-AC9B-CC8F89889C02" data-title="" data-link="link3d">Inspect the Drilling Rig scheme (<a class="xref" data-class="- topic/xref " data-href="#r5600582a-fddb-4d38-8612-26cbb9ef0957/img-001" data-type="image" href="#r5600582a-fddb-4d38-8612-26cbb9ef0957__img-001">Fig. 1</a>)</span>
-						<div class="itemgroup info" data-class="- topic/itemgroup task/info "><figure class="fig fignone" data-class="- topic/fig "><figcaption><span class="fig--title-label">Figure 1. </span>Brilling Rig scheme</figcaption><br><a title="IMG_1" class="image link embed" data-link="link2d" data-src="IMG_1.cgm" data-ext="svg"><img class="image" data-alt="IMG_1" data-class="- topic/image " data-href="IMG_1.cgm" data-placement="break" data-scale="50" id="r5600582a-fddb-4d38-8612-26cbb9ef0957__img-001" src="IMG_1.svg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_1"></a><br></figure></div></li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__rb330c883-c4a4-4c05-96b6-e7b34747c1fb">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rb330c883-c4a4-4c05-96b6-e7b34747c1fb" data-title="" data-link="link3d">ASSEMBLE COOLING SYSTEM PIPELINE T-001. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r3e63af30-9294-4305-bf6d-20cf344d15ab">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r3e63af30-9294-4305-bf6d-20cf344d15ab" data-title="" data-link="link3d">ASSEMBLE FUEL PIPELINE M-004-004 AND FUEL NOZZELS M-004-005. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r5b5e6cc1-c2cc-46a7-806a-22e11f6e135d">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r5b5e6cc1-c2cc-46a7-806a-22e11f6e135d" data-title="" data-link="link3d"><a class="xref" data-class="- topic/xref " data-href="#r_a407e05e-f646-4e8b-944d-6049f117aae8/image_346470503A4243CCBDFB08CC96522CBD" data-type="image" href="#r_a407e05e-f646-4e8b-944d-6049f117aae8__image_346470503A4243CCBDFB08CC96522CBD">ATTACH STARTER M-007. 
+				  </a><br><img class="image" data-class="- topic/image " data-href="IMG_006.cgm" data-placement="break" data-scale="60" id="r_a407e05e-f646-4e8b-944d-6049f117aae8__image_346470503A4243CCBDFB08CC96522CBD" src="IMG_006.svg" onload="this.width*=this.getAttribute('data-scale')/100;"><br>
+						</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+				</ol>
+			</li><li class="li step" data-class="- topic/li task/step " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r073daf5a-b4f4-4dd4-bc69-28266cd37d3f">
+				<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r073daf5a-b4f4-4dd4-bc69-28266cd37d3f" data-title="7. Install coverings" data-link="link3d">REDUCTOR COVER INSTALLATION. 
+		  </span>
+				<ol type="a" class="ol substeps" data-class="- topic/ol task/substeps ">
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__rdec85268-0e3a-453d-a358-439c42453a72">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rdec85268-0e3a-453d-a358-439c42453a72" data-title="" data-link="link3d">ATACH REDUCTOR MODULE M-001. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__r5cac1553-1ad9-4d15-ae2c-44427e83fced">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="r5cac1553-1ad9-4d15-ae2c-44427e83fced" data-title="" data-link="link3d">
+							<a class="xref" data-class="- topic/xref " data-href="#r_a407e05e-f646-4e8b-944d-6049f117aae8/img-004" data-type="fig" href="#r_a407e05e-f646-4e8b-944d-6049f117aae8__img-004">INSTALL 10 BOLTS (NUT KOR-10).</a><br><img class="image" data-alt="IMG_007_3D" data-class="- topic/image " data-href="IMG_007.jpg" data-placement="break" data-scale="60" id="r_a407e05e-f646-4e8b-944d-6049f117aae8__img-004" src="IMG_007.jpg" onload="this.width*=this.getAttribute('data-scale')/100;" alt="IMG_007_3D"><br></span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__raff01f73-2965-481d-a150-8a5cd7c53451">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="raff01f73-2965-481d-a150-8a5cd7c53451" data-title="" data-link="link3d">INSTALL LOWER COVER RC-002. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
+					<li class="li substep substepexpand" data-class="- topic/li task/substep " id="r_a407e05e-f646-4e8b-944d-6049f117aae8__rf9ed8a13-6085-4733-96cc-393f9559e0b4">
+						<span class="ph cmd link link3d" data-class="- topic/ph task/cmd " data-key="rf9ed8a13-6085-4733-96cc-393f9559e0b4" data-title="" data-link="link3d">INSTALL UPPER COVER RC-001. 
+				</span>
+						<div class="itemgroup info" data-class="- topic/itemgroup task/info ">
+						</div>
+					</li>
 				</ol>
 			</li></ol></section>
 	</div>
