@@ -1,0 +1,4971 @@
+#VRML V2.0 utf8
+#{{signature}}
+#5147280BED3BADCD68ECF48D32873BD4D242FFCC653AE64F5A7D24D21F9B020B
+#465847FF86022CB0B70B2CCF3EC26D281C718977D419C67C487021B4D3033CCA
+#CF003207EFBDC7422A8CCA2430E4AAFE8A103B0291E4A28482DB96D41D15420A
+#4C96A89F77C9B44807B2EFF050D4EED568C4758A7C459984F79A333695ECC935
+#{{/signature}}
+#{{cert}}
+#{559B276A-AA09-4168-B4BE-E7D180BE5E44}
+#{{/cert}}
+#{{name}}
+#The user of RapidAuthor
+#{{/name}}
+# Created by RapidManual v.14.2.0.0 (build 14.2.0.480 (64-bit))
+
+PROTO _VM_OBJ_AXES_ 
+[
+ field SFNode obj NULL
+ eventIn SFBool rebuild 
+ exposedField SFVec3f center 0 0 0
+]
+{
+ EXTERNPROTO ViewportSensor [ #!%sensor{*}
+  eventOut SFVec2f size_changed
+  eventOut SFFloat fieldOfView_changed
+  eventOut SFFloat viewportSize_changed
+  eventOut SFBool isOrthographic_changed
+]
+[ "urn:inet:parallelgraphics.com:cortona:ViewportSensor" "http://www.cortona3d.com/source/extensions.wrl#ViewportSensor" ]
+
+
+ DEF SW Switch 
+ {
+  choice 
+  [ 
+   DEF TRANS Transform 
+   {
+    children 
+    [ 
+     Transform 
+     {
+      children 
+      [ 
+       DEF TrScaler2 Transform 
+       {
+        children 
+        [ 
+         Shape 
+         {
+          geometry IndexedLineSet 
+          {
+           color Color 
+           {
+            color [ 1 0 0, 0 1 0, 0 0 1 ]
+           }
+           coord DEF CRD Coordinate 
+           {
+            point 
+            [ 
+             0 0 0, 1 0 0, 0 1 0, 
+             0 0 1 
+            ]
+           }
+           colorPerVertex FALSE
+           coordIndex 
+           [ 
+            0, 1, -1, 
+            0, 2, -1, 
+            0, 3, -1
+           ]
+          }
+         }
+        ]
+       }
+       ZGroup 
+       {
+        children 
+        [ 
+         DEF TrScaler1 Transform 
+         {
+          children 
+          [ 
+           Shape 
+           {
+            appearance Appearance 
+            {
+             material Material 
+             {
+              emissiveColor 1 0 0
+              transparency 0.8
+             }
+            }
+            geometry IndexedLineSet 
+            {
+             coord USE CRD
+             coordIndex [ 0, 1]
+            }
+           }
+           Shape 
+           {
+            appearance Appearance 
+            {
+             material Material 
+             {
+              emissiveColor 0 1 0
+              transparency 0.8
+             }
+            }
+            geometry IndexedLineSet 
+            {
+             coord USE CRD
+             coordIndex [ 0, 2]
+            }
+           }
+           Shape 
+           {
+            appearance Appearance 
+            {
+             material Material 
+             {
+              emissiveColor 0 0 1
+              transparency 0.8
+             }
+            }
+            geometry IndexedLineSet 
+            {
+             coord USE CRD
+             coordIndex [ 0, 3]
+            }
+           }
+          ]
+         }
+        ]
+        bboxCenter 0 0 0
+        bboxSize -1 -1 -1
+        check FALSE
+        write TRUE
+        writePixelBuffer TRUE
+       }
+       DEF Prox ProximitySensor 
+       {
+        size 1e+10 1e+10 1e+10
+       }
+       DEF VPSens ViewportSensor 
+       {
+        
+       }
+      ]translation IS center
+     }
+    ]
+   }
+  ]
+ }
+ DEF SCR Script 
+ {
+  url "javascript:
+			function rebuild(){
+				removePosSensor()
+				addPosSensor();
+
+				removeVisRoutes();
+				addVisRoutes();
+
+				showhide();
+			}
+			function shutdown(){
+				removePosSensor();
+				removeVisRoutes();
+			}
+			function addPosSensor(){
+				if(obj)
+				{
+					tsensorObj = obj; // store for removal on next rebuild
+					tsensor = new SFNode('TransformSensor{}');
+					tsensorObj.addChildren = new MFNode(tsensor);
+					trans.translation = tsensor.translation_changed;
+					trans.rotation = tsensor.rotation_changed;
+					Browser.addRoute(tsensor, 'translation_changed', trans, 'translation');
+					Browser.addRoute(tsensor, 'rotation_changed', trans, 'rotation');
+				}
+			}
+			function removePosSensor(){
+				if(tsensor) {
+					if(tsensorObj)
+						tsensorObj.removeChildren = new MFNode(tsensor);
+					Browser.deleteRoute(tsensor, 'translation_changed', trans, 'translation');
+					Browser.deleteRoute(tsensor, 'rotation_changed', trans, 'rotation');
+					tsensor = null;
+					tsensorObj = null;
+				}
+			}
+			function addVisRoutes(){
+				var p = obj;
+				while(p) {
+	    			Browser.addRoute(p, 'whichChoice', self, 'showhide');
+					visChain.add(p);
+					p = p.parent;
+				}
+			}
+			function removeVisRoutes(){
+				for(var i = 0; i < visChain.length; i++)
+	    			Browser.deleteRoute(visChain[i], 'whichChoice', self, 'showhide');
+				visChain.clear();
+			}
+			function showhide(){ 
+				visChanged = true;	
+			}
+			function eventsProcessed() {
+				if(visChanged) {
+					if(!obj)
+						sw.whichChoice = -1;
+					else {
+						var p = obj;
+						while(p && p.whichChoice == 0)
+							p = p.parent;
+						sw.whichChoice = p ? -1 : 0;;
+					}
+					visChanged = false;
+				}
+			}
+			function campos(value){
+				var msc = Browser.getScene();
+				if(!msc || !msc.isOrthographicCamera()) {
+					var s =  (value.length() / 8);
+					scl = new SFVec3f(s, s, s);
+				}
+			}
+			function vpSize(value){
+				var msc = Browser.getScene();
+				if(msc && msc.isOrthographicCamera()) {
+					var s =  msc.getViewportSize() / 8;
+					scl = new SFVec3f(s, s, s);
+				}
+			}
+		" 
+  field SFNode obj IS obj
+  eventIn SFBool rebuild IS rebuild
+  field SFNode sw USE SW
+  field SFNode trans USE TRANS
+  eventIn SFVec3f campos 
+  eventOut SFVec3f scl 
+  eventIn SFFloat vpSize 
+  eventIn SFInt32 showhide 
+  field SFNode self USE SCR
+  field SFNode tsensor NULL
+  field SFNode tsensorObj NULL
+  field MFNode visChain []
+  field SFBool visChanged FALSE
+ }
+ 
+ ROUTE VPSens.viewportSize_changed TO SCR.vpSize
+ ROUTE Prox.position_changed TO SCR.campos
+ ROUTE SCR.scl TO TrScaler2.scale
+ ROUTE SCR.scl TO TrScaler1.scale
+ 
+}
+PROTO Loupe2 
+[
+ field SFNode _parent_object_ NULL
+ field SFString diameter "30%"
+ field SFVec2f pos 0 0
+ field SFInt32 poscorner 0
+ field SFBool showLine TRUE
+ field SFBool vpUseCurrent TRUE
+ field SFFloat vpZoom 4
+ field SFString viewpoint "Viewpoint{position 0 0 10}"
+ field SFNode Object NULL
+ field SFVec3f Point 0 0 0
+ field SFInt32 borderSize 2
+ exposedField MFColor backColor 0.5 0.5 0.5 
+ eventIn SFBool _rebuild_ 
+ eventOut SFBool _geom_changed_ 
+ field SFBool _autopos_ TRUE
+ field SFBool _skip_in_composite_texture_ TRUE
+ field SFBool _rootonly_ TRUE
+ field SFBool _empty_bbox_ TRUE
+ field SFString _param_handler_ "PGVMRepHandler.Loupe"
+]
+{
+ EXTERNPROTO CompositeTexture3D [ #!%texture{Appearance.texture}
+eventIn MFNode addChildren
+eventIn MFNode removeChildren
+exposedField MFNode children 
+exposedField SFBool repeatS #!(TRUE)
+exposedField SFBool repeatT #!(TRUE)
+exposedField SFNode background #!{Background}
+exposedField SFNode fog #!{Fog}
+exposedField SFNode navigationInfo #!{NavigationInfo}
+exposedField SFNode viewpoint #!{Viewpoint}
+exposedField SFInt32 pixelWidth #!(-1)
+exposedField SFInt32 pixelHeight #!(-1)
+]
+["urn:inet:parallelgraphics.com:cortona:CompositeTexture3D" "http://www.cortona3d.com/source/extensions.wrl#CompositeTexture3D"]
+
+EXTERNPROTO Layer3D [ #!%group{*}
+	eventIn MFNode addChildren
+	eventIn MFNode removeChildren
+	exposedField MFNode children
+	exposedField SFVec2f size #!%coord(-1 -1)
+	exposedField SFNode background #!{Background}
+	exposedField SFNode fog #!{Fog}
+	exposedField SFNode navigationInfo #!{NavigationInfo}
+	exposedField SFNode viewpoint #!{Viewpoint}
+]
+[ "urn:inet:parallelgraphics.com:cortona:Layer3D" "http://www.cortona3d.com/source/extensions.wrl#Layer3D" ]
+
+EXTERNPROTO OrthographicViewpoint [	#!%common
+  eventIn      SFBool     set_bind
+  exposedField SFBool     jump #!(TRUE)
+  exposedField SFRotation orientation #!%orient(0 0 1 0)
+  exposedField SFVec3f    position #!%coord(0 0 10)
+  exposedField SFFloat    viewportSize #!%coord(2)
+  field        SFString   description #!("")
+  eventOut     SFTime     bindTime
+  eventOut     SFBool     isBound
+]
+[ "urn:inet:parallelgraphics.com:cortona:OrthographicViewpoint" "http://www.cortona3d.com/source/extensions.wrl#OrthographicViewpoint" ]
+
+EXTERNPROTO Transform2D [ #!%group{*}
+	eventIn MFNode addChildren
+	eventIn MFNode removeChildren
+	exposedField SFVec2f center #!%coord(0 0)
+	exposedField MFNode children #!{Layer3D,Layer2D,Transform2D,Shape}
+	exposedField SFFloat rotationAngle #!(0)
+	exposedField SFVec2f scale #!%coord(1 1)
+	exposedField SFFloat scaleOrientation #!(0)
+	exposedField SFVec2f translation #!%coord(0 0)
+]
+[ "urn:inet:parallelgraphics.com:cortona:Transform2D" "http://www.cortona3d.com/source/extensions.wrl#Transform2D" ]
+
+EXTERNPROTO TransformSensor [ #!%sensor
+	exposedField SFBool enabled #!(TRUE) 
+	exposedField SFBool includeViewer #!(FALSE)
+	eventOut SFVec3f translation_changed
+	eventOut SFRotation rotation_changed
+	eventOut SFVec3f center_changed
+	eventOut SFVec3f scale_changed
+	eventOut SFRotation scaleOrientation_changed
+	eventOut SFBool transform_changed
+]
+["urn:inet:parallelgraphics.com:cortona:TransformSensor" "http://www.cortona3d.com/source/extensions.wrl#TransformSensor" ]
+
+EXTERNPROTO ViewportSensor [ #!%sensor{*}
+  eventOut SFVec2f size_changed
+  eventOut SFFloat fieldOfView_changed
+  eventOut SFFloat viewportSize_changed
+  eventOut SFBool isOrthographic_changed
+]
+[ "urn:inet:parallelgraphics.com:cortona:ViewportSensor" "http://www.cortona3d.com/source/extensions.wrl#ViewportSensor" ]
+
+
+ IndexedLineSet 
+ {
+  
+ }
+ DEF SCR Script 
+ {
+  url "javascript:
+			function initialize()
+			{
+				rebuild();
+			}
+			function rebuild()
+			{
+				var scene = Browser.getScene();
+				// build ifs in which CopositeTexture3D will be displayed
+				var R = 1;
+				var ang_delta = Math.PI * 2 / quality;
+	    		var points = new MFVec3f();
+				points.length = 2 * quality;
+				var bodyIndex = new MFInt32();
+				bodyIndex.length = quality + 1;
+				var borderIndex = new MFInt32();
+				borderIndex.length = 2 * (quality + 1) + 1;
+
+        		for (var i = 0; i < quality; ++i) {
+        			var ang = i * ang_delta;
+	    			points[i] = new SFVec3f(R * Math.cos(ang), R * Math.sin(ang), 0);
+	    			points[quality+i] = points[i];  // inner radius will be recalculated on resize
+					bodyIndex[i] = quality+i;
+					borderIndex[i] = i;     							// first outer circle
+					borderIndex[2 * (quality + 1) - 1 - i] = quality+i; // then inner circle
+        		}
+				bodyIndex[quality] = -1;
+				borderIndex[quality] = 0;
+				borderIndex[quality+1] = quality;
+				borderIndex[2 * (quality + 1)] = -1;
+
+				ifs.coord.point = points;
+				ifs.set_coordIndex = bodyIndex;
+				ils.set_coordIndex = borderIndex;
+
+				// set loupe nodes to all scene nodes (except other Loupe nodes to avoid cycles)
+				var rootnodes = scene.getRootNodes();
+				var mfnodes = new MFNode();
+				for(var i = 0; i < rootnodes.length; i++)
+					if(rootnodes[i] != parent && isValidNode(rootnodes[i]))
+						mfnodes.add(rootnodes[i]);
+				compTex.children = mfnodes;
+			
+				// set viewpoint
+				if(vpUseCurrent) {
+					var bOrtho = scene.isOrthographicCamera();
+					compTex.viewpoint = new SFNode(bOrtho ? 'OrthographicViewpoint{}' : 'Viewpoint{}');
+					// updateViewpoint() will be called from onResize()
+				}
+				else
+					compTex.viewpoint = new SFNode(viewpoint);
+
+				compTex.navigationInfo = scene.navigationInfo;
+
+				if(!parent || !showLine)
+					lsw.whichChoice = -1;
+				else {
+					lsw.whichChoice = 0;
+
+					var points = new MFVec3f();
+					var index = new MFInt32();
+					if(TargetObject)
+					{
+						points[0] = new SFVec3f();  // points will be changed in updateLines
+						points[1] = new SFVec3f();
+						index[0] = 0;
+						index[1] = 1;
+						index[2] = -1;
+					}
+					var Line = lsw.choice[0];
+					Line.geometry.coord.point = points;
+					Line.geometry.set_coordIndex = index;
+
+					Browser.addRoute(parent, 'appearance', self, 'appearance');
+					appearance(parent.appearance);
+				}
+
+				if(parent)
+					parent.extraGeom = new MFNode(pnl, lsw, ps, ts, vps);
+				
+				// add routes to watch for TargetObject moving
+				if(tsensor) {
+					if(tsensorObj)
+						tsensorObj.removeChildren = new MFNode(tsensor);
+					Browser.deleteRoute(tsensor, 'translation_changed', self, 'allPosition');
+					Browser.deleteRoute(tsensor, 'rotation_changed', self, 'allRotation');
+					tsensor = null;
+					tsensorObj = null;
+				}
+
+				if(TargetObject)
+				{
+					tsensorObj = TargetObject; // store for removal on next rebuild
+					tsensor = new SFNode('TransformSensor{}');
+					tsensorObj.addChildren = new MFNode(tsensor);
+					Browser.addRoute(tsensor, 'translation_changed', self, 'allPosition');
+					Browser.addRoute(tsensor, 'rotation_changed', self, 'allRotation');
+				}
+				onResize();
+			}
+
+			function appearance(val)
+			{
+				if(app_prev)
+					Browser.deleteRoute(app_prev.material, 'diffuseColor', self, 'color');
+
+				if(val)
+				{
+					pnl.children[0].children[1].choice[0].appearance.material.diffuseColor = val.material.diffuseColor;
+					lsw.choice[0].appearance.material.emissiveColor = val.material.diffuseColor;
+
+					Browser.addRoute(val.material, 'diffuseColor', self, 'color');
+				}
+				app_prev = val;
+			}
+
+			function color(val)
+			{
+				pnl.children[0].children[1].choice[0].appearance.material.diffuseColor = val;
+				lsw.choice[0].appearance.material.emissiveColor = val;
+			}
+
+			function isValidNode(node) {
+				var nodetype = node._type.toString();
+				if(nodetype === 'ObjectVM')
+					return (node.flags & 4) == 0;
+				else 
+					return nodetype === 'Shape' || nodetype === 'ClippingPlane' || nodetype === 'DirectionalLight';
+			}
+
+			function VPS_size_changed()	{
+				sz_changed = true;
+			}
+			function VPS_viewportSize_changed()	{
+				if(Browser.getScene().isOrthographicCamera()) {
+					if(vpUseCurrent)
+						vp_changed = true;
+					lines_changed = true;
+				}
+			}
+			function VPS_isOrthographic_changed() {
+				if(vpUseCurrent) {
+					var bOrtho = Browser.getScene().isOrthographicCamera();
+					compTex.viewpoint = new SFNode(bOrtho ? 'OrthographicViewpoint{}' : 'Viewpoint{}');
+					vp_changed = true;
+				}
+				lines_changed = true;
+			}
+			function cameraMoved() {
+				if(vpUseCurrent)
+					vp_changed = true;
+				lines_changed = true;
+			}
+			function allPosition() {
+				if(vpUseCurrent)
+					vp_changed = true;  // viewpoint depends on the position of the object
+				lines_changed = true;
+			}
+			function allRotation() {
+				if(vpUseCurrent)
+					vp_changed = true;
+				lines_changed = true;
+			}
+
+			function eventsProcessed() 
+			{
+				if(sz_changed)
+					onResize();
+				if(vp_changed)
+					updateViewpoint();
+				if(lines_changed)
+					updateLines();
+			}
+
+			function onResize()
+			{
+				// update loupe size and position, viewpoint (zoom may change) and lines
+				sz_changed = false;
+
+				var vr = Browser.getScene().getViewRect();
+				var rcView = {left:vr[0], top:vr[1], bottom:vr[2], right:vr[3]};
+				var szView = new SFVec2f(rcView.right-rcView.left, rcView.bottom-rcView.top);
+				if(!(szView.x > 0 && szView.y > 0))
+					return;
+
+				var diam =	0.3;
+				var diamstr = diameter.toString();
+				if(diamstr != '' && diamstr != '0')
+				{
+					diam = parseFloat(diamstr);
+					if(diamstr.charAt(diamstr.length-1) == '%')
+						diam /= 100;
+					else   // convert pixels to relative
+						diam /= Math.min(szView.x, szView.y);
+				}
+				var texSize = Math.round(diam * Math.min(szView.x, szView.y));
+				compTex.pixelWidth = texSize;
+				compTex.pixelHeight = texSize;
+
+				var asp = szView.y / szView.x;
+				var unit = szView.x < szView.y ? 1 : asp;
+				pnl.children[0].size = new SFVec2f(2 * unit * diam, 2 * unit * diam);
+
+				// 0-lt 1-lb 2-rt 3-rb, 4-center
+				var dx = 1 - pnl.children[0].size.x/2 - pos.x * 2;
+				var dy = asp - pnl.children[0].size.y/2 - pos.y * 2 * asp;
+				if(poscorner == 4)
+					pnl.translation = new SFVec2f(pos.x * 2, - pos.y * 2 * asp);
+				else if(poscorner == 0)
+					pnl.translation = new SFVec2f(-dx, dy);
+				else if(poscorner == 1)
+					pnl.translation = new SFVec2f(-dx, -dy);
+				else if(poscorner == 2)
+					pnl.translation = new SFVec2f(dx, dy);
+				else if(poscorner == 3)
+					pnl.translation = new SFVec2f(dx, -dy);
+
+				// update screenPt
+				screenPt = new SFVec2f((1 + pnl.translation.x) * szView.x / 2, (1 - pnl.translation.y/asp) * szView.y / 2);
+
+				var realSize = new SFVec2f(pnl.children[0].size.x * szView.x / 2, pnl.children[0].size.y * szView.x / 2);
+	
+				screenPt.x += rcView.left - realSize.x/2;
+				screenPt.y += rcView.top - realSize.y/2;
+
+				screenPt.x += realSize.x / 2;  // line always goes from center
+				screenPt.y += realSize.y / 2;
+			
+				recalcBorderCoords();
+				updateViewpoint();
+				updateLines();
+			}
+
+			function recalcBorderCoords() 
+			{
+				pnl.children[0].children[1].whichChoice = borderSize == 0 ? -1 : 0;
+
+				var sizePix = pnl.children[0].size.x * Browser.getScene().getViewWidth() / 2;
+				var border = borderSize / sizePix;
+
+				var r = border < 1 ? 1 - border : 0;
+
+				var ang_delta = Math.PI * 2 / quality;
+	    		var points = new MFVec3f();
+				points.length = 2 * quality;
+
+        		for (var i = 0; i < quality; ++i) {
+        			var ang = i * ang_delta;
+	    			points[i] = ifs.coord.point[i];
+	    			points[quality+i] = new SFVec3f(r * Math.cos(ang), r * Math.sin(ang), 0);
+        		}
+				ifs.coord.point = points;
+			}
+
+			function updateViewpoint() 
+			{
+				// sync loupe viewpoint position
+				vp_changed = false;
+
+				if(vpUseCurrent) {
+					var scene = Browser.getScene();
+					var bOrtho = scene.isOrthographicCamera();
+					var camPos = scene.getCameraPosition();
+					var trans = new SFVec3f();
+					camPos.decompose(trans, compTex.viewpoint.orientation);
+
+					// look at the first picked point from the distance of current campos (if point defined)
+					var pntGlb = trans;
+					if(TargetObject && tsensor) {
+						var m  = new Pos();
+						var n = tsensor;
+						m.compose(n.translation_changed, n.rotation_changed, n.scale_changed, n.scaleOrientation_changed, n.center_changed);
+						pntGlb = m.pointToBase(TargetPoint);
+					}
+					else { // object not defined - show content under the loupe
+						if(!bOrtho) // no way to get picked point for perspective projection - must be specified at design time 
+							pntGlb = TargetPoint;
+						else
+							pntGlb = scene.unproject(screenPt.x, screenPt.y, 10);
+					}
+					var szView = new SFVec2f(scene.getViewWidth(), scene.getViewHeight());
+					var unit = szView.x < szView.y ? 1 : szView.y / szView.x;
+					var layerZoom = pnl.children[0].size.x / (2*unit);
+					var totalZoom = vpZoom / layerZoom;
+
+					if(bOrtho) {
+						compTex.viewpoint.position = pntGlb;
+						var vpSize = scene.getViewportSize();
+						compTex.viewpoint.viewportSize = vpSize/totalZoom;
+					}
+					else {
+						var dist = -camPos.inverse().pointToBase(pntGlb).z;
+						compTex.viewpoint.position = pntGlb.add(camPos.getOrtZ().multiply(dist/totalZoom));
+						compTex.viewpoint.fieldOfView = scene.getFieldOfView();
+					}
+				}
+			}
+
+			function updateLines()
+			{
+				// recalc reference lines
+				lines_changed = false;
+
+				var scene = Browser.getScene();
+				var m0 = new Pos();
+				m0.compose(ts.translation_changed, ts.rotation_changed, ts.scale_changed, ts.scaleOrientation_changed, ts.center_changed);
+				m0 = m0.inverse();
+				var points = new MFVec3f();
+				var np = scene.getCameraPosition().inverse();
+				if(TargetObject)
+				{
+					var m  = new Pos();
+					var n = tsensor;
+					m.compose(n.translation_changed, n.rotation_changed, n.scale_changed, n.scaleOrientation_changed, n.center_changed);
+					pntGlb = m.pointToBase(TargetPoint);
+					var dist = -np.pointToBase(pntGlb).z;
+					var p = scene.unproject(screenPt.x, screenPt.y, dist);
+					points[0] = m0.pointToBase(new SFVec3f(p.x, p.y, p.z));
+					points[1] = m0.pointToBase(pntGlb);
+				}
+				var Line = lsw.choice[0];
+				Line.geometry.coord.point = points;
+				_geom_changed_ = true;
+			}
+		" 
+  directOutput TRUE
+  field SFVec2f pos IS pos
+  field SFInt32 poscorner IS poscorner
+  field SFBool showLine IS showLine
+  field SFString diameter IS diameter
+  field SFNode TargetObject IS Object
+  field SFVec3f TargetPoint IS Point
+  field SFBool vpUseCurrent IS vpUseCurrent
+  field SFFloat vpZoom IS vpZoom
+  field SFString viewpoint IS viewpoint
+  field SFInt32 borderSize IS borderSize
+  field SFNode tsensor NULL
+  field SFNode tsensorObj NULL
+  field SFNode ifs DEF BODY IndexedFaceSet 
+  {
+   coord DEF CRD Coordinate 
+   {
+    
+   }
+  }field SFNode ils DEF BORDER IndexedFaceSet 
+  {
+   coord USE CRD
+   convex FALSE
+  }
+  field SFNode compTex DEF LOUPE-TEX CompositeTexture3D 
+  {
+   children []
+   pixelWidth 1024
+   pixelHeight 1024
+   repeatS TRUE
+   repeatT TRUE
+   background Background 
+   {
+    skyColor IS backColor
+   }
+   fog NULL
+   navigationInfo NULL
+   viewpoint NULL
+  }
+  field SFNode pnl DEF PNL Transform2D 
+  {
+   center 0 0
+   children 
+   [ 
+    Layer3D 
+    {
+     children 
+     [ 
+      Shape 
+      {
+       appearance Appearance 
+       {
+        material Material 
+        {
+         diffuseColor 0.7 0.7 0.7
+        }
+        texture USE LOUPE-TEX
+       }
+       geometry USE BODY
+      }
+      Switch 
+      {
+       choice 
+       [ 
+        Shape 
+        {
+         appearance Appearance 
+         {
+          material Material 
+          {
+           
+          }
+         }geometry USE BORDER
+        }
+       ]
+       whichChoice 0
+      }
+     ]
+     size -1 -1
+     background NULL
+     fog NULL
+     navigationInfo NULL
+     viewpoint OrthographicViewpoint 
+     {
+      
+     }
+    }
+   ]rotationAngle 0
+   scale 1 1
+   scaleOrientation 0
+   translation 0 0
+  }
+  field SFNode lsw Switch 
+  {
+   choice 
+   [ 
+    Shape 
+    {
+     appearance Appearance 
+     {
+      material Material 
+      {
+       
+      }
+     }geometry IndexedLineSet 
+     {
+      coord Coordinate 
+      {
+       
+      }
+     }
+    }
+   ]
+  }field SFNode ps DEF PS ProximitySensor 
+  {
+   size 1e+07 1e+07 1e+07
+  }
+  field SFNode ts DEF TS TransformSensor 
+  {
+   
+  }field SFNode vps DEF VPS ViewportSensor 
+  {
+   
+  }field SFNode self USE SCR
+  field SFBool lines_changed FALSE
+  field SFBool sz_changed FALSE
+  field SFBool vp_changed FALSE
+  field SFNode parent IS _parent_object_
+  field SFVec2f screenPt 0 0
+  field SFFloat quality 64
+  field SFNode app_prev NULL
+  eventIn SFNode appearance 
+  eventIn SFColor color 
+  eventIn SFBool rebuild IS _rebuild_
+  eventIn SFVec3f allPosition 
+  eventIn SFRotation allRotation 
+  eventIn SFVec3f cameraMoved 
+  eventIn SFFloat VPS_viewportSize_changed 
+  eventIn SFBool VPS_isOrthographic_changed 
+  eventIn SFVec2f VPS_size_changed 
+  eventOut SFBool _geom_changed_ IS _geom_changed_
+ }
+ 
+ ROUTE VPS.isOrthographic_changed TO SCR.VPS_isOrthographic_changed
+ ROUTE VPS.viewportSize_changed TO SCR.VPS_viewportSize_changed
+ ROUTE TS.translation_changed TO SCR.allPosition
+ ROUTE VPS.fieldOfView_changed TO SCR.VPS_viewportSize_changed
+ ROUTE TS.rotation_changed TO SCR.allRotation
+ ROUTE PS.position_changed TO SCR.cameraMoved
+ ROUTE VPS.size_changed TO SCR.VPS_size_changed
+ 
+}
+PROTO ObjectVM 
+[
+ exposedField SFInt32 whichChoice 0
+ exposedField SFNode appearance NULL
+ exposedField SFNode geometry NULL
+ exposedField MFNode children []
+ exposedField SFVec3f translation 0 0 0
+ exposedField SFRotation rotation 0 0 1 0
+ exposedField SFVec3f center 0 0 0
+ exposedField SFVec3f scale 1 1 1
+ exposedField SFRotation scaleOrientation 0 0 1 0
+ exposedField SFNode parent NULL
+ exposedField MFNode extraGeom []
+ exposedField SFString name ""
+ eventIn MFNode addChildren 
+ eventIn MFNode removeChildren 
+ field SFInt32 flags 0
+]
+{
+ 
+ Switch 
+ {
+  choice 
+  [ 
+   Transform 
+   {
+    center IS center
+    children 
+    [ 
+     Group 
+     {
+      children 
+      [ 
+       Shape 
+       {
+        appearance IS appearance
+        geometry IS geometry
+       }
+       Group 
+       {
+        children IS extraGeom
+       }
+      ]
+     }
+     Group 
+     {
+      addChildren IS addChildren
+      removeChildren IS removeChildren
+      children IS children
+     }
+    ]
+    rotation IS rotation
+    scale IS scale
+    scaleOrientation IS scaleOrientation
+    translation IS translation
+   }
+  ]
+  whichChoice IS whichChoice
+ }
+ 
+ 
+}
+PROTO Procedure 
+[
+ field SFString title ""
+ field SFString comment ""
+ exposedField SFString id ""
+ exposedField MFNode steps []
+]
+{
+ 
+ Group 
+ {
+  children IS steps
+ }
+ 
+ 
+}
+PROTO protoSimulationPlayer 
+[
+ exposedField SFString version_num "6.057"
+ exposedField SFNode OP NULL
+ exposedField SFNode AllSubSteps NULL
+ exposedField SFNode SKIN_INFO NULL
+ exposedField SFNode NAV_INFO NULL
+ exposedField SFBool isEnabledSkinControl TRUE
+ exposedField SFBool isZoomToCenter TRUE
+ exposedField SFInt32 whichChoiceSlider -1
+ exposedField SFInt32 whichChoiceXYZ -1
+ exposedField SFInt32 whichChoiceZOOM -1
+ exposedField SFInt32 whichChoiceControlButtons -1
+ exposedField SFInt32 whichChoiceStandardAxes -1
+ exposedField MFNode externalAxes []
+ eventOut MFString on_start_substep 
+ eventOut MFString on_start_new_substep 
+ eventOut MFString on_event_out 
+ eventOut MFString on_procedure_events 
+ eventOut SFInt32 on_vcr_state 
+ eventOut MFString on_new_state 
+ eventOut SFFloat on_zoom_changed 
+ eventOut SFFloat on_proc_fraction_changed 
+ eventOut SFFloat on_substep_fraction_changed 
+ eventOut SFFloat on_step_fraction_changed 
+ eventOut SFInt32 on_audio_state 
+ eventIn SFNode set_new_procedure 
+ eventIn SFBool set_ui_smoothcontrol 
+ eventIn SFBool set_ui_axis 
+ eventIn SFBool set_ui_zoom 
+ eventIn SFBool set_ui_vcr 
+ eventIn SFInt32 set_ui_safeframe 
+ eventIn SFTime vcr_play 
+ eventIn SFTime vcr_stop 
+ eventIn SFTime vcr_pause 
+ eventIn SFTime vcr_forward 
+ eventIn SFTime vcr_backward 
+ eventIn SFTime vcr_next 
+ eventIn SFTime vcr_previous 
+ eventIn SFString vcr_goto 
+ eventIn MFString vcr_set_range 
+ eventIn SFString vcr_set_position 
+ eventIn SFFloat vcr_set_fraction 
+ eventIn SFFloat set_speed_ratio 
+ eventIn SFBool set_stop_by_substep 
+ eventIn SFBool set_stop_by_step 
+ eventIn SFTime zoom_reset 
+ eventIn SFFloat zoom_set_delta 
+ eventIn SFFloat zoom_set_level 
+ eventIn SFFloat vcr_set_proc_fraction 
+ eventIn SFFloat vcr_set_step_fraction 
+ eventIn SFFloat set_substep_fraction 
+ eventIn SFFloat set_procedure_fraction 
+ eventIn SFFloat set_step_fraction 
+ eventIn MFFloat now_step_substep_fraction 
+ eventIn MFFloat set_step_substep_fraction 
+ eventIn MFFloat set_ssf 
+ eventIn SFBool set_ignore_viewpoints 
+ eventIn SFTime reinitialize 
+ eventIn SFTime reinitialize_step 
+ eventIn SFTime reinitialize_substep 
+ eventIn SFTime reinitialize_all_substeps 
+ eventIn SFBool set_mute_audio 
+ eventIn MFFloat set_new_viewpoint 
+ exposedField SFFloat maxZoom 5
+ exposedField SFFloat minZoom 2.5
+ exposedField MFNode CommandsSetID []
+ exposedField SFBool isFinal FALSE
+ exposedField SFInt32 step 0
+ exposedField SFInt32 substep 0
+ exposedField SFFloat phase 0
+ exposedField SFBool blockViewpoints FALSE
+ exposedField SFBool alwaysWarning FALSE
+ exposedField SFFloat timeCompression 1
+ exposedField SFBool isInitialize FALSE
+ exposedField SFBool muteAudio FALSE
+ exposedField SFNode newproc NULL
+ eventIn SFBool inPlayPause 
+ eventOut SFBool outPlayPause 
+ eventIn SFFloat setSliderPosition 
+ eventOut SFFloat onSliderMove 
+ eventOut SFFloat onSliderFraction 
+ exposedField SFRotation base_VP_orientation 0 0 1 0
+ exposedField SFVec3f base_VP_position 0 0 10
+ exposedField SFRotation axes_rotation 0 0 1 0
+ exposedField SFVec3f axes_scale 1 1 1
+ exposedField SFVec2f axes_position 0.85 0.15
+ exposedField SFBool use_old_style_vcr FALSE
+ eventOut SFNode script 
+]
+{
+ PROTO AxesPanel 
+ [
+  exposedField MFNode externalAxes []
+  exposedField SFInt32 whichChoice 0
+  eventIn SFFloat setMaxSize 
+  exposedField SFVec3f scale 1 1 1
+  exposedField SFVec2f position 0.85 0.15
+  eventIn SFFloat setHUDDistance 
+  eventOut SFVec3f outZScale 
+  exposedField SFFloat size 0.6
+  eventOut SFVec2f outScrSize 
+  eventOut SFFloat outViewportSize 
+ ]
+ {
+  EXTERNPROTO Layer3D [ #!%group{*}
+	eventIn MFNode addChildren
+	eventIn MFNode removeChildren
+	exposedField MFNode children
+	exposedField SFVec2f size #!%coord(-1 -1)
+	exposedField SFNode background #!{Background}
+	exposedField SFNode fog #!{Fog}
+	exposedField SFNode navigationInfo #!{NavigationInfo}
+	exposedField SFNode viewpoint #!{Viewpoint}
+]
+[ "urn:inet:parallelgraphics.com:cortona:Layer3D" "http://www.cortona3d.com/source/extensions.wrl#Layer3D" ]
+
+EXTERNPROTO Transform2D [ #!%group{*}
+	eventIn MFNode addChildren
+	eventIn MFNode removeChildren
+	exposedField SFVec2f center #!%coord(0 0)
+	exposedField MFNode children #!{Layer3D,Layer2D,Transform2D,Shape}
+	exposedField SFFloat rotationAngle #!(0)
+	exposedField SFVec2f scale #!%coord(1 1)
+	exposedField SFFloat scaleOrientation #!(0)
+	exposedField SFVec2f translation #!%coord(0 0)
+]
+[ "urn:inet:parallelgraphics.com:cortona:Transform2D" "http://www.cortona3d.com/source/extensions.wrl#Transform2D" ]
+
+
+  DEF BS Group 
+  {
+   children 
+   [ 
+    DEF PSens ProximitySensor 
+    {
+     size 1e+07 1e+07 1e+07
+    }
+    Switch 
+    {
+     choice 
+     [ 
+      DEF GR Group 
+      {
+       children 
+       [ 
+        DEF Tr2D Transform2D 
+        {
+         center 0 0
+         children 
+         [ 
+          DEF L3D Layer3D 
+          {
+           children 
+           [ 
+            DEF XYZTR2 Transform 
+            {
+             children IS externalAxes
+             scale IS scale
+            }
+           ]
+           size 0.6 0.6
+           background NULL
+           fog NULL
+           navigationInfo NULL
+           viewpoint Viewpoint 
+           {
+            fieldOfView 0.027
+            position 0 0 1
+           }
+          }
+         ]
+         rotationAngle 0
+         scale 1 1
+         scaleOrientation 0
+         translation 0.7 0.609215
+        }
+        DEF TChecker TimeSensor 
+        {
+         loop TRUE
+        }
+        DEF XYZScript Script 
+        {
+         url "javascript:
+									//ver. 3.5
+									function initialize(){
+										isNewStyle=typeof(Browser.getScene)!='undefined';
+										if(typeof(player)=='undefined' || typeof(player.engine.CreateNode('ViewportSensor', ''))!='undefined'){
+											var n = Browser.createVrmlFromString('ViewportSensor{}');
+											GR.addChildren=n;
+											Browser.addRoute(n[0], 'size_changed', self, 'scr_size');
+											Browser.addRoute(n[0], 'viewportSize_changed', self, 'viewport_size');
+										}
+									}
+									function set_orientation(value){tr.rotation = value.inverse();}
+									function on_timer(){
+										var sz_x, sz_y;
+										if(isNewStyle){
+											sz_x = Browser.getScene().getViewWidth();
+											sz_y = Browser.getScene().getViewHeight();
+										}else{
+											var rc = view.scene.getBounds();
+											sz_x = rc.right - rc.left;
+											sz_y = rc.bottom - rc.top;
+										}
+										if(sz_x>1 && sz_y>1){
+											set_size(sz_x, sz_y);
+										}
+									}
+									function on_pos(){on_timer();}
+									function on_sz(){on_timer();}
+									function scr_size(value){
+										set_size(value.x, value.y);
+										timer.enabled=false;
+									}
+									function set_size(x, y){
+										var posX=2*posNode.translation.x-1;
+										var posY=(y/x)*(1-2*posNode.translation.y);
+										Tr2D.translation = new SFVec2f(posX, posY);
+										var minS = 4*Math.min(Math.min(posNode.translation.x, 1-posNode.translation.x)*x, Math.min(posNode.translation.y, 1-posNode.translation.y)*y)/Math.min(x, y);
+										if(minS<0.4)minS=0.4;
+										var szL = Math.min(posNode.rotation, minS) * ((x>y)? y/x: 1);
+										L3D.size = new SFVec2f(szL, szL);
+										outScrSize = new SFVec2f(x, y);
+									}
+									function viewport_size(value){
+										outViewportSize = value;
+									}
+									" 
+         directOutput TRUE
+         mustEvaluate TRUE
+         eventOut SFVec2f outScrSize IS outScrSize
+         eventIn SFVec2f scr_size 
+         eventOut SFFloat outViewportSize IS outViewportSize
+         eventIn SFFloat viewport_size 
+         eventIn SFTime on_timer 
+         eventIn SFVec2f on_pos 
+         eventIn SFFloat on_sz 
+         eventIn SFRotation set_orientation 
+         eventIn SFTime onCheckResize 
+         field SFNode Tr2D USE Tr2D
+         field SFNode L3D USE L3D
+         field SFNode tr USE XYZTR2
+         field SFNode posNode DEF PosProxy TextureTransform 
+         {
+          rotation IS size
+          translation IS position
+         }
+         field SFNode timer USE TChecker
+         field SFNode self USE XYZScript
+         field SFNode GR USE BS
+         field SFBool isNewStyle FALSE
+        }
+       ]
+      }
+     ]
+     whichChoice IS whichChoice
+    }
+   ]
+  }
+  
+  ROUTE PSens.orientation_changed TO XYZScript.set_orientation
+  ROUTE TChecker.cycleTime TO XYZScript.on_timer
+  ROUTE PosProxy.rotation TO XYZScript.on_sz
+  ROUTE PosProxy.translation TO XYZScript.on_pos
+  
+ }
+ PROTO Button 
+ [
+  eventOut SFInt32 NumOut 
+  field SFBool fix FALSE
+  field SFInt32 Num 0
+  field SFVec3f Trans 0 0 0
+  field SFVec3f Dim 0.025 0.0065 1
+  field SFVec3f mTx 0.017 0.017 0.017
+  exposedField SFBool enabled TRUE
+  field SFFloat maxE 0
+  eventOut SFTime touchTime 
+  field MFFloat length []
+  field MFString justify [ "MIDDLE", "MIDDLE" ]
+  exposedField SFVec3f tr_txt 0 0 0.001
+  exposedField SFNode appearance Appearance 
+  {
+   material Material 
+   {
+    diffuseColor 0 0 0
+    emissiveColor 1 1 1
+   }
+  }
+  exposedField MFNode children []
+  field SFRotation chRot 0 0 1 0
+  field SFInt32 rmk 0
+  exposedField SFInt32 HLt 0
+  field SFBool overC TRUE
+  exposedField SFColor txC 0 0 0
+  exposedField SFColor hlC 0.8 0.8 1
+  exposedField SFColor hlH 0.8 0.9 1
+  exposedField SFColor lnC 0 0 0
+  eventOut SFInt32 swH 
+  field SFFloat Fsize 0.006
+  field SFFloat spacing 1
+  eventIn SFInt32 reset 
+  exposedField SFNode buttonGeom NULL
+ ]
+ {
+  
+  Transform 
+  {
+   children 
+   [ 
+    Group 
+    {
+     children 
+     [ 
+      DEF TSens TouchSensor 
+      {
+       enabled IS enabled
+       touchTime IS touchTime
+      }
+      Transform 
+      {
+       children 
+       [ 
+        DEF swH Switch 
+        {
+         choice 
+         [ 
+          DEF OvSw Switch 
+          {
+           choice 
+           [ 
+            Shape 
+            {
+             appearance IS appearance
+             geometry DEF IFSb2 IndexedFaceSet 
+             {
+              coord DEF Cb1 Coordinate 
+              {
+               point 
+               [ 
+                -0.5 -0.5 0, -0.5 0.5 0, 0.5 0.5 0, 
+                0.5 -0.5 0 
+               ]
+              }
+              coordIndex 
+              [ 
+               3, 2, 1, 0, -1
+              ]
+             }
+            }
+            Shape 
+            {
+             appearance Appearance 
+             {
+              material Material 
+              {
+               diffuseColor 0 0 0
+               emissiveColor IS hlH
+              }
+             }
+             geometry USE IFSb2
+            }
+           ]
+           whichChoice 0
+          }
+          Shape 
+          {
+           appearance Appearance 
+           {
+            material Material 
+            {
+             diffuseColor 0 0 0
+             emissiveColor IS hlC
+            }
+           }
+           geometry USE IFSb2
+          }
+         ]
+         whichChoice IS HLt
+        }
+        Switch 
+        {
+         choice 
+         [ 
+          Transform 
+          {
+           children 
+           [ 
+            Shape 
+            {
+             appearance Appearance 
+             {
+              material Material 
+              {
+               diffuseColor 0 0 0
+               emissiveColor IS lnC
+              }
+             }
+             geometry IndexedLineSet 
+             {
+              coord USE Cb1
+              coordIndex 
+              [ 
+               0, 1, 2, 3, 0, -1
+              ]
+             }
+            }
+           ]
+           translation 0 0 0.0001
+          }
+         ]
+         whichChoice IS rmk
+        }
+       ]
+       scale IS Dim
+      }
+      Transform 
+      {
+       children 
+       [ 
+        Shape 
+        {
+         appearance Appearance 
+         {
+          material Material 
+          {
+           diffuseColor 0 0 0
+           emissiveColor IS txC
+          }
+         }
+         geometry IS buttonGeom
+        }
+       ]
+       scale IS mTx
+       translation IS tr_txt
+      }
+     ]
+    }
+   ]
+   translation IS Trans
+  }
+  DEF Scr2 Script 
+  {
+   url "javascript:
+			function Ts(value){
+				if(value){
+					if(overC)ovC=1;
+				}
+				else{
+					if(overC)ovC=0;
+				}
+			}
+			function reset(){
+				trig=0;
+				swH=trig;
+			}
+			function ThTm(){
+				if(!fix)NumOut=Num;
+				else{
+					if(trig==0){
+						NumOut=Num;
+						trig=1;
+					}
+					else{
+						NumOut=-Num;
+						trig=0;
+					}
+					swH=trig;
+				}
+			}" 
+   directOutput TRUE
+   field MFString justify IS justify
+   field SFBool fix IS fix
+   eventOut SFInt32 swH IS swH
+   eventOut SFInt32 NumOut IS NumOut
+   eventIn SFTime ThTm 
+   eventIn SFBool Ts 
+   field SFInt32 Num IS Num
+   eventOut SFInt32 ovC 
+   eventOut MFVec3f crd1 
+   field SFBool overC IS overC
+   field SFInt32 trig 0
+   eventIn SFInt32 reset IS reset
+  }
+  
+  ROUTE Scr2.ovC TO OvSw.whichChoice
+  ROUTE Scr2.crd1 TO Cb1.point
+  ROUTE TSens.isOver TO Scr2.Ts
+  ROUTE TSens.touchTime TO Scr2.ThTm
+  ROUTE Scr2.swH TO swH.whichChoice
+  
+ }
+ PROTO OldAxesPanel 
+ [
+  exposedField MFNode externalAxes []
+  exposedField SFInt32 whichChoice 0
+  eventIn SFFloat setMaxSize 
+  exposedField SFVec3f scale 1 1 1
+  exposedField SFVec2f position 0.85 0.15
+  eventIn SFFloat setHUDDistance 
+  eventOut SFVec3f outZScale 
+ ]
+ {
+  
+  Group 
+  {
+   children 
+   [ 
+    DEF ControlBar Transform 
+    {
+     children 
+     [ 
+      Collision 
+      {
+       children 
+       [ 
+        Switch 
+        {
+         choice 
+         [ 
+          DEF TCorrector1 Transform 
+          {
+           children 
+           [ 
+            DEF TCorrector2 Transform 
+            {
+             children 
+             [ 
+              DEF XYZTR2 Transform 
+              {
+               children 
+               [ 
+                DEF ScaleCorrector Transform 
+                {
+                 children IS externalAxes
+                 scale IS outZScale
+                }
+               ]
+               scale IS scale
+              }
+             ]
+            }
+           ]
+           translation 0.028 0.0245 -0.1
+          }
+         ]
+         whichChoice IS whichChoice
+        }
+       ]
+       collide FALSE
+      }
+     ]
+     translation 0 0 10
+    }
+    DEF PSens ProximitySensor 
+    {
+     size 1e+07 1e+07 1e+07
+    }
+    DEF TChecker TimeSensor 
+    {
+     loop TRUE
+    }
+    DEF XYZScript Script 
+    {
+     url "javascript:
+					function initialize(){
+						//ver. 2.5
+						isBlocked = (typeof(player)=='undefined');
+						if(!isBlocked){
+							setScreenPosition();
+							chTr();
+						}
+					}
+					function setPosition(value){
+						if(!isBlocked){
+							setScreenPosition();
+						}
+					}
+					function onCheckResize(){
+						if(isBlocked)return;
+						if(!checkSize())return;
+						if(counts>=0){
+							counts++;
+							if(counts>=2){
+								counts = -1;
+								setDistance();
+							}
+						}
+						setScreenPosition();
+					}
+					function checkSize(){
+						var rc = view.scene.getBounds();
+						var s0 = rc.right + rc.left + rc.bottom + rc.top;
+						if(s0==sz)return false;
+						sz=s0;
+						return true;
+					}
+					function setScreenPosition(){
+						var rc = view.scene.getBounds();
+						if(rc.right - rc.left>1 && rc.bottom - rc.top>1){
+							var m = new VrmlMatrix();
+							var e = player.engine;
+							var ctr = e.CameraPosition.Translation;
+							var crt = e.CameraPosition.Rotation;
+							m.setTransform(new SFVec3f(ctr.x, ctr.y, ctr.z), new SFRotation(crt.x, crt.y, crt.z, crt.Angle));
+							var centerX = (rc.right+rc.left)/2;
+							var centerY = (rc.bottom+rc.top)/2;
+							var posX = Math.round(rc.left+posNode.translation.x*(rc.right-rc.left));
+							var posY = Math.round(rc.top+posNode.translation.y*(rc.bottom-rc.top));	   
+							var crd3D_1 = e.GetProjectedPoint(posX, posY, 1); 
+							var vec1 = new SFVec3f(crd3D_1.x, crd3D_1.y, crd3D_1.z);
+							var m2 = m.inverse();
+							var rz = m2.multVecMatrix(vec1);
+							var lnA = Math.abs(tc1.translation.z/rz.z);	    
+							var crd3D = e.GetProjectedPoint(posX, posY, lnA); 	   
+							var vec3f = new SFVec3f(crd3D.x, crd3D.y, crd3D.z);	   
+							var rz = m2.multVecMatrix(vec3f);
+							tc1.translation = new SFVec3f(rz.x, rz.y, tc1.translation.z);
+						}
+					}
+					function chTr(){
+						var tn = tc1.translation.x/tc1.translation.z;;
+						var t = Math.atan(2/(Math.sqrt(tn*tn+4)+tn));
+						var rt = (Math.PI/2 - 2*t);
+						var tanT = Math.tan(t);
+						var s = tanT*tanT;
+
+						tc1.rotation=new SFRotation(0,1,0, rt);
+						tc1.scale=new SFVec3f(Math.sqrt(s),1,1/Math.sqrt(s));
+						tc1.scaleOrientation=new SFRotation(0,1,0,t);
+
+						tn = -tc1.translation.y/tc1.translation.z;;
+						t = Math.atan(2/(Math.sqrt(tn*tn+4)+tn));
+						rt = (Math.PI/2 - 2*t);
+						tanT = Math.tan(t);
+						s = tanT*tanT;
+
+						tc2.rotation=new SFRotation(1,0,0, rt);
+						tc2.scale=new SFVec3f(1,Math.sqrt(s),1/Math.sqrt(s));
+						tc2.scaleOrientation=new SFRotation(1,0,0,t);
+					}
+					function set_orientation(value){
+						tr.rotation = value.inverse();
+					}
+					function setMaxSize(value){
+						if(value>0){
+							distance_z =-Math.abs(value)/200;
+							counts = 0;
+						}
+					}
+					function setHUDDistance(value){
+						if(value!=0){
+							distance_z = -Math.abs(value);
+							counts = 0;
+						}
+					}
+					function setDistance(){
+						if(distance_z>-0.05)distance_z=-0.05;
+						var scl = -distance_z/0.1;
+						tc1.translation.z = distance_z;
+						ScaleCorrector.scale = new SFVec3f(scl,scl,scl);
+						if(!isBlocked)setScreenPosition();
+					}
+					" 
+     directOutput TRUE
+     eventIn SFTime onCheckResize 
+     eventIn SFVec3f chTr 
+     field SFNode tc1 USE TCorrector1
+     field SFNode tc2 USE TCorrector2
+     field SFNode ScaleCorrector USE ScaleCorrector
+     field SFNode posNode DEF PosProxy TextureTransform 
+     {
+      translation IS position
+     }
+     field SFNode tr USE XYZTR2
+     eventIn SFRotation set_orientation 
+     eventIn SFFloat setMaxSize IS setMaxSize
+     eventIn SFFloat setHUDDistance IS setHUDDistance
+     eventIn SFVec2f setPosition 
+     field SFFloat distance_z -0.1
+     field SFInt32 counts -1
+     field SFInt32 sz 0
+     field SFBool isBlocked FALSE
+    }
+   ]
+  }
+  
+  ROUTE PSens.orientation_changed TO XYZScript.set_orientation
+  ROUTE PSens.orientation_changed TO ControlBar.rotation
+  ROUTE PSens.position_changed TO ControlBar.translation
+  ROUTE TChecker.cycleTime TO XYZScript.onCheckResize
+  ROUTE PosProxy.translation TO XYZScript.setPosition
+  ROUTE TCorrector1.translation TO XYZScript.chTr
+  
+ }
+ PROTO protoMFNode 
+ [
+  exposedField MFNode _ []
+ ]
+ {
+  
+  Group 
+  {
+   
+  }
+  
+  
+ }
+ PROTO protoSFBool 
+ [
+  exposedField SFBool _ FALSE
+ ]
+ {
+  
+  Group 
+  {
+   
+  }
+  
+  
+ }
+ PROTO protoSFFloat 
+ [
+  exposedField SFFloat _ 0
+ ]
+ {
+  
+  Group 
+  {
+   
+  }
+  
+  
+ }
+ PROTO protoSFInt32 
+ [
+  exposedField SFInt32 _ 0
+ ]
+ {
+  
+  Group 
+  {
+   
+  }
+  
+  
+ }
+ PROTO protoSFNode 
+ [
+  exposedField SFNode _ NULL
+ ]
+ {
+  
+  Group 
+  {
+   
+  }
+  
+  
+ }
+ PROTO Slider 
+ [
+  exposedField SFNode appearance NULL
+  exposedField SFNode appearanceLn NULL
+  eventOut SFFloat outPosition 
+  eventIn SFFloat setPosition 
+  exposedField SFVec3f translation 0 0 0
+  exposedField SFVec3f scale 1 1 1
+  exposedField SFInt32 SwitchIndicator 0
+ ]
+ {
+  
+  Transform 
+  {
+   children 
+   [ 
+    Shape 
+    {
+     appearance DEF mRed Appearance 
+     {
+      material Material 
+      {
+       emissiveColor 1 0 0
+      }
+     }
+     geometry IndexedLineSet 
+     {
+      coord Coordinate 
+      {
+       point 
+       [ 
+        -0.002 0 0, 0.072 0 0, -0.002 -0.001 0, 
+        -0.002 0.001 0, 0.072 -0.001 0, 0.072 0.001 0 
+       ]
+      }
+      coordIndex 
+      [ 
+       0, 1, -1, 
+       2, 3, -1, 
+       4, 5, -1
+      ]
+     }
+    }
+    DEF TR Transform 
+    {
+     children 
+     [ 
+      Transform 
+      {
+       children 
+       [ 
+        Shape 
+        {
+         appearance IS appearance
+         geometry IndexedFaceSet 
+         {
+          coord DEF CRD Coordinate 
+          {
+           point 
+           [ 
+            0.002 0.0015 0, 0.002 -0.0015 0, -0.002 -0.0015 0, 
+            -0.002 0.0015 0 
+           ]
+          }
+          coordIndex 
+          [ 
+           3, 2, 1, 0, -1
+          ]
+         }
+        }
+       ]
+       translation 0 0 -5e-05
+      }
+      Transform 
+      {
+       children 
+       [ 
+        Shape 
+        {
+         appearance Appearance 
+         {
+          material Material 
+          {
+           diffuseColor 0 0 0
+          }
+         }
+         geometry IndexedLineSet 
+         {
+          coord USE CRD
+          coordIndex 
+          [ 
+           3, 2, 1, 0, -1, 
+           0, 3, -1
+          ]
+         }
+        }
+       ]
+       translation 0 0 -1e-05
+      }
+      Transform 
+      {
+       children 
+       [ 
+        Switch 
+        {
+         choice 
+         [ 
+          Shape 
+          {
+           appearance DEF M_Ln Appearance 
+           {
+            material Material 
+            {
+             diffuseColor 1 0 0
+            }
+           }
+           geometry IndexedFaceSet 
+           {
+            coord Coordinate 
+            {
+             point 
+             [ 
+              -0.11 -0.11 0, -0.11 0.11 0, 0.11 0.11 0, 
+              0.11 -0.11 0 
+             ]
+            }
+            coordIndex 
+            [ 
+             3, 2, 1, 0, -1
+            ]
+           }
+          }
+          Shape 
+          {
+           appearance USE M_Ln
+           geometry IndexedFaceSet 
+           {
+            coord Coordinate 
+            {
+             point [ 0.15 0 0, -0.1 0.14 0, -0.1 -0.14 0 ]
+            }
+            coordIndex 
+            [ 
+             0, 1, 2, -1
+            ]
+           }
+          }
+          Shape 
+          {
+           appearance USE M_Ln
+           geometry IndexedFaceSet 
+           {
+            coord Coordinate 
+            {
+             point 
+             [ 
+              -0.03 0.12 0, -0.12 0.12 0, -0.12 -0.12 0, 
+              -0.03 -0.12 0, 0.12 0.12 0, 0.03 0.12 0, 
+              0.03 -0.12 0, 0.12 -0.12 0 
+             ]
+            }
+            coordIndex 
+            [ 
+             2, 3, 0, -1, 
+             1, 2, 0, -1, 
+             6, 7, 4, -1, 
+             5, 6, 4, -1
+            ]
+           }
+          }
+         ]
+         whichChoice IS SwitchIndicator
+        }
+       ]
+       scale 0.01 0.008 0.008
+       translation 0 0 -1e-05
+      }
+     ]
+    }
+    DEF PS PlaneSensor 
+    {
+     maxPosition 0.07 0
+    }
+    DEF SC Script 
+    {
+     url "javascript:
+					function translation_changed(value){
+						outPosition=value.x/SliderLength;
+						set_translation=value;
+					}
+					function setPosition(value){
+						tmpSFV3.x=value*SliderLength;
+						set_translation=tmpSFV3;
+						set_offset=tmpSFV3;
+					}
+					" 
+     eventIn SFFloat setPosition IS setPosition
+     eventOut SFFloat outPosition IS outPosition
+     eventIn SFVec3f translation_changed 
+     eventOut SFVec3f set_translation 
+     eventOut SFVec3f set_offset 
+     field SFVec3f tmpSFV3 0 0 0
+     field SFFloat SliderLength 0.07
+    }
+   ]
+   scale IS scale
+   translation IS translation
+  }
+  
+  ROUTE SC.set_translation TO TR.translation
+  ROUTE SC.set_offset TO PS.offset
+  ROUTE PS.translation_changed TO SC.translation_changed
+  
+ }
+ PROTO Viewpoint3 
+ [
+  field SFInt32 orthographic 0
+  field SFString description ""
+  exposedField SFVec3f position 0 0 10
+  exposedField SFRotation orientation 0 0 1 0
+  exposedField SFFloat fieldOfView 0.785398
+  exposedField SFVec3f center 0 0 0
+  exposedField SFBool jump TRUE
+  eventIn SFBool set_bind 
+  eventOut SFBool isBound 
+  eventOut SFTime bindTime 
+ ]
+ {
+  EXTERNPROTO OrthographicViewpoint [	#!%common
+  eventIn      SFBool     set_bind
+  exposedField SFBool     jump #!(TRUE)
+  exposedField SFRotation orientation #!%orient(0 0 1 0)
+  exposedField SFVec3f    position #!%coord(0 0 10)
+  exposedField SFFloat    viewportSize #!%coord(2)
+  field        SFString   description #!("")
+  eventOut     SFTime     bindTime
+  eventOut     SFBool     isBound
+]
+[ "urn:inet:parallelgraphics.com:cortona:OrthographicViewpoint" "http://www.cortona3d.com/source/extensions.wrl#OrthographicViewpoint" ]
+
+
+  DEF SW Switch 
+  {
+   choice 
+   [ 
+    Viewpoint 
+    {
+     fieldOfView IS fieldOfView
+     jump IS jump
+     orientation IS orientation
+     position IS position
+     description IS description
+     bindTime IS bindTime
+     isBound IS isBound
+    }
+    OrthographicViewpoint 
+    {
+     jump IS jump
+     orientation IS orientation
+     position IS position
+     viewportSize IS fieldOfView
+     description IS description
+     bindTime IS bindTime
+     isBound IS isBound
+    }
+   ]
+   whichChoice IS orthographic
+  }
+  Script 
+  {
+   url "javascript:
+				function set_bind(val)
+				{
+					if(orthographic == 0 || orthographic == 1)
+						sw.choice[orthographic].set_bind = val;
+				}" 
+   directOutput TRUE
+   eventIn SFBool set_bind IS set_bind
+   field SFInt32 orthographic IS orthographic
+   field SFNode sw USE SW
+  }
+  
+  
+ }
+ EXTERNPROTO Layer3D [ #!%group{*}
+	eventIn MFNode addChildren
+	eventIn MFNode removeChildren
+	exposedField MFNode children
+	exposedField SFVec2f size #!%coord(-1 -1)
+	exposedField SFNode background #!{Background}
+	exposedField SFNode fog #!{Fog}
+	exposedField SFNode navigationInfo #!{NavigationInfo}
+	exposedField SFNode viewpoint #!{Viewpoint}
+]
+[ "urn:inet:parallelgraphics.com:cortona:Layer3D" "http://www.cortona3d.com/source/extensions.wrl#Layer3D" ]
+
+EXTERNPROTO Transform2D [ #!%group{*}
+	eventIn MFNode addChildren
+	eventIn MFNode removeChildren
+	exposedField SFVec2f center #!%coord(0 0)
+	exposedField MFNode children #!{Layer3D,Layer2D,Transform2D,Shape}
+	exposedField SFFloat rotationAngle #!(0)
+	exposedField SFVec2f scale #!%coord(1 1)
+	exposedField SFFloat scaleOrientation #!(0)
+	exposedField SFVec2f translation #!%coord(0 0)
+]
+[ "urn:inet:parallelgraphics.com:cortona:Transform2D" "http://www.cortona3d.com/source/extensions.wrl#Transform2D" ]
+
+
+ Group 
+ {
+  children 
+  [ 
+   DEF Simulation_environment Group 
+   {
+    children 
+    [ 
+     DEF BaseViewpoint1 Viewpoint3 
+     {
+      position IS base_VP_position
+      orientation IS base_VP_orientation
+      jump FALSE
+     }
+     DEF BaseViewpoint2 Viewpoint3 
+     {
+      jump FALSE
+     }
+    ]
+   }
+   DEF HUD_Controls Group 
+   {
+    children 
+    [ 
+     DEF StylesSW Switch 
+     {
+      choice 
+      [ 
+       DEF NewStyle Group 
+       {
+        children 
+        [ 
+         DEF HUD_Switch Switch 
+         {
+          choice 
+          [ 
+           DEF T2D Transform2D 
+           {
+            center 0 0
+            children 
+            [ 
+             DEF L3D Layer3D 
+             {
+              children 
+              [ 
+               Transform 
+               {
+                center 0 -0.0623 -0.15
+                children 
+                [ 
+                 DEF SliderSW Switch 
+                 {
+                  choice 
+                  [ 
+                   Transform 
+                   {
+                    children 
+                    [ 
+                     DEF PS_Slider0 Slider 
+                     {
+                      appearance DEF C1 Appearance 
+                      {
+                       material Material 
+                       {
+                        diffuseColor 0 0 0
+                        emissiveColor 1 1 1
+                        transparency 0.2
+                       }
+                      }
+                      outPosition IS onSliderMove
+                      translation -0.07 -0.06 0
+                      scale 2 1 1
+                     }
+                    ]
+                    scale 0.7 1 1
+                    translation 0 0.006 -0.15
+                   }
+                  ]
+                  whichChoice IS whichChoiceSlider
+                 }
+                 DEF XYZSW Switch 
+                 {
+                  whichChoice IS whichChoiceXYZ
+                 }
+                 DEF ZOOMSW Switch 
+                 {
+                  choice 
+                  [ 
+                   Transform 
+                   {
+                    center -1.1 0 0
+                    children 
+                    [ 
+                     Transform 
+                     {
+                      children 
+                      [ 
+                       Transform 
+                       {
+                        children 
+                        [ 
+                         Transform 
+                         {
+                          children 
+                          [ 
+                           Shape 
+                           {
+                            appearance DEF AppZoom Appearance 
+                            {
+                             material Material 
+                             {
+                              diffuseColor 0 0 0
+                             }
+                            }
+                            geometry IndexedFaceSet 
+                            {
+                             color Color 
+                             {
+                              color [ 1 1 1, 0.502 0.502 0.7529, 0.502 0.502 0.7529 ]
+                             }
+                             coord Coordinate 
+                             {
+                              point [ 0.03496 -0.314 0, -0.01207 0.314 0, 0.03496 0.314 0 ]
+                             }
+                             colorIndex 
+                             [ 
+                              0, 2, 1, -1
+                             ]
+                             coordIndex 
+                             [ 
+                              0, 2, 1, -1
+                             ]
+                            }
+                           }
+                          ]
+                          translation -0.005111 -0.009789 0
+                         }
+                        ]
+                        rotation 0 0 1 -1.57
+                        scale 1 1.2 1
+                        translation -0.022 0 0
+                       }
+                       Transform 
+                       {
+                        children 
+                        [ 
+                         DEF ZoomMover Transform 
+                         {
+                          children 
+                          [ 
+                           Transform 
+                           {
+                            children 
+                            [ 
+                             Transform 
+                             {
+                              children 
+                              [ 
+                               Shape 
+                               {
+                                appearance USE AppZoom
+                                geometry IndexedFaceSet 
+                                {
+                                 color DEF ZoomMoverColor Color 
+                                 {
+                                  color 
+                                  [ 
+                                   0.502 0.502 0.7529, 0 0 0, 0 0 0, 
+                                   0.502 0.502 0.7529, 1 1 1, 0.502 0.502 0.7529, 
+                                   0.502 0.502 0.7529, 0.502 0.502 0.7529, 1 1 1 
+                                  ]
+                                 }
+                                 coord Coordinate 
+                                 {
+                                  point 
+                                  [ 
+                                   -0.021 0 0.0432, 0.03 0 -0.046, -0.008597 0 -0.04554, 
+                                   -0.01168 0 0.03973, 0.04364 0 -0.05367, -0.021 0 0.0432, 
+                                   -0.00834 0 -0.04609, 0.005336 0 -0.0536, 0.03 0 -0.046 
+                                  ]
+                                 }
+                                 colorIndex 
+                                 [ 
+                                  0, 1, 2, -1, 
+                                  3, 4, 5, -1, 
+                                  6, 4, 7, -1, 
+                                  8, 4, 6, -1, 
+                                  5, 4, 8, -1
+                                 ]
+                                 coordIndex 
+                                 [ 
+                                  0, 1, 2, -1, 
+                                  3, 4, 5, -1, 
+                                  6, 4, 7, -1, 
+                                  8, 4, 6, -1, 
+                                  5, 4, 8, -1
+                                 ]
+                                }
+                               }
+                              ]
+                              rotation -1 0 0 -1.571
+                              translation 0.00458 -0.02003 0.02
+                             }
+                            ]
+                            translation -0.005 0.015 0
+                           }
+                          ]
+                          translation 0.109433 0 0
+                         }
+                         DEF ZoomSence PlaneSensor 
+                         {
+                          autoOffset FALSE
+                         }
+                        ]
+                        translation -0.03 0 0
+                       }
+                      ]
+                      scale 0.11 0.11 0.1
+                      translation -0.959 0.049 0.82
+                     }
+                    ]
+                    scale 1.253 1 1
+                    translation 0.928 -0.096 -0.97
+                   }
+                  ]
+                  whichChoice IS whichChoiceZOOM
+                 }
+                 DEF SwControlButtons Switch 
+                 {
+                  choice 
+                  [ 
+                   Transform 
+                   {
+                    children 
+                    [ 
+                     DEF ui_vcr_B_Play Button 
+                     {
+                      appearance USE C1
+                      hlC 0.95 0.95 1
+                      buttonGeom IndexedFaceSet 
+                      {
+                       coord Coordinate 
+                       {
+                        point [ 0.15 0 0, -0.1 0.14 0, -0.1 -0.14 0 ]
+                       }
+                       coordIndex 
+                       [ 
+                        0, 1, 2, -1
+                       ]
+                      }
+                     }
+                     DEF ui_vcr_B_Pause Button 
+                     {
+                      Trans 0.025 0 0
+                      appearance USE C1
+                      hlC 0.8 1 0.8
+                      buttonGeom IndexedFaceSet 
+                      {
+                       coord Coordinate 
+                       {
+                        point 
+                        [ 
+                         -0.02 0.11 0, -0.12 0.11 0, -0.12 -0.11 0, 
+                         -0.02 -0.11 0, 0.15 0.11 0, 0.05 0.11 0, 
+                         0.05 -0.11 0, 0.15 -0.11 0 
+                        ]
+                       }
+                       coordIndex 
+                       [ 
+                        2, 3, 0, -1, 
+                        1, 2, 0, -1, 
+                        6, 7, 4, -1, 
+                        5, 6, 4, -1
+                       ]
+                      }
+                     }
+                     DEF ui_vcr_B_Stop Button 
+                     {
+                      Trans 0.05 0 0
+                      appearance USE C1
+                      hlC 0.95 0.95 1
+                      buttonGeom IndexedFaceSet 
+                      {
+                       coord Coordinate 
+                       {
+                        point 
+                        [ 
+                         -0.09 -0.11 0, -0.09 0.11 0, 0.12 0.11 0, 
+                         0.12 -0.11 0 
+                        ]
+                       }
+                       ccw FALSE
+                       coordIndex 
+                       [ 
+                        0, 1, 2, 3, -1
+                       ]
+                      }
+                     }
+                     DEF ui_vcr_B_Prev Button 
+                     {
+                      Trans 0.078 0 0
+                      appearance USE C1
+                      hlC 0.95 0.95 1
+                      buttonGeom IndexedFaceSet 
+                      {
+                       coord Coordinate 
+                       {
+                        point 
+                        [ 
+                         0.02 0 0, 0.27 0.14 0, 0.27 -0.14 0, 
+                         -0.27 0 0, -0.01 0.14 0, -0.01 -0.14 0 
+                        ]
+                       }
+                       ccw FALSE
+                       coordIndex 
+                       [ 
+                        0, 1, 2, -1, 
+                        3, 4, 5, -1
+                       ]
+                      }
+                     }
+                     DEF ui_vcr_B_Next Button 
+                     {
+                      Trans 0.103 0 0
+                      appearance USE C1
+                      hlC 0.95 0.95 1
+                      buttonGeom IndexedFaceSet 
+                      {
+                       coord Coordinate 
+                       {
+                        point 
+                        [ 
+                         0.27 0 0, 0.02 0.14 0, 0.02 -0.14 0, 
+                         -0.01 0 0, -0.27 0.14 0, -0.27 -0.14 0 
+                        ]
+                       }
+                       coordIndex 
+                       [ 
+                        0, 1, 2, -1, 
+                        3, 4, 5, -1
+                       ]
+                      }
+                     }
+                    ]
+                    scale 0.81 0.81 1
+                    translation -0.0418 -0.05915 -0.15
+                   }
+                  ]
+                  whichChoice IS whichChoiceControlButtons
+                 }
+                ]
+                scale 5.3 5.3 0.05
+               }
+              ]
+              size 0.9 0.2
+              background NULL
+              fog NULL
+              navigationInfo NULL
+              viewpoint Viewpoint 
+              {
+               fieldOfView 0.1
+               position 0 0 1.09
+              }
+             }
+            ]
+            rotationAngle 0
+            scale 1 1
+            scaleOrientation 0
+            translation 0 -0.565
+           }
+          ]
+          whichChoice 0
+         }
+         DEF AP AxesPanel 
+         {
+          externalAxes 
+          [ 
+           DEF eAxes Transform 
+           {
+            children 
+            [ 
+             DEF AxesGR Group 
+             {
+              
+             }
+            ]rotation IS axes_rotation
+           }
+          ]
+          whichChoice IS whichChoiceXYZ
+          scale IS axes_scale
+          position IS axes_position
+         }
+        ]
+       }
+       DEF OldStyle Group 
+       {
+        children 
+        [ 
+         DEF ControlBar_0 Transform 
+         {
+          children 
+          [ 
+           Collision 
+           {
+            children 
+            [ 
+             DEF HUDTrnsfrm_0 Transform 
+             {
+              center 0 0 -0.15
+              children 
+              [ 
+               Transform 
+               {
+                center 0 -0.0622 0
+                children 
+                [ 
+                 USE SliderSW
+                 USE ZOOMSW
+                 USE SwControlButtons
+                ]
+                scale 0.8 0.8 1
+               }
+              ]
+              scale 1.67259 1.67259 1.67259
+              translation 0 0 -0.100889
+             }
+            ]
+            collide FALSE
+           }
+          ]
+          rotation -0.294553 -0.953573 -0.0627507 0.589211
+          translation -73.4467 45.2063 358.128
+         }
+         DEF AP_0 OldAxesPanel 
+         {
+          externalAxes 
+          [ 
+           Transform 
+           {
+            children 
+            [ 
+             DEF AxesGR_0 Group 
+             {
+              
+             }
+            ]rotation IS axes_rotation
+           }
+          ]
+          whichChoice IS whichChoiceXYZ
+          scale IS axes_scale
+          position IS axes_position
+         }
+        ]
+       }
+      ]
+      whichChoice 0
+     }
+     DEF PSens ProximitySensor 
+     {
+      size 1e+07 1e+07 1e+07
+     }
+     DEF ZoomScript Script 
+     {
+      url "javascript:
+						function initialize(){
+							if(typeof(player)!='undefined' && (useOldVCR._ || parseInt(Browser.getVersion())<6)){
+								Browser.addRoute(vps[0], 'position', Self, 'set_position');
+								Browser.addRoute(vps[1], 'position', Self, 'set_position');
+								StylesSW.whichChoice = 1;
+								GR2.children[0] = ext_axs;
+								styles[0].children = new MFNode();
+							}else{
+								GR1.children[0] = ext_axs;
+								styles[1].children = new MFNode();
+							}
+							on_switch();			
+						}
+						function activeZoom(value){
+							if(value)AppZoom.material.transparency=0;
+							else AppZoom.material.transparency=.8;
+						}
+						function on_scr_size(value){
+							var szX = 1.36*((value.x>value.y)? value.y/value.x: 1);
+							var szY = szX/4.5;
+							L3D.size = new SFVec2f(szX, szY);
+							var posY=szY/2-((value.x<value.y)? 1: value.y/value.x);
+							T2D.translation = new SFVec2f(0, posY);			
+						}
+						function on_switch(){
+							hud_switch.whichChoice = (switches[0].whichChoice==0 || switches[1].whichChoice==0 || switches[2].whichChoice==0)? 0 : -1;
+						}
+						function set_position(value){
+							var minR = new SFVec3f(ASize._.avatarSize[3],ASize._.avatarSize[4],ASize._.avatarSize[5]);
+							var ln = (minR.subtract(value)).length();
+							if(ln<1)ln=1;
+							var z_tr =.12-(ln-1)/200;
+							var scl = 1 - z_tr/.15;
+							HUDTrnsfrm.translation=new SFVec3f(0, 0, z_tr);
+							HUDTrnsfrm.scale =new SFVec3f(scl,scl,scl);
+							outHUDposition = z_tr-.12;
+						}
+						" 
+      directOutput TRUE
+      eventIn SFBool activeZoom 
+      eventIn SFVec2f on_scr_size 
+      eventIn SFInt32 on_switch 
+      field SFNode AppZoom USE AppZoom
+      field SFNode T2D USE T2D
+      field SFNode L3D USE L3D
+      field SFNode hud_switch USE HUD_Switch
+      field MFNode switches 
+      [ 
+       USE SliderSW
+       USE ZOOMSW
+       USE SwControlButtons
+      ]
+      eventIn SFVec3f set_position 
+      field SFNode StylesSW USE StylesSW
+      field SFNode ASize protoSFNode 
+      {
+       _ IS NAV_INFO
+      }
+      field SFNode HUDTrnsfrm USE HUDTrnsfrm_0
+      field MFNode vps 
+      [ 
+       USE BaseViewpoint1
+       USE BaseViewpoint2
+      ]
+      field SFNode GR1 USE AxesGR
+      field SFNode GR2 USE AxesGR_0
+      field SFNode ext_axs Group 
+      {
+       children IS externalAxes
+      }
+      field SFNode useOldVCR protoSFBool 
+      {
+       _ IS use_old_style_vcr
+      }
+      field SFNode Self USE ZoomScript
+      eventOut SFFloat outHUDposition 
+      field MFNode styles 
+      [ 
+       USE NewStyle
+       USE OldStyle
+      ]
+     }
+    ]
+   }
+   DEF VCR_CONTROL_SCRIPT Script 
+   {
+    url "javascript:
+				function initialize(){
+					script=ths;
+					outStep._=step;
+					out_Substep._=substep;
+					outPhase._=0;
+					isFinal=false;
+					on_new_state=new MFString('0', '0');
+					alwaysWarning._=false;
+					if(!blockViewpoints._ && Navigation._)
+						Navigation._.set_bind=true;
+					overlap_flag=false;
+					stop_every_substep=false;
+					stop_every_step=false;
+					if(isInitialize._)if(OP._!=null)on_load();
+				}
+				function onVCRTimer(value){
+					if(blockCommands)cmd_stack.length=0;
+					if(cmd_stack.length>0){
+						if(cmd_stack[0]==1)_vcr_play();
+						if(cmd_stack[0]==2)_vcr_stop();
+						if(cmd_stack[0]==3)_vcr_pause();
+						if(cmd_stack[0]==4)_vcr_forward();
+						if(cmd_stack[0]==5)_vcr_backward();
+						if(cmd_stack[0]==6)_vcr_next();
+						if(cmd_stack[0]==7)_vcr_previous();
+						if(cmd_stack[0]==8)_vcr_goto0();
+						if(cmd_stack[0]==9)_set_speed_ratio(last_speed_ratio);
+						if(cmd_stack[0]==10)_vcr_set_fraction0();
+						if(cmd_stack[0]==11)_vcr_set_proc_fraction0();
+						if(cmd_stack[0]==12)_vcr_set_step_fraction0();
+						if(cmd_stack[0]==13)_vcr_set_position();
+						if(cmd_stack[0]==14)_set_new_procedure();
+						if(cmd_stack[0]==15)_now_step_substep_fraction();
+						if(cmd_stack[0]==16)_vcr_play_old();
+						if(cmd_stack[0]==17)_vcr_set_range0();
+						var ln = cmd_stack.length-1;
+						for(var d=1;d<=ln;d++)cmd_stack[d-1]=cmd_stack[d];
+						cmd_stack.length=ln;
+					}else VCRTimer.enabled=false;
+				}
+				function add_to_stack(value){
+					cmd_stack[cmd_stack.length]=value;
+					VCRTimer.enabled=true;
+				}
+				function inPlayPause(value){
+					if(value){
+						add_to_stack(1);
+					}else{
+						totalStop=1;
+						add_to_stack(3);
+					}
+				}
+				function now_step_substep_fraction(value){
+					totalStop=1;
+					buffer_nssf[buffer_nssf.length]= new SFVec3f(value[0], value[1], value[2]);
+					add_to_stack(15);
+				}
+				function set_new_procedure(value){
+					totalStop=1;
+					ProceduresBuffer[ProceduresBuffer.length]=value;
+					add_to_stack(3);
+					add_to_stack(14);
+				}
+				function vcr_play(){add_to_stack(1);}
+				function vcr_play_old(){add_to_stack(16);}
+				function vcr_stop(){
+					totalStop=1;
+					add_to_stack(3);
+					add_to_stack(2);
+				}
+				function vcr_pause(){
+					totalStop=1;
+					add_to_stack(3);
+				}
+				function vcr_forward(){
+					totalStop=1;
+					add_to_stack(3);
+					add_to_stack(4);
+				}
+				function vcr_backward(){
+					totalStop=1;
+					add_to_stack(3);
+					add_to_stack(5);
+				}
+				function vcr_next(){
+					totalStop=1;
+					add_to_stack(3);
+					add_to_stack(6);
+				}
+				function vcr_previous(){
+					totalStop=1;
+					add_to_stack(3);
+					add_to_stack(7);
+				}
+				function vcr_goto(value){
+					totalStop=1;
+					add_to_stack(3);
+					last_goto_val[last_goto_val.length]=value;
+					add_to_stack(8);
+				}
+				function vcr_set_range(value){
+					totalStop=1;
+					add_to_stack(3);
+					last_range_val0[last_range_val0.length]=value[0];
+					last_range_val1[last_range_val1.length]=value[1];
+					add_to_stack(17);
+				}
+				function vcr_set_position(value){
+					totalStop=1;
+					add_to_stack(3);
+					last_set_position_val[last_set_position_val.length]=value;
+					add_to_stack(13);
+				}
+				function set_speed_ratio(value){
+					last_speed_ratio=value;
+					add_to_stack(9);
+				}
+				function vcr_set_fraction(value){
+					totalStop=1;
+					add_to_stack(3);
+					last_fraction_val[last_fraction_val.length]=value;
+					add_to_stack(10);
+				}
+				function vcr_set_step_fraction(value){
+					totalStop=1;
+					add_to_stack(3);
+					last_step_fraction_val[last_step_fraction_val.length]=value;
+					add_to_stack(12);
+				}
+				function vcr_set_proc_fraction(value){
+					totalStop=1;
+					add_to_stack(3);
+					last_proc_fraction_val[last_proc_fraction_val.length]=value;
+					add_to_stack(11);
+				}
+				function reinitialize_all_substeps(){
+					overlap_flag=false;
+					overlap_mode=0;
+					on_load();
+				}
+				function reinitialize(){
+					overlap_flag=false;
+					overlap_mode=0;
+					on_load();
+				}
+				function reinitialize_step(){
+					overlap_flag=false;
+					overlap_mode=1;
+					on_load();
+				}
+				function reinitialize_substep(){
+					overlap_flag=false;
+					overlap_mode=2;
+					on_load();
+				}
+				function on_load(){
+					oldstep=0;
+					oldsubstep=0;
+					selectedTask=1;
+					fragment_type=0;
+					TaskDuration.length=0;
+					simsteps=0;
+					for(var z=0;z<OP._.steps.length;z++)if(OP._.steps[z].substeps.length==0)OP._.steps[z].simulate=false;
+
+					delete_Steps();
+					if(StepsTrueLength>0){
+						blockCommands=false;
+						lastID=OP._.id;
+						for(var z=0;z<StepsTrueLength;z++)if(OP._.steps[z].simulate){
+							TaskDuration[z]=new SFVec2f(simsteps,simsteps+1);
+							simsteps++;
+						}else TaskDuration[z]=new SFVec2f(-simsteps,-(simsteps+1));
+						for(var z=0;z<StepsTrueLength;z++)TaskDuration[z]=TaskDuration[z].multiply(1/simsteps);
+						check_overlap();
+						if(overlap_mode==0){
+							if(!isSetNow)start();
+							alertStep=-1;
+							alertSubStep=-1;
+						}else{
+							alertStep=-1;
+							alertSubStep=-1;
+							presetSubstep();
+							oldstep=step;
+							oldsubstep=substep;
+						}
+					}else{
+						blockCommands=true;
+						if(OP._.steps.length>0){
+							for(var z=0;z<OP._.steps.length;z++)if(OP._.steps[z].substeps.length==0)return;
+							check_overlap();
+							step=OP._.steps.length-1;
+							outStep._=step;
+							substep=OP._.steps[OP._.steps.length-1].substeps.length-1;
+							out_Substep._=substep;
+							paused_fr=1;
+							setPhase();
+							for(var g=OP._.steps.length-1;g>=0;g--){
+								for(var h=OP._.steps[g].substeps.length-1;h>=0;h--){
+									for(var j=OP._.steps[g].substeps[h].commands.length-1;j>=0;j--){
+										if(OP._.steps[g].substeps[h].commands[j].attributeName.indexOf('set_viewpoint')==0){
+											setVP(g,h,j);
+											return;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				function check_overlap(){
+					if(overlap_flag){
+						if(overlap_mode==0){
+							for(var g=0;g<StepsTrueLength;g++){
+								for(var h=0;h<OP._.steps[g].substeps.length;h++){
+									for(var j=0;j<OP._.steps[g].substeps[h].commands.length;j++){
+										var tCmd=OP._.steps[g].substeps[h].commands[j];
+										if((tCmd.period[0]<=0)&&(tCmd.period[1]>=1)){
+											tCmd.period[2]=0;
+											tCmd.period[3]=0;
+											tCmd.period[4]=1;
+										}else{
+											tCmd.period[2]=1;
+											tCmd.period[3]=0;
+											tCmd.period[4]=1;
+											if(tCmd.attributeID>0){
+												for(var k=0;k<OP._.steps[g].substeps[h].commands.length;k++){
+													var kCmd=OP._.steps[g].substeps[h].commands[k];
+													if((k!=j)&&(tCmd.objectID==kCmd.objectID)&&(tCmd.attributeID==kCmd.attributeID)){
+														if(tCmd.period[0]<kCmd.period[0]){
+															if(tCmd.period[4]>kCmd.period[0])tCmd.period[4]=kCmd.period[0];
+														}else tCmd.period[3]=tCmd.period[0];
+														tCmd.period[2]=2;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						if(overlap_mode==1){
+							var g=step;
+							for(var h=0;h<OP._.steps[g].substeps.length;h++){
+								for(var j=0;j<OP._.steps[g].substeps[h].commands.length;j++){
+									var tCmd=OP._.steps[g].substeps[h].commands[j];
+									if((tCmd.period[0]<=0)&&(tCmd.period[1]>=1)){
+										tCmd.period[2]=0;
+										tCmd.period[3]=0;
+										tCmd.period[4]=1;
+									}else{
+										tCmd.period[2]=1;
+										tCmd.period[3]=0;
+										tCmd.period[4]=1;
+										if(tCmd.attributeID>0){
+											for(var k=0;k<OP._.steps[g].substeps[h].commands.length;k++){
+												var kCmd=OP._.steps[g].substeps[h].commands[k];
+												if((k!=j)&&(tCmd.objectID==kCmd.objectID)&&(tCmd.attributeID==kCmd.attributeID)){
+													if(tCmd.period[0]<kCmd.period[0]){
+														if(tCmd.period[4]>kCmd.period[0])tCmd.period[4]=kCmd.period[0];
+													}else tCmd.period[3]=tCmd.period[0];
+													tCmd.period[2]=2;
+												}}
+										}
+									}
+								}
+							}
+						}
+						if(overlap_mode==2){
+							var g=step;
+							var h=substep;
+							for(var j=0;j<OP._.steps[g].substeps[h].commands.length;j++){
+								var tCmd=OP._.steps[g].substeps[h].commands[j];
+								if((tCmd.period[0]<=0)&&(tCmd.period[1]>=1)){
+									tCmd.period[2]=0;
+									tCmd.period[3]=0;
+									tCmd.period[4]=1;
+								}else{
+									tCmd.period[2]=1;
+									tCmd.period[3]=0;
+									tCmd.period[4]=1;
+									if(tCmd.attributeID>0){
+										for(var k=0;k<OP._.steps[g].substeps[h].commands.length;k++){
+											var kCmd=OP._.steps[g].substeps[h].commands[k];
+											if((k!=j)&&(tCmd.objectID==kCmd.objectID)&&(tCmd.attributeID==kCmd.attributeID)){
+												if(tCmd.period[0]<kCmd.period[0]){
+													if(tCmd.period[4]>kCmd.period[0])tCmd.period[4]=kCmd.period[0];
+												}else tCmd.period[3]=tCmd.period[0];
+												tCmd.period[2]=2;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				function delete_Steps(){
+					StepsTrueLength=OP._.steps.length;
+					for(var z=OP._.steps.length-1;z>=0;z--){
+						if(!OP._.steps[z].simulate)StepsTrueLength=z;
+						else return;
+					}
+				}
+				function out_on_zoom(){
+					on_zoom_changed=Math.round(lastFr*100000)/100000;
+				}
+				function PosZoomSlider(value){
+					xPos=currentPositon+value.x;
+					if(xPos<xMin)xPos=xMin;
+					if(xPos>xMax)xPos=xMax;
+					ZoomMover.translation=new SFVec3f(xPos,0,0);
+					lastFr=(xPos-xMin)/(xMax-xMin);
+					if(!blockCommands){
+						out_on_zoom();
+						setzoomVP(lastFr);
+					}
+				}
+				function setzoomVP(value){
+					// value=1 -> minZoom -> closeUp
+					
+					if(VP[activeVP].orthographic){
+						var msc = Browser.getScene();
+						if(msc)
+						{
+							var valInit = 1-(distance-minZoom)/(maxZoom-minZoom);
+							if(valInit == 1) return;
+							
+							var vpPos = msc.getCameraPosition();
+							var vpOrig = vpPos.getOrigin();
+							var vpOrtX = vpPos.getOrtX();
+							var vpOrtY = vpPos.getOrtY();
+							var dir = center.subtract(VPposition);
+							
+							// projection on orts
+							var d = new SFVec3f(dir.dot(vpOrtX), dir.dot(vpOrtY), 0).multiply((value-valInit)/(1-valInit));
+							var vpOrigNew = vpPos.vectorToBase(d).add(VPposition);
+//							VP[activeVP].position = vpOrigNew;
+							vpPos.setOrigin(vpOrigNew);
+							msc.setCameraPosition(vpPos);
+							msc.setViewportSize((1-value)*(maxZoom-minZoom) + minZoom);
+						}
+					}
+					else
+					{
+						ortVP=ortVP.normalize();
+						var V3_0 = VPposition.subtract(ortVP.multiply(maxZoom-distance));
+						var V3_2 = VPposition.subtract(ortVP.multiply(minZoom-distance));
+						VP[activeVP].position= V3_0.add((V3_2.subtract(V3_0)).multiply(value));
+					}
+				}
+				function slActive(value){if(!value)currentPositon=xPos;}
+				function zoom_reset(){
+					if(VPmodification!=1){
+						lastFr=1-(distanceVP-minZoom)/(maxZoom-minZoom);
+						setzoomVP(lastFr);
+					}
+				}
+				function zoom_set_level(value){
+					if(VPmodification!=1){
+						lastFr=value;
+						if(lastFr<0)lastFr=0;
+						if(lastFr>1)lastFr=1;
+						setzoomVP(lastFr);
+					}
+				}
+				function zoom_set_delta(value){
+					if(VPmodification!=1){
+						lastFr+=.2*value;
+						if(lastFr<0)lastFr=0;
+						if(lastFr>1)lastFr=1;
+						setzoomVP(lastFr);
+					}
+				}
+				function set_stop_by_substep(value){
+					stop_every_substep=value;
+				}
+				function set_stop_by_step(value){
+					stop_every_step=value;
+					onestep_mode=value;
+				}
+				function _set_new_procedure(){
+					OP._=ProceduresBuffer[0];
+
+					var ln = ProceduresBuffer.length-1;
+					for(var d=1;d<=ln;d++)ProceduresBuffer[d-1]=ProceduresBuffer[d];
+					ProceduresBuffer.length=ln;
+				}
+				function _vcr_play(){
+					totalStop=0;
+					if((fragment_type == 3)&&(paused_fr==1)&&(current_range[1] == OP._.steps[step].substeps[substep].id)){
+						return;
+					}
+					if(!Timers[activeTimer].isActive){
+						if((stop_every_step)&&(paused_fr==1)){
+							if(substep+1>=OP._.steps[step].substeps.length){			
+								totalStop=1;
+								setStep(step);
+								vcr_play();
+								return;
+							}
+						}
+						if(simfraction!=1)play();
+					}
+				}
+				function _vcr_play_old(){
+					totalStop=0;
+					if(!Timers[activeTimer].isActive){
+						if((stop_every_step)&&(paused_fr==1)){
+							if(substep+1>=OP._.steps[step].substeps.length){
+								totalStop=1;
+								setStep(step);
+								vcr_play();
+								return;
+							}
+						}
+						if(simfraction==1){
+							if(fragment_type == 3)_vcr_set_range();
+							else _vcr_goto(lastID);
+						}
+						if(simfraction!=1)play();
+					}
+				}
+				function _vcr_stop(){
+					stop();
+					if(fragment_type == 3)_vcr_set_range();
+					else _vcr_goto(lastID);
+				}
+				function _vcr_pause(){pause();}
+				function _vcr_forward(){forward();}
+				function _vcr_backward(){backward();}
+				function _vcr_next(){next();}
+				function _vcr_previous(){prev();}
+				function _vcr_goto0(){
+					var lstgoto=last_goto_val[0];
+					var ln = last_goto_val.length-1;
+					for(var d=1;d<=ln;d++)last_goto_val[d-1]=last_goto_val[d];
+					last_goto_val.length=ln;
+					_vcr_goto(lstgoto);
+				}
+				function _vcr_goto(value){
+					alertStep=-1;
+					if(OP._.id==value){
+						selectedTask=1;
+						fragment_type=0;
+						stop();
+						start();
+						lastID=value;
+					}else{
+						for(var g=0;g<StepsTrueLength;g++){
+							if((OP._.steps[g].id==value)&&(OP._.steps[g].simulate)){
+								selectedTask=0;
+								fragment_type=1;
+								onestep_mode=true;
+								stop();
+								setStep(g);
+								lastID=value;
+								return;
+							}
+						}
+						//====Goto Substep
+						for(var g=0;g<StepsTrueLength;g++){if(OP._.steps[g].simulate)for(var h=0;h<OP._.steps[g].substeps.length;h++){
+								if(OP._.steps[g].substeps[h].id==value){
+									selectedTask=0;
+									fragment_type=2;
+									stop_every_substep=true;
+									stop();
+									step=g;
+									outStep._=step;
+									substep=h;
+									out_Substep._=substep;
+									paused_fr=0;
+									presetSubstep();
+									setPhase();
+
+									lastID=value;
+									return;
+								}
+							}
+						}
+					}
+				}
+				function _vcr_set_range0(){
+					var rng0=last_range_val0[0];
+					var ln = last_range_val0.length-1;
+					for(var d=1;d<=ln;d++)last_range_val0[d-1]=last_range_val0[d];
+					last_range_val0.length=ln;
+					current_range[0] = rng0;
+
+					var rng1=last_range_val1[0];
+					ln = last_range_val1.length-1;
+					for(var d=1;d<=ln;d++)last_range_val1[d-1]=last_range_val1[d];
+					last_range_val1.length=ln;
+					current_range[1] = rng1;
+					_vcr_set_range();
+				}
+				function _vcr_set_range(){
+					var startSubstep = current_range[0];
+					var endSubstep = current_range[1];
+					rangeSubSteps.length = 0;
+					rangeSubStepsIndexes.length=0;
+					var isInRange = false;
+					var isRangeEnd = false;
+					var sCount = 0;
+					var totalRangeDuration = 0;
+					rangeDuration.length = 0;
+					rangeSteps.length = 0;
+					var nStep = 0;
+					var nSubStep = 0;
+					for(var g=0;g<StepsTrueLength;g++){
+						rangeSteps[g]=0;
+						for(var h=0;h<OP._.steps[g].substeps.length;h++){
+							if(!isInRange && OP._.steps[g].substeps[h].id==startSubstep){
+								isInRange=true;			
+								nStep=g;
+								nSubStep=h;
+								rStep0=h;
+							}
+							if(isInRange){
+								rangeSubSteps[sCount]=OP._.steps[g].substeps[h];
+								rangeSubStepsIndexes[sCount] = new SFVec2f(g, h);
+								totalRangeDuration+=OP._.steps[g].substeps[h].duration;
+								sCount++;
+								rangeSteps[g]=sCount;
+							}
+							if(OP._.steps[g].substeps[h].id==endSubstep){
+								isRangeEnd=true;
+								break;
+							}
+						}
+						if(isRangeEnd)break;
+					}
+					if(totalRangeDuration>0){
+						fragment_type=3;
+						stop();
+						step=nStep;
+						outStep._=step;
+						substep=nSubStep;
+						out_Substep._=substep;
+						paused_fr=0;
+						var prng = 0;
+						rangeDuration[0]=0;
+						for(var i=0; i<rangeSubSteps.length; i++){
+							prng+=rangeSubSteps[i].duration/totalRangeDuration;
+							rangeDuration[i+1]=prng;
+						}
+						rangeDuration[rangeSubSteps.length]=1;
+						presetSubstep();
+						setPhase();
+						lastID=startSubstep;
+					}
+				}
+
+				function _vcr_set_position(){
+					var lsp = new String(last_set_position_val[0]);
+					var ln = last_set_position_val.length-1;
+					for(var d=1;d<=ln;d++)last_set_position_val[d-1]=last_set_position_val[d];
+					last_set_position_val.length=ln;
+					alertStep=-1;
+					if(OP._.id==lsp){
+						selectedTask=1;
+						fragment_type=0;
+						stop();
+						start();
+						lastID=lsp;
+					}else{
+						for(var g=0;g<StepsTrueLength;g++){
+							if((OP._.steps[g].id==lsp)&&(OP._.steps[g].simulate)){
+								stop();
+								setStep(g);
+								return;
+							}
+						}
+
+						//====Goto Substep
+						for(var g=0;g<StepsTrueLength;g++){if(OP._.steps[g].simulate)for(var h=0;h<OP._.steps[g].substeps.length;h++){
+								if(OP._.steps[g].substeps[h].id==lsp){
+									stop();
+									step=g;
+									outStep._=step;
+									substep=h;
+									out_Substep._=substep;
+									paused_fr=0;
+									presetSubstep();
+									setPhase();
+									return;
+								}
+							}}
+					}
+				}
+
+				function _set_speed_ratio(value){
+					if(value>0){
+						timeCompression._=value;
+						if(Timers[activeTimer].isActive){
+							paused_fr=Timers[activeTimer].fraction_changed+paused_fr;
+							phase=paused_fr;
+							outPhase._=paused_fr;
+							if(cycleInterval*(1-paused_fr)>=1){
+								Timers[activeTimer].stopTime=STime.time;
+								activeTimer=(activeTimer==0)?1:0;
+								play2();
+							}
+						}
+					}
+				}
+				function set_substep_fraction(value){
+					_vcr_set_fraction(value);
+				}
+				function _vcr_set_fraction0(){
+					var lfval=last_fraction_val[0];
+					var ln = last_fraction_val.length-1;
+					for(var d=1;d<=ln;d++)last_fraction_val[d-1]=last_fraction_val[d];
+					last_fraction_val.length=ln;
+					_vcr_set_fraction(lfval);
+				}
+				function _vcr_set_fraction(value){
+					paused_fr=value;
+					if(paused_fr>1)paused_fr=1;
+					if(paused_fr<0)paused_fr=0;
+					setPhase();
+				}
+				function set_ui_smoothcontrol(value){
+					if(value)SliderSW.whichChoice=0;
+					else SliderSW.whichChoice=-1;
+				}
+				function set_ui_vcr(value){
+					if(value)SwControlButtons.whichChoice=0;
+					else SwControlButtons.whichChoice=-1;
+				}
+				function set_ignore_viewpoints(value){
+					blockViewpoints._=value;
+					if(!value && OP._ != null)setVP(lastVPCommand[0],lastVPCommand[1],lastVPCommand[2]);
+				}
+				function set_mute_audio(value){
+					muteAudio._=value;
+					on_audio_state=(muteAudio._)? -1: current_mode;
+				}
+				function set_ui_axis(value){
+					if(value)XYZSW.whichChoice=0;
+					else XYZSW.whichChoice=-1;
+				}
+				function set_ui_zoom (value){
+					if(value)ZOOMSW.whichChoice=0;
+					else ZOOMSW.whichChoice=-1;
+				}
+
+				function cycleTimeVP1(value){
+					if(activeVPtimer==2)cycleTimeVP(value);
+				}
+				function cycleTimeVP2(value){
+					if(activeVPtimer==3)cycleTimeVP(value);
+				}
+				function cycleTimeVP(value){
+					if((VPmodification==1)&&(!value)){
+						VPmodification=0;
+						play2();
+					}
+				}
+				function VPmodification0(){
+					VPmodification=0;
+					Timers[activeVPtimer].stopTime=STime.time;
+					if(isPausedOut==0){
+						if(totalStop==0)outPlayPause=true;
+						isPausedOut=1;
+					}
+				}
+				function delayVP(){
+					currentTime=STime.time;
+					if(Timers[activeVPtimer].isActive){
+						Timers[activeVPtimer].stopTime=STime.time;
+						activeVPtimer=(activeVPtimer==2)?3:2;
+					}
+					Timers[activeVPtimer].cycleInterval=intervalVP;
+					Timers[activeVPtimer].startTime=currentTime;
+					Timers[activeVPtimer].stopTime=currentTime+intervalVP;
+					outPlayPause=false;
+					isPausedOut=0;
+				}
+				function setPosZoomSlider(value){
+					lastFr=1-(value-minZoom)/(maxZoom-minZoom);
+					if(lastFr<0)lastFr=0;
+					if(lastFr>1)lastFr=1;
+					xPos=lastFr*(xMax-xMin)+xMin;
+					out_on_zoom();
+					currentPositon=xPos;
+					ZoomMover.translation=new SFVec3f(xPos,0,0);
+					VPposition=VP[activeVP].position;
+				}
+				function viewportSize(value){
+					if(!ZoomSence.isActive && VP[activeVP].orthographic)
+						setPosZoomSlider(value);
+				}
+				function PS_pos(value){
+					check_position(true);
+					if(!ZoomSence.isActive)
+					{
+						if(!VP[activeVP].orthographic)
+						{
+							ortVP=center.subtract(value);
+							distance=ortVP.length();
+							setPosZoomSlider(distance);
+						}
+						else
+						{
+							VPposition = value;
+							var msc = Browser.getScene();
+							if(msc)
+								distance = msc.getViewportSize();
+						}
+					}
+				}
+				function PS_rot(value){check_position(true);}
+				function check_position(isCP){
+					if(VPmodification==1){
+						if(maxDim<PSens.position_changed.length()){
+							maxDim=PSens.position_changed.length();
+							bias=maxDim/10000+.001;
+						}
+						var tmpV3=(VP[activeVP].position).subtract(PSens.position_changed);
+						var tmpRot=(VP[activeVP].orientation).multiply((PSens.orientation_changed).inverse());
+						if((tmpV3.length()<bias)&&(Math.abs(tmpRot.angle)<.001)){
+							VPmodification0();
+							if(isCP)play2();
+						}
+					}
+				}
+				function checkCondition(){
+					var finval=(simfraction==1)?1:0;
+					isFinal=(simfraction==1);
+					outisFinal._=isFinal;
+					if(current_mode==0){
+						if((simfraction!=0)&&(simfraction!=1)){
+							current_mode=2;
+							on_vcr_state=current_mode;
+							on_audio_state=(muteAudio._)? -1: current_mode;
+							on_new_state=new MFString(''+current_mode, ''+finval);
+							ui_vcr_B_Pause.HLt=1;
+							return;
+						}}
+					if(current_mode==2){
+						if((simfraction==0)||(simfraction==1)){
+							current_mode=0;
+							on_vcr_state=current_mode;
+							on_audio_state=(muteAudio._)? -1: current_mode;
+							on_new_state=new MFString(''+current_mode, ''+finval);
+							ui_vcr_B_Pause.HLt=0;
+							return;
+						}
+					}
+				}
+				function setCondition(value){
+					var val0=value;
+					var finval=(simfraction==1)?1:0;
+					isFinal=(simfraction==1);
+					outisFinal._=isFinal;
+					if((value==0)&&(simfraction>0)&&(simfraction<1))val0=2;
+					if(current_mode!=val0){
+						current_mode=val0;
+						on_vcr_state=current_mode;
+						on_audio_state=(muteAudio._)? -1: current_mode;
+						on_new_state=new MFString(''+current_mode, ''+finval);
+						if(current_mode==1)ZoomSence.enabled=false;
+						else ZoomSence.enabled=true;
+
+						if(current_mode==2)ui_vcr_B_Pause.HLt=1;
+						else ui_vcr_B_Pause.HLt=0;
+					}
+				}
+
+				function set_new_viewpoint(value){
+					var newVPcenter = new SFVec3f(value[0], value[1], value[2]);
+					var newVPposition = new SFVec3f(value[3], value[4], value[5]);
+					var newVPorientation = new SFRotation(value[6], value[7], value[8], value[9]);
+					var newVPminZoom = value[10];
+					var newVPmaxZoom = value[11];
+					var newVPjump = (value[12]==0)?false:true;
+					var newFOV = 0.75
+					var newOrtho = false;
+					if(value.length >= 15) {
+						newFOV = value[13];
+						newOrtho = value[14]!=0;
+					}
+
+					activeVP=(VP[0].isBound)?1:0;
+					VP[activeVP].jump=newVPjump;
+					center=newVPcenter;
+					minZoom=newVPminZoom;
+					maxZoom=newVPmaxZoom;
+					out_minZoom._=minZoom;
+					out_maxZoom._=maxZoom;
+					distanceVP = newOrtho ? newFOV : (center.subtract(newVPposition)).length();
+					for(var i = 0; i < 2; i++) {
+						VP[i].orientation=newVPorientation;
+						VP[i].position=newVPposition;
+						VP[i].fieldOfView=newFOV;
+						VP[i].orthographic=newOrtho;
+					}
+					VP[activeVP].set_bind=true;
+					avatarSz[3]=newVPcenter.x;
+					avatarSz[4]=newVPcenter.y;
+					avatarSz[5]=newVPcenter.z;
+					Navigation._.avatarSize=avatarSz;
+					Navigation._.set_bind=true;
+					if(newOrtho)
+						setPosZoomSlider(newFOV);
+					else
+						setPosZoomSlider(distance);
+					setSKIN_INFO();
+				}
+				function setVP(v1,v2,v3){
+					if(OP._.steps.length>v1){
+						if(OP._.steps[v1].substeps.length>v2){
+							if(OP._.steps[v1].substeps[v2].commands.length>v3){
+								lastVPCommand[0]=v1;
+								lastVPCommand[1]=v2;
+								lastVPCommand[2]=v3;
+								if(!blockViewpoints._){
+									var vpCommand = OP._.steps[v1].substeps[v2].commands[v3];
+									if(vpCommand.attributeName == 'set_viewpoint'){
+										activeVP=(VP[0].isBound)?1:0;
+										VP[activeVP].jump=((isScroll==1)||vp_jump);
+										center=vpCommand.center;
+										var bNewCmd = typeof(vpCommand.fieldOfView) != 'undefined';
+										distanceVP = (bNewCmd && vpCommand.orthographic) ? vpCommand.fieldOfView : (center.subtract(vpCommand.position)).length();
+										minZoom=vpCommand.zoom_limits[0];
+										maxZoom=vpCommand.zoom_limits[1];
+										out_minZoom._=minZoom;
+										out_maxZoom._=maxZoom;
+										for(var i = 0; i < 2; i++) {
+											VP[i].orientation = vpCommand.orientation;
+											VP[i].position = vpCommand.position;
+											VP[i].fieldOfView = bNewCmd ? vpCommand.fieldOfView : 0.785398;
+											VP[i].orthographic = bNewCmd ? vpCommand.orthographic : false;
+										}
+										VP[activeVP].set_bind=true;
+										avatarSz[3]=vpCommand.center.x;
+										avatarSz[4]=vpCommand.center.y;
+										avatarSz[5]=vpCommand.center.z;
+										Navigation._.avatarSize=avatarSz;
+										Navigation._.set_bind=true;
+										if(bNewCmd && vpCommand.orthographic)
+											setPosZoomSlider(vpCommand.fieldOfView);
+										else
+											setPosZoomSlider(distance);
+										setSKIN_INFO();
+									}else if(vpCommand.attributeName == 'set_viewpoint2'){
+										setGuidedVPPosition(vpCommand, -1);
+									}
+
+								}
+							}
+						}
+					}
+				}
+
+				function getIntCoords(startCoord, endCoord, n){
+					return startCoord.subtract((startCoord.subtract(endCoord)).multiply(n));
+				}
+
+				function setGuidedVPPosition(gvp, n){
+					if(!blockViewpoints._){
+						if((n>=0)&&((gvp.period[0]>=n)||(gvp.period[1]<n)))return;
+						var innerPhase=paused_fr;
+						activeVP=(VP[0].isBound)?1:0;
+						VP[activeVP].jump=((isScroll==1)||(n>=0)||vp_jump);
+						if(n>=0){
+							innerPhase=n;
+						}else{
+							if((gvp.period[0]>innerPhase)||(gvp.period[1]<innerPhase)){
+								innerPhase=(gvp.period[0]>n)?gvp.period[0]:gvp.period[1];
+							}
+						}
+						innerPhase=(innerPhase-gvp.period[0])/(gvp.period[1]-gvp.period[0]);
+						var keys = gvp.key;
+						var startKey=0;
+						var trueN=0;
+						for(var z=1;z<keys.length;z++){
+							if((keys[z-1]<=innerPhase)&&(keys[z]>=innerPhase)){
+								startKey=z-1;
+								trueN=(innerPhase-keys[z-1])/(keys[z]-keys[z-1]);
+								break;
+							}
+						}
+						center=getIntCoords(gvp.center_keyValue[startKey],gvp.center_keyValue[startKey+1],trueN);
+						var v_pos=getIntCoords(gvp.position_keyValue[startKey],gvp.position_keyValue[startKey+1],trueN);
+						var v_ori=gvp.orientation_keyValue[startKey].slerp(gvp.orientation_keyValue[startKey+1],trueN);
+						distanceVP = VP[activeVP].orthographic ? VP[activeVP].fieldOfView : (center.subtract(v_pos)).length();
+						minZoom=gvp.zoom_limits[0];
+						maxZoom=gvp.zoom_limits[1];
+						out_minZoom._=minZoom;
+						out_maxZoom._=maxZoom;
+						VP[0].orientation=v_ori;
+						VP[0].position=v_pos;
+						VP[1].orientation=v_ori;
+						VP[1].position=v_pos;
+						VP[activeVP].set_bind=true;
+						avatarSz[3]=center.x;
+						avatarSz[4]=center.y;
+						avatarSz[5]=center.z;
+						Navigation._.avatarSize=avatarSz;
+						Navigation._.set_bind=true;
+						setSKIN_INFO();
+					}
+				}
+
+				function bindVP(){
+					for(var z=VPperiod.length-1;z>=0;z--)if((VPperiod[z].x<=paused_fr)&&(VPperiod[z].y>=paused_fr)){
+						VPnum=VPperiod[z].z;
+						setVP(step,substep,VPnum);
+						VP_enabled=1;
+						return;
+					}
+					VP_enabled=0;
+					for(var h=substep;h>=0;h--){
+						var endVP=-1;
+						for(var j=0;j<OP._.steps[step].substeps[h].commands.length;j++){
+							if((OP._.steps[step].substeps[h].commands[j].attributeName.indexOf('set_viewpoint')==0)&&(OP._.steps[step].substeps[h].commands[j].period[1]>=endVP)){
+								VPnum=j;
+								endVP=OP._.steps[step].substeps[h].commands[j].period[1];
+							}
+						}
+						if(endVP>=0){
+							setVP(step,h,VPnum);
+							VPnum=-1;
+							return;
+						}
+					}
+					VPnum=-1;
+				}
+				function setSKIN_INFO(){
+					if(!_isEnabledSkinControl._)return;
+					if(SKIN_INFO._!=null){
+						var iLimits = -1, iLimitsSize = -1;
+						for(var i=0; i < SKIN_INFO._.info.length; i++) {
+							if(SKIN_INFO._.info[i].indexOf('limits=') >= 0)
+								iLimits = i;
+							if(SKIN_INFO._.info[i].indexOf('limits_size=') >= 0)
+								iLimitsSize = i;
+						}
+						if(iLimits == -1) 
+							iLimits = SKIN_INFO._.info.length;
+						SKIN_INFO._.info[iLimits] = 'limits='+minZoom+','+maxZoom;
+
+						if(iLimitsSize == -1) 
+							iLimitsSize = SKIN_INFO._.info.length;
+						SKIN_INFO._.info[iLimitsSize] = 'limits_size='+minZoom+','+maxZoom;
+					}
+				}
+				function presetSubstep(){
+					if(StepsTrueLength>step){
+						paused=0;
+						NCmds=OP._.steps[step].substeps[substep].commands.length;
+						cycleInterval=OP._.steps[step].substeps[substep].duration/timeCompression._;
+						VPperiod.length=0;
+						var cntV=0;
+						WrnNum=-1;
+
+						EventsCount=-1;
+						NextEventFraction=1000;
+						NextEventNum=-1;
+						EventsNum.length=0;
+						EventsFraction.length=0;
+
+						var cmds=OP._.steps[step].substeps[substep].commands;
+						for(var z=0;z<NCmds;z++){
+							if(cmds[z].attributeName.indexOf('set_viewpoint')==0){
+								VPperiod[cntV].x=cmds[z].period[0];
+								VPperiod[cntV].y=cmds[z].period[1];
+								VPperiod[cntV].z=z;
+								if((VPperiod[cntV].x<=paused_fr)&&(VPperiod[cntV].y>=paused_fr))VPnum=z;
+								cntV++;
+							}
+
+							if(cmds[z].attributeID==-2){
+								if(WrnNum==-1)WrnNum=z;
+
+								EventsCount++;
+								EventsNum[EventsCount]=z;
+								EventsFraction[EventsCount]=cmds[z].period[0];
+								if((EventsFraction[EventsCount]<NextEventFraction)&&(EventsFraction[EventsCount]>paused_fr)){
+									NextEventFraction=EventsFraction[EventsCount];
+									NextEventNum=EventsCount;
+								}
+							}
+
+
+						}
+						StepDuration.length=0;
+						StepDuration[0]=0;
+						for(var z=1;z<=OP._.steps[step].substeps.length;z++)StepDuration[z]=StepDuration[z-1]+OP._.steps[step].substeps[z-1].duration;
+						for(var z=1;z<=OP._.steps[step].substeps.length;z++)StepDuration[z]=StepDuration[z]/StepDuration[OP._.steps[step].substeps.length];
+						setSlidersPos(paused_fr);
+						bindVP();
+						if((isScroll==1)||(alwaysWarning._))OutID();
+					}
+				}
+				function start(){
+					onestep_mode=false;
+					for(var q=0;q<StepsTrueLength;q++)if(OP._.steps[q].simulate){
+						setStep(q);
+						return;
+					}
+				}
+				function forward(){
+					stop();
+
+					for(var q=step+1;q<StepsTrueLength;q++)if(OP._.steps[q].simulate){
+						setStep(q);
+						return;
+					}
+
+					substep=OP._.steps[step].substeps.length-1;
+					out_Substep._=substep;
+					paused_fr=1;
+					presetSubstep();
+					setPhase();
+				}
+				function backward(){
+					stop();
+
+					if((substep>0)||(paused_fr>0)){
+						substep=0;
+						out_Substep._=substep;
+						paused_fr=0;
+						presetSubstep();
+						setPhase();
+						return;
+					}
+
+					for(var q=step-1;q>=0;q--)if(OP._.steps[q].simulate){
+						setStep(q);
+						return;
+					}
+					start();
+				}
+				function next(){
+					stop();
+					if(OP._.steps[step].substeps.length>substep+1)setSubStep(substep+1);
+					else{
+						paused_fr=1;
+						presetSubstep();
+						setPhase();
+					}
+				}
+				function prev(){
+					stop();
+					if(paused_fr>0){
+						paused_fr=0;
+						presetSubstep();
+						setPhase();
+						return;
+					}
+					if(substep>0)setSubStep(substep-1);
+				}
+				function stop(){
+					if(current_mode==1){
+						if(Timers[activeTimer].isActive){
+							Timers[activeTimer].stopTime=STime.time;
+							activeTimer=(activeTimer==0)?1:0;
+						}
+						setCondition(0);
+						VPmodification0();
+					}
+				}
+				function pause(){
+					if((paused==0)&&(Timers[activeTimer].isActive)){
+						paused=1;
+						paused_fr=Timers[activeTimer].fraction_changed+paused_fr;
+						phase=paused_fr;
+						outPhase._=paused_fr;
+					}
+					Timers[activeTimer].stopTime=STime.time;
+					totalStop=1;
+					setCondition(0);
+					VPmodification0();
+				}
+				function set_procedure_fraction(value){
+					_vcr_set_proc_fraction(value);
+				}
+				function _vcr_set_proc_fraction0(){
+					var lpfval=last_proc_fraction_val[0];
+					var ln = last_proc_fraction_val.length-1;
+					for(var d=1;d<=ln;d++)last_proc_fraction_val[d-1]=last_proc_fraction_val[d];
+					last_proc_fraction_val.length=ln;
+					_vcr_set_proc_fraction(lpfval);
+				}
+				function _vcr_set_proc_fraction(value){
+					var val0=value;
+					if(value>1)val0=1;
+					if(value<0)val0=0;
+					ScrollTask(val0);
+					setSlidersPos(paused_fr);
+					checkCondition();
+				}
+
+				function set_step_fraction(value){
+					_vcr_set_step_fraction(value);
+				}
+
+				function _vcr_set_step_fraction0(){
+					var lsfval = last_step_fraction_val[0];
+					var ln = last_step_fraction_val.length-1;
+					for(var d=1;d<=ln;d++)last_step_fraction_val[d-1]=last_step_fraction_val[d];
+					last_step_fraction_val.length=ln;
+					_vcr_set_step_fraction(lsfval);
+				}
+
+				function _vcr_set_step_fraction(value){
+					var val0=value;
+					if(value>1)val0=1;
+					if(value<0)val0=0;
+					ScrollStep(val0);
+					setSlidersPos(paused_fr);
+					checkCondition();
+				}
+
+				function ScrollSlider(value){
+					if(!blockCommands){
+						OldEventFraction=-1;
+						simfraction=value;
+						if(fragment_type==0)ScrollTask(value);
+						else{
+							if(fragment_type==1)ScrollStep(value);
+							else{ if(fragment_type==2)ScrollSubstep(value);
+								else if(fragment_type==3)ScrollRange(value);
+							}
+						}
+						checkCondition();
+					}
+				}
+				function ScrollRange(value){
+					var smfr0=simfraction;
+					scrll();
+					isScroll=1;
+					val=value;
+					for(var i=1; i<rangeDuration.length; i++){
+						if(rangeDuration[i]>=val){
+							step = rangeSubStepsIndexes[i-1].x;
+							substep = rangeSubStepsIndexes[i-1].y;
+							paused_fr=(val-rangeDuration[i-1])/(rangeDuration[i]-rangeDuration[i-1]);
+							presetSubstep();
+							setPhase();
+							bindVP();
+							break;
+						}
+					}
+					isScroll=0;
+					simfraction=smfr0;
+				}
+				function ScrollTask(value){
+					scrll();
+					isScroll=1;
+					val=value;
+					if((TaskDuration[step].x<=val)&&(val<=TaskDuration[step].y))TaskToStep(0);
+					else{
+						var iStep=-1;
+						for(var z=0;z<StepsTrueLength;z++){
+							if((TaskDuration[z].x<=val)&&(val<=TaskDuration[z].y))iStep=z;
+						}
+						if(iStep!=-1){
+							step=iStep;
+							outStep._=step;
+						}
+						substep=0;
+						out_Substep._=substep;
+						StepDuration.length=0;
+						StepDuration[0]=0;
+						for(var z=1;z<=OP._.steps[step].substeps.length;z++)StepDuration[z]=StepDuration[z-1]+OP._.steps[step].substeps[z-1].duration;
+						for(var z=1;z<=OP._.steps[step].substeps.length;z++)StepDuration[z]=StepDuration[z]/StepDuration[OP._.steps[step].substeps.length];
+						TaskToStep(1);
+					}
+					isScroll=0;
+				}
+				function TaskToStep(value){
+					val=(val-TaskDuration[step].x)/(TaskDuration[step].y-TaskDuration[step].x);
+					if((value==0)&&((StepDuration[substep]<=val)&&(val<=StepDuration[substep+1]))){
+						val=(val-StepDuration[substep])/(StepDuration[substep+1]-StepDuration[substep]);
+						paused_fr=val;
+						time_fraction(0);
+					}else{
+						var iSubStep0=-1;
+						for(var z=1;z<=OP._.steps[step].substeps.length;z++)if((StepDuration[z-1]<=val)&&(val<=StepDuration[z]))iSubStep0=z-1;
+						if(iSubStep0!=-1){
+							substep=iSubStep0;
+							out_Substep._=substep;
+							val=(val-StepDuration[substep])/(StepDuration[substep+1]-StepDuration[substep]);
+							paused_fr=val;
+						}else{
+							substep=0;
+							out_Substep._=substep;
+							paused_fr=0;
+						}
+						presetSubstep();
+						setPhase();
+					}
+				}
+
+				function ScrollStep(value){
+					var smfr0=simfraction;
+					scrll();
+					isScroll=1;
+					val=value;
+					if((StepDuration[substep]<=val)&&(val<=StepDuration[substep+1])){
+						val=(val-StepDuration[substep])/(StepDuration[substep+1]-StepDuration[substep]);
+						paused_fr=val;
+						time_fraction(0);
+						if(value==0)bindVP();
+					}else{
+						var iSubStep=-1;
+						for(var z=1;z<=OP._.steps[step].substeps.length;z++){
+							if((StepDuration[z-1]<=val)&&(val<=StepDuration[z]))iSubStep=z-1;
+						}
+						if(iSubStep!=-1){
+							substep=iSubStep;
+							out_Substep._=substep;
+							paused_fr=(val-StepDuration[substep])/(StepDuration[substep+1]-StepDuration[substep]);
+							presetSubstep();
+							setPhase();
+							bindVP();
+						}
+					}
+					isScroll=0;
+					simfraction=smfr0;
+				}
+				function ScrollSubstep(value){
+					scrll();
+					isScroll=1;
+					paused_fr=value;
+					time_fraction(0);
+					if(value==0)bindVP();
+					isScroll=0;
+				}
+				function scrll(){
+					stop();
+					if(paused==1){
+						totalStop=0;
+						paused=0;
+					}
+				}
+				function setSlidersPos(value){
+					var val2=StepDuration[substep]+value*(StepDuration[substep+1]-StepDuration[substep]);
+					simfraction=TaskDuration[step].x+val2*(TaskDuration[step].y-TaskDuration[step].x);
+
+					OutSubstep();
+
+					on_substep_fraction_changed=value;
+					on_step_fraction_changed=val2;
+					on_proc_fraction_changed=simfraction;
+
+					if(isScroll==0){
+						if(fragment_type==1)simfraction=val2;
+						if(fragment_type==2)simfraction=value;
+						if(fragment_type==3){
+							var currentSubstep = substep - rStep0;
+							if(step>0)currentSubstep += rangeSteps[step-1];
+							simfraction=rangeDuration[currentSubstep]+value*(rangeDuration[currentSubstep+1]-rangeDuration[currentSubstep]);
+						}
+						Slider0.setPosition=simfraction;
+						onSliderFraction = simfraction;
+					}
+				}
+				function eventsProcessed(){
+					if(lastCycleTm){
+						cycleTime(false);
+						lastTmFr=-1;
+						lastCycleTm=false;
+					}else{
+						if(lastTmFr>=0){
+							time_fraction(lastTmFr);
+						}
+						lastTmFr=-1;
+					}
+				}
+				function time_fraction1(value){
+					if(activeTimer==0)time_fraction0(value);
+				}
+				function time_fraction2(value){
+					if(activeTimer==1)time_fraction0(value);
+				}
+				function time_fraction0(value){
+					if(paused==0)lastTmFr=value;
+				}
+				function time_fraction(value){
+					if(paused==0){
+						val=value+paused_fr;
+						phase=val;
+						outPhase._=val;
+						var scommands = OP._.steps[step].substeps[substep].commands;
+
+						if((val>=NextEventFraction)&&(isScroll==0)){
+							if(val==NextEventFraction){
+								CheckEventOnPlay();
+							}else{
+								val=NextEventFraction;
+								phase=val;
+								outPhase._=val;
+								paused_fr=val;
+								CheckEventOnPlay();
+								setSlidersPos(val);
+								for(var z=0;z<NCmds;z++){
+									if(scommands[z].period[2]==0)scommands[z].time_fraction=val;
+									else if((scommands[z].period[3]<=val)&&(scommands[z].period[4]>=val))scommands[z].time_fraction=(val-scommands[z].period[0])/(scommands[z].period[1]-scommands[z].period[0]);
+									if(scommands[z].attributeID==-1){if(scommands[z].attributeName=='set_viewpoint2')setGuidedVPPosition(scommands[z],val);}
+								}
+								if(Timers[activeTimer].isActive){
+									Timers[activeTimer].stopTime=STime.time;
+									activeTimer=(activeTimer==0)?1:0;
+								}
+
+								if(cycleInterval*(1-paused_fr)<TMLIM){
+									CSteps[0]=1;
+									CSteps[1]=step;
+									CSteps[2]=substep;
+									Timers[4].enabled=true;
+								}else{
+									currentTime=STime.time;
+									Timers[activeTimer].cycleInterval=cycleInterval;
+									Timers[activeTimer].startTime=currentTime;
+									Timers[activeTimer].stopTime=currentTime+cycleInterval*(1-paused_fr);
+								}
+								return;
+							}
+						}
+
+						for(var w=VPperiod.length-1;w>=0;w--)if((VPperiod[w].x<=val)&&(VPperiod[w].y>=val)){
+							if(VPnum!=VPperiod[w].z){
+								VPnum=VPperiod[w].z;
+								var fr0=paused_fr;
+								paused_fr=val;
+								bindVP();
+								if((scommands[VPnum].interruption)&&(isScroll==0)&&(!blockViewpoints._)){
+									val=VPperiod[w].x;
+									phase=val;
+									outPhase._=val;
+									VPmodification=1;
+									check_position(false);
+									if(VPmodification==1){
+										delayVP();
+										if(Timers[activeTimer].isActive){
+											Timers[activeTimer].stopTime=STime.time;
+											activeTimer=(activeTimer==0)?1:0;
+										}
+									}else{
+										paused_fr=fr0;
+										val=value+paused_fr;
+									}
+								}else{
+									paused_fr=fr0;
+									val=value+paused_fr;
+								}
+							}
+							w=-1;
+						}
+						setSlidersPos(val);
+
+						for(var z=0;z<NCmds;z++){
+							if(scommands[z].period[2]==0)scommands[z].time_fraction=val;
+							else if((scommands[z].period[3]<=val)&&(scommands[z].period[4]>=val))scommands[z].time_fraction=(val-scommands[z].period[0])/(scommands[z].period[1]-scommands[z].period[0]);
+							if(scommands[z].attributeID==-1){if(scommands[z].attributeName=='set_viewpoint2')setGuidedVPPosition(scommands[z],val);}
+						}
+					}
+				}
+				function cycleTime1(value){
+					if(activeTimer==0)cycleTime0(value);
+				}
+				function cycleTime2(value){
+					if(activeTimer==1)cycleTime0(value);
+				}
+				function cycleTime0(value){
+					if(!value)Timers[6].enabled=true;
+				}
+				function cycleTimeFF(){
+					Timers[6].enabled=false;
+					lastCycleTm=true;
+				}
+				function cycleTime(value){
+					if((!value)&&(paused==0)&&(totalStop==0)){
+						CheckEventOnCycle();
+						Timers[activeTimer].stopTime=STime.time;
+						if(!stop_every_substep && !((fragment_type == 3)&&(current_range[1] == OP._.steps[step].substeps[substep].id))){
+							if(OP._.steps[step].substeps.length<=substep+1){
+								if((stop_every_step)||(onestep_mode)||(StepsTrueLength<=step+1)){
+									paused_fr=1;
+									phase=paused_fr;
+									outPhase._=paused_fr;
+								}else{
+									if(OP._.steps[step+1].simulate){
+										substepfinish();
+										step++;
+										outStep._=step;
+										substep=0;
+										out_Substep._=substep;
+										setOldValues();
+										paused_fr=0;
+										phase=paused_fr;
+										outPhase._=paused_fr;
+										activeTimer=(activeTimer==0)?1:0;
+										presetSubstep();
+										play();
+										return;
+									}else{
+										for(var q=step+1;q<StepsTrueLength;q++)if(OP._.steps[q].simulate){
+											setStep(q);
+											activeTimer=(activeTimer==0)?1:0;
+											play();
+											return;
+										}
+										paused_fr=1;
+										phase=paused_fr;
+										outPhase._=paused_fr;
+									}
+								}
+							}else{
+								substepfinish();
+								substep++;
+								out_Substep._=substep;
+								setOldValues();
+								paused_fr=0;
+								phase=paused_fr;
+								outPhase._=paused_fr;
+								activeTimer=(activeTimer==0)?1:0;
+								play();
+								return;
+							}
+						}
+						substepfinish();
+						setCondition(0);
+					}
+				}
+				function substepfinish(){
+					var scommands = OP._.steps[step].substeps[substep].commands;
+					for(var z=0;z<NCmds;z++){
+						if(scommands[z].period[2]==0)scommands[z].time_fraction=1;
+						else if(scommands[z].period[4]>=1)scommands[z].time_fraction=1;
+						if(scommands[z].attributeID==-1){if(scommands[z].attributeName=='set_viewpoint2')setGuidedVPPosition(scommands[z],1);}
+					}
+					setSlidersPos(1);
+				}
+				function play(){
+					if((StepsTrueLength>step)&&(!Timers[activeTimer].isActive)){
+						presetSubstep();
+						if(VP_enabled==1){
+							if((OP._.steps[step].substeps[substep].commands[VPnum].interruption)&&(!blockViewpoints._)){
+								VPmodification=1;
+								check_position(true);
+								if(VPmodification==1)delayVP();
+								//setCondition(1);
+							}else play2();
+						}else play2();
+					}
+				}
+				function cycleTimeFast(){
+					if((CSteps[0]==1)&&(CSteps[1]==step)&&(CSteps[2]==substep)){
+						Timers[4].enabled=false;
+						CSteps[0]=0;
+						paused_fr=1;
+						phase=paused_fr;
+						outPhase._=paused_fr;
+						setSlidersPos(paused_fr);
+						cycleTime(false);
+					}
+				}
+				function play2(){
+					OutSubstep();
+					OutID();
+					val=paused_fr;
+					setCondition(1);
+					isDelay=1;
+					Timers[5].enabled=true;
+				}
+				function cycleTimeDelay(){
+					if(isDelay==1){
+						Timers[5].enabled=false;
+						isDelay=0;
+						play3();
+					}
+				}
+
+				function play3(){
+					if(totalStop==0){
+						presetSubstep();
+						CheckEventOnPlay();
+						if(cycleInterval*(1-paused_fr)<TMLIM){
+							CSteps[0]=1;
+							CSteps[1]=step;
+							CSteps[2]=substep;
+							Timers[4].enabled=true;
+						}else{
+							currentTime=STime.time;
+							Timers[activeTimer].cycleInterval=cycleInterval;
+							Timers[activeTimer].startTime=currentTime;
+							Timers[activeTimer].stopTime=currentTime+cycleInterval*(1-paused_fr);
+						}
+					}else{
+						setCondition(0);
+					}
+				}
+
+				function _now_step_substep_fraction(){
+					var nssf_stp = buffer_nssf[0].x;
+					var nssf_sstp = buffer_nssf[0].y;
+					var nssf_fr = buffer_nssf[0].z;
+					var ln = buffer_nssf.length-1;
+					for(var d=1;d<=ln;d++)buffer_nssf[d-1]=buffer_nssf[d];
+					buffer_nssf.length=ln;
+
+					isSetNow=true;
+					//stop();
+					overlap_flag=false;
+					on_load();
+					step=nssf_stp;
+					outStep._=step;
+					substep=nssf_sstp;
+					out_Substep._=substep;
+					paused_fr=nssf_fr;
+					presetSubstep();
+					setOldValues();
+					isSetNow=false;
+				}
+		 
+				function set_step_substep_fraction(value){
+					if(OP._.steps.length>0){
+						stop();
+						step=value[0];
+						outStep._=step;
+						substep=value[1];
+						out_Substep._=substep;
+						paused_fr=value[2];
+						presetSubstep();
+						setPhase();
+					}
+				}
+
+				function set_ssf(value){
+					if(OP._.steps.length>0){
+						stop();
+						step=value[0];
+						outStep._=step;
+						substep=value[1];
+						out_Substep._=substep;
+						paused_fr=value[2];
+						vp_jump=true;
+						presetSubstep();
+						setPhase();
+						vp_jump=false;
+					}
+				}
+
+				function setStep(value){
+					substep=0;
+					out_Substep._=substep;
+					step=value;
+					outStep._=step;
+					paused_fr=0;
+					presetSubstep();
+					setPhase();
+				}
+				function setSubStep(value){
+					substep=value;
+					out_Substep._=substep;
+					paused_fr=0;
+					presetSubstep();
+					setPhase();
+				}
+				function setPhase(){
+					phase=paused_fr;
+					outPhase._=paused_fr;
+					var objID=0;
+					var attID=0;
+					var set0=0;
+					var objectIDs=new MFInt32();
+					var attributeIDs=new MFInt32();
+					var numNames=new MFVec3f();
+					var bf_prm=new MFFloat();
+					var iNames=-1;
+					var q=0;
+					if((oldstep==step)&&(oldsubstep==substep)){
+						for(var j=0;j<OP._.steps[step].substeps[substep].commands.length;j++){
+							iNames++;
+							q=iNames;
+							numNames[q]=new SFVec3f(step,substep,j);
+							if(OP._.steps[step].substeps[substep].commands[j].period[2]==0)bf_prm[q]=phase;
+							else{
+								if((OP._.steps[step].substeps[substep].commands[j].period[3]<=phase)&&(OP._.steps[step].substeps[substep].commands[j].period[4]>=phase))bf_prm[q]=(phase-OP._.steps[step].substeps[substep].commands[j].period[0])/(OP._.steps[step].substeps[substep].commands[j].period[1]-OP._.steps[step].substeps[substep].commands[j].period[0]);
+								else iNames--;
+							}
+						}
+					}else{
+						if(step==oldstep){
+							if(substep>oldsubstep){
+								for(var h=oldsubstep;h<substep;h++){
+									for(var j=0;j<OP._.steps[step].substeps[h].commands.length;j++){
+										if(OP._.steps[step].substeps[h].commands[j].period[4]>=1){
+											attID=OP._.steps[step].substeps[h].commands[j].attributeID ;
+											if(attID>=0){
+												objID=OP._.steps[step].substeps[h].commands[j].objectID;
+												set0=0;
+												if(attID!=0){
+													for(var q=0;q<=iNames;q++){
+														if(objectIDs[q]==objID){if(attributeIDs[q]==attID){
+																numNames[q]=new SFVec3f(step,h,j);
+																bf_prm[q]=1;
+																set0=1;
+																break;
+															}}
+													}}
+												if(set0==0){
+													iNames++;
+													q=iNames;
+													numNames[iNames]=new SFVec3f(step,h,j);
+													objectIDs[iNames]=objID;
+													attributeIDs[iNames]=attID;
+													bf_prm[q]=1;
+												}
+											}}
+									}
+								}
+							}else{
+								for(var h=oldsubstep;h>substep;h--){
+									for(var j=0;j<OP._.steps[step].substeps[h].commands.length;j++){
+										if(OP._.steps[step].substeps[h].commands[j].period[3]<=0){
+											attID=OP._.steps[step].substeps[h].commands[j].attributeID ;
+											if(attID>=0){
+												objID=OP._.steps[step].substeps[h].commands[j].objectID;
+												set0=0;
+												if(attID!=0){
+													for(var q=0;q<=iNames;q++){
+														if(objectIDs[q]==objID){if(attributeIDs[q]==attID){
+																numNames[q]=new SFVec3f(step,h,j);
+																bf_prm[q]=0;
+																set0=1;
+																break;
+															}}
+													}}
+												if(set0==0){
+													iNames++;
+													q=iNames;
+													numNames[iNames]=new SFVec3f(step,h,j);
+													objectIDs[iNames]=objID;
+													attributeIDs[iNames]=attID;
+													bf_prm[q]=0;
+												}
+											}}
+									}
+								}
+							}
+						}else{
+							if(step>oldstep){
+								for(var g=oldstep;g<=step;g++){
+									for(var h=0;h<OP._.steps[g].substeps.length;h++){
+										if((g<step)||(h<substep))for(var j=0;j<OP._.steps[g].substeps[h].commands.length;j++){
+											if(OP._.steps[g].substeps[h].commands[j].period[4]>=1){
+												attID=OP._.steps[g].substeps[h].commands[j].attributeID ;
+												if(attID>=0){
+													objID=OP._.steps[g].substeps[h].commands[j].objectID;
+													set0=0;
+													if(attID!=0){
+														for(var q=0;q<=iNames;q++){
+															if(objectIDs[q]==objID){if(attributeIDs[q]==attID){
+																	numNames[q]=new SFVec3f(g,h,j);
+																	bf_prm[q]=1;
+																	set0=1;
+																	break;
+																}}
+														}}
+													if(set0==0){
+														iNames++;
+														q=iNames;
+														numNames[iNames]=new SFVec3f(g,h,j);
+														objectIDs[iNames]=objID;
+														attributeIDs[iNames]=attID;
+														bf_prm[q]=1;
+													}
+												}}
+										}
+									}
+								}
+							}else{
+								for(var g=oldstep;g>=step;g--){
+									for(var h=OP._.steps[g].substeps.length-1;h>=0;h--){
+										if((g>step)||(h>substep))for(var j=OP._.steps[g].substeps[h].commands.length-1;j>=0;j--){
+											if(OP._.steps[g].substeps[h].commands[j].period[3]<=0){
+												attID=OP._.steps[g].substeps[h].commands[j].attributeID ;
+												if(attID>=0){
+													objID=OP._.steps[g].substeps[h].commands[j].objectID;
+													set0=0;
+													if(attID!=0){
+														for(var q=0;q<=iNames;q++){
+															if(objectIDs[q]==objID){if(attributeIDs[q]==attID){
+																	numNames[q]=new SFVec3f(g,h,j);
+																	bf_prm[q]=0;
+																	set0=1;
+																	break;
+																}}
+														}}
+													if(set0==0){
+														iNames++;
+														q=iNames;
+														numNames[iNames]=new SFVec3f(g,h,j);
+														objectIDs[iNames]=objID;
+														attributeIDs[iNames]=attID;
+														bf_prm[q]=0;
+													}
+												}}
+										}
+									}
+								}
+							}
+						}
+						for(var j=0;j<OP._.steps[step].substeps[substep].commands.length;j++){
+							if((OP._.steps[step].substeps[substep].commands[j].period[3]<=phase)&&(OP._.steps[step].substeps[substep].commands[j].period[4]>=phase)){
+								attID=OP._.steps[step].substeps[substep].commands[j].attributeID ;
+								if(attID>=0){
+									objID=OP._.steps[step].substeps[substep].commands[j].objectID;
+									set0=0;
+									if(attID!=0){
+										for(var q=0;q<=iNames;q++){
+											if(objectIDs[q]==objID){if(attributeIDs[q]==attID){
+													numNames[q]=new SFVec3f(step,substep,j);
+													if(OP._.steps[step].substeps[substep].commands[j].period[2]==0)bf_prm[q]=phase;
+													else bf_prm[q]=(phase-OP._.steps[step].substeps[substep].commands[j].period[0])/(OP._.steps[step].substeps[substep].commands[j].period[1]-OP._.steps[step].substeps[substep].commands[j].period[0]);
+													set0=1;
+													break;
+												}}
+										}}
+									if(set0==0){
+										iNames++;
+										q=iNames;
+										numNames[q]=new SFVec3f(step,substep,j);
+										objectIDs[iNames]=objID;
+										attributeIDs[iNames]=attID;
+										if(OP._.steps[step].substeps[substep].commands[j].period[2]==0)bf_prm[q]=phase;
+										else bf_prm[q]=(phase-OP._.steps[step].substeps[substep].commands[j].period[0])/(OP._.steps[step].substeps[substep].commands[j].period[1]-OP._.steps[step].substeps[substep].commands[j].period[0]);
+									}
+								}}
+						}
+						setOldValues();
+						out_Substep._=substep;
+					}
+					for(var q=0;q<=iNames;q++)OP._.steps[numNames[q].x].substeps[numNames[q].y].commands[numNames[q].z].time_fraction=bf_prm[q];
+					checkCondition();
+					OldEventFraction=-1;
+				}
+				function setOldValues(){
+					oldstep=step;
+					oldsubstep=substep;
+				}
+
+				function OutSubstep(){
+					if((alertSubStep!=substep)||(alertStep!=step)){
+						if((fragment_type==1)&&(OP._.steps[step].id!=''))lastID=OP._.steps[step].id;
+						on_start_new_substep = new MFString(OP._.id,OP._.steps[step].id,OP._.steps[step].substeps[substep].id);
+						on_start_substep = new MFString(OP._.id,OP._.steps[step].id,OP._.steps[step].substeps[substep].id);
+						alertSubStep=substep;
+						alertStep=step;
+						alertOut=0;
+						OldEventFraction=-1;
+					}
+				}
+
+				function CheckEventOnPlay(){
+					if(OldEventFraction==val)return;
+					var CountEvents=0;
+					for(var z=0;z<=EventsCount;z++)if(EventsFraction[z]==val){
+						CountEvents++;
+						CommandsSetID._.length=CountEvents;
+						CommandsSetID._[CountEvents-1]=OP._.steps[step].substeps[substep].commands[EventsNum[z]];
+					}
+
+					if(CountEvents>0){
+						OldEventFraction=val;
+						OutEventID();
+						NextEventNum=-1;
+						NextEventFraction=100;
+						for(var t=0;t<=EventsCount;t++){
+							if((EventsFraction[t]>val)&&(NextEventFraction>EventsFraction[t])){
+								NextEventFraction=EventsFraction[t];
+								NextEventNum=t;
+							}
+						}
+					}else OldEventFraction=-1;
+
+				}
+				function CheckEventOnCycle(){
+					if(NextEventNum>0){
+						var MFStr= new MFString(OP._.steps[step].substeps[substep].commands[EventsNum[NextEventNum]].ID);
+						CommandsSetID._.length=1;
+						CommandsSetID._[0]=OP._.steps[step].substeps[substep].commands[EventsNum[NextEventNum]];
+						var TmpFraction=1000;
+						var TmpEventNum=-1;
+						for(var z=0;z<=EventsCount;z++){
+							TmpEventNum=-1;
+							for(var t=0;t<=EventsCount;t++)if((EventsFraction[t]<=1)&&(EventsFraction[t]>NextEventFraction)&&(TmpFraction>EventsFraction[t])&&(t!=NextEventNum)){
+								TmpFraction=EventsFraction[t];
+								TmpEventNum=t;
+							}
+							if(TmpEventNum<0){
+								z=EventsCount;
+							}else{
+								var ln000=MFStr.length;
+								MFStr.length=ln000+1;
+								CommandsSetID._.length=ln000+1;
+								MFStr[ln000]=OP._.steps[step].substeps[substep].commands[EventsNum[TmpEventNum]].ID;
+								CommandsSetID._[ln000]=OP._.steps[step].substeps[substep].commands[EventsNum[TmpEventNum]];
+							}
+						}
+						OutEventID();
+					}
+				}
+
+				function OutEventID(){
+					var OutIDMFStr= new MFString();
+					for(var z=0;z<CommandsSetID._.length;z++)OutIDMFStr[z]=CommandsSetID._[z].ID;
+					on_event_out=OutIDMFStr;
+					var OutEvents= new MFString();
+					for(var z=0;z<CommandsSetID._.length;z++){
+						OutEvents[z*3]=CommandsSetID._[z].ID;
+						OutEvents[z*3+1]=CommandsSetID._[z].title;
+						OutEvents[z*3+2]=CommandsSetID._[z].info;
+					}
+					on_procedure_events=OutEvents;
+				}
+
+				function OutID(){
+					if((WrnNum!=-1)&&(alertOut==0)){
+						if(OP._.steps[step].id!=OP._.steps[step].substeps[substep].commands[WrnNum].ID)on_start_substep = new MFString(OP._.id,OP._.steps[step].id,OP._.steps[step].substeps[substep].commands[WrnNum].ID);
+						alertOut=1;
+					}
+				}
+				" 
+    directOutput TRUE
+    eventIn SFNode set_new_procedure IS set_new_procedure
+    field MFNode ProceduresBuffer []
+    eventIn SFBool inPlayPause IS inPlayPause
+    eventOut SFBool outPlayPause IS outPlayPause
+    field SFInt32 isPausedOut -1
+    eventOut MFString on_start_substep IS on_start_substep
+    eventOut MFString on_start_new_substep IS on_start_new_substep
+    eventOut MFString on_event_out IS on_event_out
+    eventOut MFString on_procedure_events IS on_procedure_events
+    eventOut SFInt32 on_vcr_state IS on_vcr_state
+    eventOut SFInt32 on_audio_state IS on_audio_state
+    eventOut MFString on_new_state IS on_new_state
+    eventOut SFFloat on_zoom_changed IS on_zoom_changed
+    eventOut SFFloat on_proc_fraction_changed IS on_proc_fraction_changed
+    eventOut SFFloat on_substep_fraction_changed IS on_substep_fraction_changed
+    eventOut SFFloat on_step_fraction_changed IS on_step_fraction_changed
+    eventIn MFFloat set_new_viewpoint IS set_new_viewpoint
+    eventIn SFBool set_ui_smoothcontrol IS set_ui_smoothcontrol
+    eventIn SFBool set_ui_axis IS set_ui_axis
+    eventIn SFBool set_ui_zoom IS set_ui_zoom
+    eventIn SFBool set_ui_vcr IS set_ui_vcr
+    eventIn SFTime vcr_play IS vcr_play
+    eventIn SFTime vcr_play_old 
+    eventIn SFTime vcr_stop IS vcr_stop
+    eventIn SFTime vcr_pause IS vcr_pause
+    eventIn SFTime vcr_forward IS vcr_forward
+    eventIn SFTime vcr_backward IS vcr_backward
+    eventIn SFTime vcr_next IS vcr_next
+    eventIn SFTime vcr_previous IS vcr_previous
+    eventIn SFString vcr_goto IS vcr_goto
+    eventIn MFString vcr_set_range IS vcr_set_range
+    eventIn SFString vcr_set_position IS vcr_set_position
+    eventIn SFFloat vcr_set_fraction IS vcr_set_fraction
+    eventIn SFFloat set_speed_ratio IS set_speed_ratio
+    eventIn SFBool set_stop_by_substep IS set_stop_by_substep
+    eventIn SFBool set_stop_by_step IS set_stop_by_step
+    eventIn SFTime zoom_reset IS zoom_reset
+    eventIn SFFloat zoom_set_delta IS zoom_set_delta
+    eventIn SFFloat zoom_set_level IS zoom_set_level
+    eventIn SFFloat vcr_set_proc_fraction IS vcr_set_proc_fraction
+    eventIn SFFloat vcr_set_step_fraction IS vcr_set_step_fraction
+    eventIn SFFloat set_substep_fraction IS set_substep_fraction
+    eventIn SFFloat set_procedure_fraction IS set_procedure_fraction
+    eventIn SFFloat set_step_fraction IS set_step_fraction
+    eventIn MFFloat now_step_substep_fraction IS now_step_substep_fraction
+    eventIn MFFloat set_step_substep_fraction IS set_step_substep_fraction
+    eventIn MFFloat set_ssf IS set_ssf
+    eventIn SFBool set_ignore_viewpoints IS set_ignore_viewpoints
+    eventIn SFBool set_mute_audio IS set_mute_audio
+    eventIn SFTime reinitialize IS reinitialize
+    eventIn SFTime reinitialize_step IS reinitialize_step
+    eventIn SFTime reinitialize_substep IS reinitialize_substep
+    eventIn SFTime reinitialize_all_substeps IS reinitialize_all_substeps
+    field SFNode CommandsSetID protoMFNode 
+    {
+     _ IS CommandsSetID
+    }
+    field SFBool isFinal FALSE
+    field SFNode outisFinal protoSFBool 
+    {
+     _ IS isFinal
+    }
+    field SFNode OP protoSFNode 
+    {
+     _ IS OP
+    }
+    field SFNode AllSubSteps protoSFNode 
+    {
+     _ IS AllSubSteps
+    }
+    field SFNode SKIN_INFO protoSFNode 
+    {
+     _ IS SKIN_INFO
+    }
+    field SFNode _isEnabledSkinControl protoSFBool 
+    {
+     _ IS isEnabledSkinControl
+    }
+    field SFNode _isZoomToCenter protoSFBool 
+    {
+     _ IS isZoomToCenter
+    }
+    field SFInt32 step 0
+    field SFNode outStep protoSFInt32 
+    {
+     _ IS step
+    }
+    field SFInt32 substep 0
+    field SFNode out_Substep protoSFInt32 
+    {
+     _ IS substep
+    }
+    field SFFloat phase 0
+    field SFNode outPhase protoSFFloat 
+    {
+     _ IS phase
+    }
+    field SFNode blockViewpoints protoSFBool 
+    {
+     _ IS blockViewpoints
+    }
+    field SFNode muteAudio protoSFBool 
+    {
+     _ IS muteAudio
+    }
+    eventIn SFFloat ScrollSlider IS setSliderPosition
+    eventOut SFFloat onSliderFraction IS onSliderFraction
+    eventIn SFFloat time_fraction1 
+    eventIn SFFloat time_fraction2 
+    eventIn SFBool cycleTime1 
+    eventIn SFBool cycleTime2 
+    eventIn SFTime cycleTimeDelay 
+    eventIn SFTime cycleTimeFast 
+    eventIn SFTime cycleTimeFF 
+    eventIn SFBool cycleTimeVP1 
+    eventIn SFBool cycleTimeVP2 
+    eventIn SFTime onVCRTimer 
+    eventIn SFVec3f PS_pos 
+    eventIn SFRotation PS_rot 
+    eventIn SFFloat viewportSize 
+    eventIn SFVec3f PosZoomSlider 
+    eventIn SFBool slActive 
+    field MFFloat EventsFraction []
+    field MFInt32 EventsNum []
+    field SFInt32 EventsCount -1
+    field SFFloat OldEventFraction -1
+    field SFFloat NextEventFraction 1000
+    field SFInt32 NextEventNum -1
+    field SFNode ui_vcr_B_Pause USE ui_vcr_B_Pause
+    field SFNode STime TimeSensor 
+    {
+     cycleInterval 10000
+     loop TRUE
+    }
+    field SFInt32 NCmds 0
+    field MFNode Timers 
+    [ 
+     DEF AnimationTimer1 TimeSensor 
+     {
+      cycleInterval 5
+      stopTime 1
+     }
+     DEF AnimationTimer2 TimeSensor 
+     {
+      cycleInterval 5
+      stopTime 1
+     }
+     DEF VPTimer1 TimeSensor 
+     {
+      cycleInterval 3
+      stopTime 1
+     }
+     DEF VPTimer2 TimeSensor 
+     {
+      cycleInterval 3
+      stopTime 1
+     }
+     DEF ExtraFastTimer TimeSensor 
+     {
+      cycleInterval 0.001
+      enabled FALSE
+      loop TRUE
+     }
+     DEF DelayTimer TimeSensor 
+     {
+      cycleInterval 0.001
+      enabled FALSE
+      loop TRUE
+     }
+     DEF FFTimer TimeSensor 
+     {
+      cycleInterval 0.001
+      enabled FALSE
+      loop TRUE
+     }
+    ]
+    field SFInt32 activeVPtimer 2
+    field MFInt32 CSteps [ 0, 0, 0]
+    field SFInt32 isDelay 0
+    field SFInt32 activeTimer 0
+    field SFTime cycleInterval 5
+    field SFTime currentTime -1
+    field SFNode timeCompression protoSFFloat 
+    {
+     _ IS timeCompression
+    }
+    field SFInt32 paused 0
+    field SFFloat paused_fr 0
+    field SFFloat val 0
+    field MFFloat StepDuration []
+    field MFVec2f TaskDuration []
+    field SFNode Slider0 USE PS_Slider0
+    field SFInt32 isScroll 0
+    field MFNode VP 
+    [ 
+     USE BaseViewpoint1
+     USE BaseViewpoint2
+    ]
+    field SFInt32 activeVP 1
+    field SFNode PSens USE PSens
+    field SFInt32 VPmodification 0
+    field SFTime intervalVP 3.5
+    field MFFloat avatarSz 
+    [ 
+     0.25, 1.6, 0.75, 
+     0, 0, 0 
+    ]
+    field SFNode Navigation protoSFNode 
+    {
+     _ IS NAV_INFO
+    }
+    field SFBool onestep_mode FALSE
+    field SFInt32 selectedTask 1
+    field SFInt32 oldsubstep 0
+    field SFInt32 oldstep 0
+    field SFInt32 alertStep -1
+    field SFInt32 alertSubStep -1
+    field SFInt32 alertOut 0
+    field SFBool stop_every_substep FALSE
+    field SFBool stop_every_step FALSE
+    field SFInt32 current_mode 0
+    field SFInt32 VPnum 0
+    field MFVec3f VPperiod []
+    field SFInt32 VP_enabled 0
+    field SFInt32 fragment_type 0
+    field SFString lastID ""
+    field SFFloat simfraction 0
+    field SFNode SliderSW USE SliderSW
+    field SFNode XYZSW USE XYZSW
+    field SFNode ZOOMSW USE ZOOMSW
+    field SFNode SwControlButtons USE SwControlButtons
+    field SFInt32 simsteps 0
+    field SFNode ZoomSence USE ZoomSence
+    field SFVec3f center 0 0 0
+    field SFVec3f VPposition 0 0 10
+    field SFFloat maxZoom 5
+    field SFFloat minZoom 2.5
+    field SFNode out_maxZoom protoSFFloat 
+    {
+     _ IS maxZoom
+    }
+    field SFNode out_minZoom protoSFFloat 
+    {
+     _ IS minZoom
+    }
+    field SFFloat currentPositon 0
+    field SFNode ZoomMover USE ZoomMover
+    field SFFloat xPos 0.5
+    field SFFloat xMin -0.32
+    field SFFloat xMax 0.32
+    field SFFloat lastFr 0
+    field SFFloat distanceVP 0
+    field SFFloat distance 0
+    field SFVec3f ortVP 0 0 0
+    field SFNode VCRTimer DEF VCRTimer TimeSensor 
+    {
+     cycleInterval 0.001
+     enabled FALSE
+     loop TRUE
+    }
+    field MFInt32 cmd_stack []
+    field MFString last_goto_val []
+    field MFString last_range_val0 []
+    field MFString last_range_val1 []
+    field MFString last_set_position_val []
+    field MFFloat last_fraction_val []
+    field SFFloat last_speed_ratio 0
+    field MFFloat last_proc_fraction_val []
+    field MFFloat last_step_fraction_val []
+    field SFInt32 WrnNum -1
+    field SFInt32 totalStop 0
+    field SFInt32 StepsTrueLength 0
+    field SFBool blockCommands TRUE
+    field SFBool overlap_flag FALSE
+    field SFInt32 overlap_mode 0
+    field SFFloat maxDim 0
+    field SFFloat bias 0.001
+    field SFNode alwaysWarning protoSFBool 
+    {
+     _ IS alwaysWarning
+    }
+    field SFBool lastCycleTm FALSE
+    field SFFloat lastTmFr -1
+    field SFBool isSetNow FALSE
+    field MFVec3f buffer_nssf []
+    field SFNode isInitialize protoSFBool 
+    {
+     _ IS isInitialize
+    }
+    field MFInt32 lastVPCommand [ 0, 0, 0]
+    field SFBool vp_jump FALSE
+    field MFString current_range [ "", "" ]
+    field MFNode rangeSubSteps []
+    field MFVec2f rangeSubStepsIndexes []
+    field MFInt32 rangeSteps []
+    field SFInt32 rStep0 0
+    field MFTime rangeDuration []
+    field SFFloat TMLIM 0.1
+    field SFNode ths USE VCR_CONTROL_SCRIPT
+    eventOut SFNode script 
+   }
+  ]
+ }
+ 
+ ROUTE DelayTimer.cycleTime TO VCR_CONTROL_SCRIPT.cycleTimeDelay
+ ROUTE VCRTimer.cycleTime TO VCR_CONTROL_SCRIPT.onVCRTimer
+ ROUTE FFTimer.cycleTime TO VCR_CONTROL_SCRIPT.cycleTimeFF
+ ROUTE VPTimer1.isActive TO VCR_CONTROL_SCRIPT.cycleTimeVP1
+ ROUTE VPTimer2.isActive TO VCR_CONTROL_SCRIPT.cycleTimeVP2
+ ROUTE AnimationTimer2.isActive TO VCR_CONTROL_SCRIPT.cycleTime2
+ ROUTE ExtraFastTimer.cycleTime TO VCR_CONTROL_SCRIPT.cycleTimeFast
+ ROUTE SliderSW.whichChoice TO ZoomScript.on_switch
+ ROUTE AP.outViewportSize TO VCR_CONTROL_SCRIPT.viewportSize
+ ROUTE PSens.orientation_changed TO ControlBar_0.rotation
+ ROUTE PSens.orientation_changed TO VCR_CONTROL_SCRIPT.PS_rot
+ ROUTE XYZSW.whichChoice TO AP.whichChoice
+ ROUTE ZOOMSW.whichChoice TO ZoomScript.on_switch
+ ROUTE SwControlButtons.whichChoice TO ZoomScript.on_switch
+ ROUTE ui_vcr_B_Play.touchTime TO VCR_CONTROL_SCRIPT.vcr_play_old
+ ROUTE ZoomScript.outHUDposition TO AP_0.setHUDDistance
+ ROUTE AP.outScrSize TO ZoomScript.on_scr_size
+ ROUTE PSens.position_changed TO ControlBar_0.translation
+ ROUTE PSens.position_changed TO VCR_CONTROL_SCRIPT.PS_pos
+ ROUTE PS_Slider0.outPosition TO VCR_CONTROL_SCRIPT.ScrollSlider
+ ROUTE VCR_CONTROL_SCRIPT.on_vcr_state TO PS_Slider0.SwitchIndicator
+ ROUTE ZoomSence.translation_changed TO VCR_CONTROL_SCRIPT.PosZoomSlider
+ ROUTE ZoomSence.enabled TO ZoomScript.activeZoom
+ ROUTE ZoomSence.isActive TO VCR_CONTROL_SCRIPT.slActive
+ ROUTE ui_vcr_B_Prev.touchTime TO VCR_CONTROL_SCRIPT.vcr_backward
+ ROUTE ui_vcr_B_Stop.touchTime TO VCR_CONTROL_SCRIPT.vcr_stop
+ ROUTE ui_vcr_B_Next.touchTime TO VCR_CONTROL_SCRIPT.vcr_forward
+ ROUTE ui_vcr_B_Pause.touchTime TO VCR_CONTROL_SCRIPT.vcr_pause
+ ROUTE AnimationTimer1.fraction_changed TO VCR_CONTROL_SCRIPT.time_fraction1
+ ROUTE AnimationTimer1.isActive TO VCR_CONTROL_SCRIPT.cycleTime1
+ ROUTE AnimationTimer2.fraction_changed TO VCR_CONTROL_SCRIPT.time_fraction2
+ 
+}
+PROTO Set_center 
+[
+ field SFString title ""
+ exposedField MFFloat key [ 0, 1 ]
+ exposedField MFVec3f keyValue [ 0 0 0, 0 0 0 ]
+ field MFFloat Parameters []
+ exposedField MFFloat period [ 0, 1 ]
+ eventIn SFFloat time_fraction 
+ exposedField SFInt32 objectID 0
+ exposedField SFInt32 attributeID 1
+ exposedField SFString objectName ""
+ exposedField SFString attributeName "center"
+ eventOut SFVec3f value_changed 
+]
+{
+ 
+ PositionInterpolator 
+ {
+  set_fraction IS time_fraction
+  key IS key
+  keyValue IS keyValue
+  value_changed IS value_changed
+ }
+ 
+ 
+}
+PROTO Set_diffuseColor 
+[
+ field SFString title ""
+ exposedField MFFloat key [ 0, 1 ]
+ exposedField MFColor keyValue [ 0 0 0, 0 0 0 ]
+ field MFFloat Parameters []
+ exposedField MFFloat period [ 0, 1 ]
+ eventIn SFFloat time_fraction 
+ exposedField SFInt32 objectID 0
+ exposedField SFInt32 attributeID 2
+ exposedField SFString objectName ""
+ exposedField SFString attributeName "diffuseColor"
+ eventOut SFColor value_changed 
+]
+{
+ 
+ ColorInterpolator 
+ {
+  set_fraction IS time_fraction
+  key IS key
+  keyValue IS keyValue
+  value_changed IS value_changed
+ }
+ 
+ 
+}
+PROTO Set_rotation 
+[
+ field SFString title ""
+ exposedField MFFloat key [ 0, 1 ]
+ exposedField MFRotation keyValue [ 0 0 1 0, 0 0 1 0 ]
+ field MFFloat Parameters []
+ exposedField MFFloat period [ 0, 1 ]
+ eventIn SFFloat time_fraction 
+ exposedField SFInt32 objectID 0
+ exposedField SFInt32 attributeID 4
+ exposedField SFString objectName ""
+ exposedField SFString attributeName "rotation"
+ eventOut SFRotation value_changed 
+]
+{
+ 
+ OrientationInterpolator 
+ {
+  set_fraction IS time_fraction
+  key IS key
+  keyValue IS keyValue
+  value_changed IS value_changed
+ }
+ 
+ 
+}
+PROTO Set_translation 
+[
+ field SFString title ""
+ exposedField MFFloat key [ 0, 1 ]
+ exposedField MFVec3f keyValue [ 0 0 0, 0 0 0 ]
+ field MFFloat Parameters []
+ exposedField MFFloat period [ 0, 1 ]
+ eventIn SFFloat time_fraction 
+ exposedField SFInt32 objectID 0
+ exposedField SFInt32 attributeID 6
+ exposedField SFString objectName ""
+ exposedField SFString attributeName "translation"
+ eventOut SFVec3f value_changed 
+]
+{
+ 
+ PositionInterpolator 
+ {
+  set_fraction IS time_fraction
+  key IS key
+  keyValue IS keyValue
+  value_changed IS value_changed
+ }
+ 
+ 
+}
+PROTO Set_transparency 
+[
+ field SFString title ""
+ exposedField MFFloat key [ 0, 1 ]
+ exposedField MFFloat keyValue [ 0, 1 ]
+ field MFFloat Parameters []
+ exposedField MFFloat period [ 0, 1 ]
+ eventIn SFFloat time_fraction 
+ exposedField SFInt32 objectID 0
+ exposedField SFInt32 attributeID 7
+ exposedField SFString objectName ""
+ exposedField SFString attributeName "transparency"
+ eventOut SFFloat value_changed 
+]
+{
+ 
+ ScalarInterpolator 
+ {
+  set_fraction IS time_fraction
+  key IS key
+  keyValue IS keyValue
+  value_changed IS value_changed
+ }
+ 
+ 
+}
+PROTO Set_Viewpoint 
+[
+ field SFString title ""
+ exposedField SFVec3f center 0 0 0
+ exposedField SFVec3f position 0 0 0
+ exposedField SFRotation orientation 0 0 1 0
+ exposedField SFFloat fieldOfView 0.75
+ exposedField SFBool orthographic FALSE
+ exposedField SFBool interruption TRUE
+ exposedField MFFloat zoom_limits [ 0.2, 10 ]
+ exposedField MFFloat period [ 0, 1 ]
+ field SFNode Object NULL
+ exposedField MFFloat key [ 0, 1 ]
+ exposedField MFVec3f keyValue []
+ field MFFloat Parameters []
+ eventIn SFFloat time_fraction 
+ exposedField SFInt32 objectID 0
+ exposedField SFInt32 attributeID -1
+ exposedField SFString objectName "Viewpoint"
+ exposedField SFString attributeName "set_viewpoint"
+]
+{
+ 
+ Group 
+ {
+  
+ }
+ 
+ 
+}
+PROTO Step 
+[
+ field SFString title ""
+ field SFString comment ""
+ exposedField SFString id ""
+ exposedField SFBool simulate TRUE
+ exposedField MFNode substeps []
+]
+{
+ 
+ Group 
+ {
+  children IS substeps
+ }
+ 
+ 
+}
+PROTO SubStep 
+[
+ exposedField MFNode commands []
+ field SFString title ""
+ field SFString comment ""
+ exposedField SFString id ""
+ exposedField SFTime duration 5
+]
+{
+ 
+ Group 
+ {
+  children IS commands
+ }
+ 
+ 
+}
+PROTO SwitchOFF 
+[
+ field SFString title ""
+ exposedField MFFloat key [ 0, 1 ]
+ exposedField MFVec3f keyValue []
+ field MFFloat Parameters [ 0, -1 ]
+ exposedField MFFloat period [ 0, 1 ]
+ eventIn SFFloat time_fraction 
+ exposedField SFInt32 objectID 0
+ exposedField SFInt32 attributeID 8
+ exposedField SFString objectName ""
+ exposedField SFString attributeName "whichChoice"
+ eventOut SFInt32 value_changed 
+]
+{
+ 
+ Script 
+ {
+  url "javascript:
+		function time_fraction(value){
+			value_changed = (value>.5) ? Params[1]: Params[0];
+		}" 
+  eventIn SFFloat time_fraction IS time_fraction
+  eventOut SFInt32 value_changed IS value_changed
+  field SFString title IS title
+  field MFFloat Params IS Parameters
+ }
+ 
+ 
+}
+PROTO WorldInfo0 
+[
+ exposedField MFString info []
+ exposedField SFString title ""
+]
+{
+ 
+ Group 
+ {
+  
+ }
+ 
+ 
+}
+EXTERNPROTO OrthographicViewpoint [	#!%common
+  eventIn      SFBool     set_bind
+  exposedField SFBool     jump #!(TRUE)
+  exposedField SFRotation orientation #!%orient(0 0 1 0)
+  exposedField SFVec3f    position #!%coord(0 0 10)
+  exposedField SFFloat    viewportSize #!%coord(2)
+  field        SFString   description #!("")
+  eventOut     SFTime     bindTime
+  eventOut     SFBool     isBound
+]
+[ "urn:inet:parallelgraphics.com:cortona:OrthographicViewpoint" "http://www.cortona3d.com/source/extensions.wrl#OrthographicViewpoint" ]
+
+EXTERNPROTO TransformSensor [ #!%sensor
+	exposedField SFBool enabled #!(TRUE) 
+	exposedField SFBool includeViewer #!(FALSE)
+	eventOut SFVec3f translation_changed
+	eventOut SFRotation rotation_changed
+	eventOut SFVec3f center_changed
+	eventOut SFVec3f scale_changed
+	eventOut SFRotation scaleOrientation_changed
+	eventOut SFBool transform_changed
+]
+["urn:inet:parallelgraphics.com:cortona:TransformSensor" "http://www.cortona3d.com/source/extensions.wrl#TransformSensor" ]
+
+
+Viewpoint 
+{
+ 
+}
+OrthographicViewpoint 
+{
+ 
+}
